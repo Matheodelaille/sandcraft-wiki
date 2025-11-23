@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki Create - Sandcraft</title>
     <style>
-        /* STYLES SIMPLIFIÉS MAIS FONCTIONNELS */
+        /* STYLES COMPLETS AVEC RECHERCHE */
         :root {
             --primary: #8B4513;
             --secondary: #B8860B; 
@@ -59,6 +59,44 @@
             border-bottom: 3px solid var(--secondary);
         }
         
+        .search-box {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--accent);
+            border-radius: 5px;
+            background: var(--parchment);
+            color: var(--dark-wood);
+            font-size: 14px;
+        }
+        
+        .search-results {
+            background: var(--parchment);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .search-result-item {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            color: #5D4037;
+        }
+        
+        .search-result-item:hover {
+            background: rgba(205, 133, 63, 0.1);
+        }
+        
         .content-section {
             background: white;
             margin: 2rem;
@@ -89,6 +127,14 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
+        .crafting-info {
+            background: rgba(205, 133, 63, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+        
         @media (max-width: 768px) {
             .wiki-container {
                 flex-direction: column;
@@ -113,17 +159,18 @@
             <div style="text-align: center; margin-bottom: 2rem;">
                 <h1>🏭 SANDCRAFT</h1>
                 <p>Wiki Create Complet</p>
-                <div id="sidebarStats">0/329 images</div>
+                <div id="sidebarStats">0/8 images</div>
             </div>
             
-            <input type="text" placeholder="🔍 Rechercher..." style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 5px; border: none;">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher un item...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
             
             <nav>
                 <h3>📖 MODS CREATE</h3>
-                <ul style="list-style: none; margin-top: 1rem;">
-                    <li style="margin: 10px 0;"><a href="#" style="color: var(--parchment); text-decoration: none;">Create Base (184 items)</a></li>
-                    <li style="margin: 10px 0;"><a href="#" style="color: var(--parchment); text-decoration: none;">Central Kitchen (28 items)</a></li>
-                    <li style="margin: 10px 0;"><a href="#" style="color: var(--parchment); text-decoration: none;">Big Cannons (42 items)</a></li>
+                <ul style="list-style: none; margin-top: 1rem;" id="modsNavigation">
+                    <!-- Généré automatiquement -->
                 </ul>
             </nav>
         </aside>
@@ -131,31 +178,260 @@
         <!-- CONTENU PRINCIPAL -->
         <main class="wiki-main">
             <header class="main-header">
-                <h1>🏭 CREATE BASE</h1>
-                <p>Mod principal d'ingénierie mécanique</p>
+                <h1 id="pageTitle">🏭 CREATE BASE</h1>
+                <p id="pageSubtitle">Mod principal d'ingénierie mécanique</p>
             </header>
             
-            <div class="content-section">
-                <h2>🧱 Machines de Transformation</h2>
-                <div class="items-grid">
-                    <div class="item-card">
-                        <h3>⚙️ Presse Mécanique</h3>
-                        <p>Compacte les items sous pression pour créer de nouveaux matériaux.</p>
-                        <div style="background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 5px; margin-top: 1rem;">
-                            <strong>🔨 Fabrication :</strong> 4 Planches + 2 Lingots de fer + 1 Engrenage
-                        </div>
-                    </div>
-                    
-                    <div class="item-card">
-                        <h3>🌀 Meule</h3>
-                        <p>Transforme les blocs en poudres et ressources secondaires.</p>
-                        <div style="background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 5px; margin-top: 1rem;">
-                            <strong>🔨 Fabrication :</strong> 3 Pierre + 2 Engrenages + 2 Planches
-                        </div>
+            <div id="wikiContent">
+                <!-- Contenu généré automatiquement -->
+                <div class="content-section">
+                    <h2>🧱 Machines de Transformation</h2>
+                    <div class="items-grid" id="itemsGrid">
+                        <!-- Items générés automatiquement -->
                     </div>
                 </div>
             </div>
         </main>
     </div>
+
+    <script>
+        // BASE DE DONNÉES AVEC 8 ITEMS POUR TEST
+        const database = {
+            mods: {
+                create_base: {
+                    name: "Create Base",
+                    description: "Mod principal d'ingénierie mécanique",
+                    categories: {
+                        machines: {
+                            name: "🧱 Machines de Transformation",
+                            items: [
+                                {
+                                    id: "mechanical_press",
+                                    name: "Presse Mécanique",
+                                    description: "Compacte les items sous pression pour créer de nouveaux matériaux",
+                                    craft: "4 Planches + 2 Lingots de fer + 1 Engrenage",
+                                    usage: "Placez les items à compacter et fournissez de l'énergie rotationnelle",
+                                    image: "images/create_base/items/mechanical_press.png"
+                                },
+                                {
+                                    id: "millstone", 
+                                    name: "Meule",
+                                    description: "Transforme les blocs en poudres et ressources secondaires",
+                                    craft: "3 Pierre + 2 Engrenages + 2 Planches",
+                                    usage: "Alimentez avec de l'énergie et placez les items à broyer",
+                                    image: "images/create_base/items/millstone.png"
+                                },
+                                {
+                                    id: "mixer",
+                                    name: "Mélangeur", 
+                                    description: "Mélange les fluides et poudres pour créer des alliages",
+                                    craft: "3 Cuivre + 2 Engrenages + 1 Entonnoir",
+                                    usage: "Combine différents matériaux avec des fluides",
+                                    image: "images/create_base/items/mixer.png"
+                                }
+                            ]
+                        },
+                        movement: {
+                            name: "⚙️ Systèmes de Mouvement", 
+                            items: [
+                                {
+                                    id: "cogwheel",
+                                    name: "Engrenage",
+                                    description: "Transmet la rotation à 90 degrés",
+                                    craft: "4 Planches + 1 Lingot de fer", 
+                                    usage: "Placez entre deux arbres pour changer la direction",
+                                    image: "images/create_base/items/cogwheel.png"
+                                },
+                                {
+                                    id: "belt",
+                                    name: "Courroie",
+                                    description: "Transmet la rotation sur de longues distances",
+                                    craft: "3 Laines + 2 Cordes",
+                                    usage: "Relie des poulies éloignées",
+                                    image: "images/create_base/items/belt.png"
+                                }
+                            ]
+                        }
+                    }
+                },
+                central_kitchen: {
+                    name: "Create: Central Kitchen", 
+                    description: "Automatisation culinaire avancée",
+                    categories: {
+                        cooking: {
+                            name: "🍳 Cuisine Automatisée",
+                            items: [
+                                {
+                                    id: "automatic_cooker",
+                                    name: "Cuisinier Automatique",
+                                    description: "Cuit les aliments automatiquement",
+                                    craft: "1 Four + 2 Engrenages + 1 Entonnoir",
+                                    usage: "Placez les aliments crus et récupérez les cuits",
+                                    image: "images/central_kitchen/items/automatic_cooker.png"
+                                }
+                            ]
+                        }
+                    }
+                },
+                big_cannons: {
+                    name: "Create: Big Cannons",
+                    description: "Système d'artillerie industrielle", 
+                    categories: {
+                        artillery: {
+                            name: "💥 Artillerie Lourde",
+                            items: [
+                                {
+                                    id: "big_cannon",
+                                    name: "Grand Canon",
+                                    description: "Canon de siège puissant pour destruction à distance",
+                                    craft: "8 Lingots de fer + 4 Mécanismes + 2 Barils",
+                                    usage: "Chargez avec des projectiles et allumez la mèche", 
+                                    image: "images/big_cannons/items/big_cannon.png"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        };
+
+        // FONCTIONS DE RECHERCHE
+        function initializeWiki() {
+            generateNavigation();
+            setupSearch();
+            showItems('create_base', 'machines');
+        }
+
+        function generateNavigation() {
+            const navContainer = document.getElementById('modsNavigation');
+            let html = '';
+            
+            for (const [modId, mod] of Object.entries(database.mods)) {
+                html += `<li style="margin: 10px 0;">
+                    <a href="#" onclick="showMod('${modId}')" style="color: var(--parchment); text-decoration: none;">
+                        ${mod.name}
+                    </a>
+                </li>`;
+            }
+            
+            navContainer.innerHTML = html;
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                
+                if (query.length < 2) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                
+                const results = searchItems(query);
+                
+                if (results.length > 0) {
+                    let resultsHTML = '';
+                    results.slice(0, 5).forEach(item => {
+                        resultsHTML += `
+                            <div class="search-result-item" onclick="showItem('${item.id}')">
+                                <strong>${item.name}</strong><br>
+                                <small>${item.mod} • ${item.category}</small>
+                            </div>
+                        `;
+                    });
+                    searchResults.innerHTML = resultsHTML;
+                    searchResults.style.display = 'block';
+                } else {
+                    searchResults.innerHTML = '<div class="search-result-item">Aucun résultat trouvé</div>';
+                    searchResults.style.display = 'block';
+                }
+            });
+            
+            // Cacher les résultats quand on clique ailleurs
+            document.addEventListener('click', function(e) {
+                if (!searchResults.contains(e.target) && e.target !== searchInput) {
+                    searchResults.style.display = 'none';
+                }
+            });
+        }
+
+        function searchItems(query) {
+            const results = [];
+            
+            for (const [modId, mod] of Object.entries(database.mods)) {
+                for (const [categoryId, category] of Object.entries(mod.categories)) {
+                    category.items.forEach(item => {
+                        const searchText = (item.name + ' ' + item.description).toLowerCase();
+                        if (searchText.includes(query)) {
+                            results.push({
+                                ...item,
+                                mod: mod.name,
+                                category: category.name,
+                                modId: modId,
+                                categoryId: categoryId
+                            });
+                        }
+                    });
+                }
+            }
+            
+            return results;
+        }
+
+        function showMod(modId) {
+            const mod = database.mods[modId];
+            document.getElementById('pageTitle').textContent = mod.name;
+            document.getElementById('pageSubtitle').textContent = mod.description;
+            
+            // Afficher le premier groupe d'items du mod
+            const firstCategory = Object.values(mod.categories)[0];
+            showItems(modId, Object.keys(mod.categories)[0]);
+        }
+
+        function showItems(modId, categoryId) {
+            const mod = database.mods[modId];
+            const category = mod.categories[categoryId];
+            
+            let itemsHTML = '';
+            category.items.forEach(item => {
+                itemsHTML += `
+                    <div class="item-card">
+                        <h3>⚙️ ${item.name}</h3>
+                        <p>${item.description}</p>
+                        <div class="crafting-info">
+                            <strong>🔨 Fabrication :</strong> ${item.craft}
+                        </div>
+                        <div class="crafting-info">
+                            <strong>🎯 Utilisation :</strong> ${item.usage}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('itemsGrid').innerHTML = itemsHTML;
+            document.getElementById('searchResults').style.display = 'none';
+        }
+
+        function showItem(itemId) {
+            // Trouver l'item dans la base
+            for (const [modId, mod] of Object.entries(database.mods)) {
+                for (const [categoryId, category] of Object.entries(mod.categories)) {
+                    const item = category.items.find(i => i.id === itemId);
+                    if (item) {
+                        showMod(modId);
+                        showItems(modId, categoryId);
+                        document.getElementById('searchResults').style.display = 'none';
+                        document.getElementById('searchInput').value = '';
+                        return;
+                    }
+                }
+            }
+        }
+
+        // DÉMARRAGE
+        document.addEventListener('DOMContentLoaded', initializeWiki);
+    </script>
 </body>
 </html>
