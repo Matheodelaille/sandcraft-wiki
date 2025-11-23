@@ -1,0 +1,160 @@
+// === BASE DE DONNÉES CREATE DE BASE ===
+const createBaseData = {
+    "name": "Create Base",
+    "description": "Mod principal d'ingénierie mécanique et d'automatisation",
+    "item_count": 184,
+    "categories": {
+        "machines": {
+            "name": "🧱 Machines de Transformation",
+            "items": [
+                {
+                    "id": "mechanical_press",
+                    "name": "Presse Mécanique",
+                    "description": "Compacte les items sous pression pour créer de nouveaux matériaux. Essentiel pour l'automatisation de production.",
+                    "craft": "4 Planches + 2 Lingots de fer + 1 Engrenage",
+                    "usage": "Placez les items à compacter et fournissez de l'énergie rotationnelle",
+                    "image": "images/create_base/items/mechanical_press.png",
+                    "craft_image": "images/create_base/crafts/mechanical_press_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "millstone",
+                    "name": "Meule",
+                    "description": "Transforme les blocs en poudres et ressources secondaires par broyage. Double la production de minerais.",
+                    "craft": "3 Pierre + 2 Engrenages + 2 Planches",
+                    "usage": "Alimentez avec de l'énergie et placez les items à broyer",
+                    "image": "images/create_base/items/millstone.png",
+                    "craft_image": "images/create_base/crafts/millstone_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "mixer",
+                    "name": "Mélangeur",
+                    "description": "Mélange les fluides et poudres pour créer des alliages et composites avancés.",
+                    "craft": "3 Cuivre + 2 Engrenages + 1 Entonnoir",
+                    "usage": "Combine différents matériaux avec des fluides",
+                    "image": "images/create_base/items/mixer.png",
+                    "craft_image": "images/create_base/crafts/mixer_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "crushing_wheel",
+                    "name": "Roue de Concassage",
+                    "description": "Système de concassage à haute vitesse pour traitement de masse.",
+                    "craft": "4 Pierre + 3 Engrenages + 2 Arbres",
+                    "usage": "Installé par paires pour broyer les items qui passent entre elles",
+                    "image": "images/create_base/items/crushing_wheel.png",
+                    "craft_image": "images/create_base/crafts/crushing_wheel_craft.png",
+                    "needs_verification": true
+                }
+            ]
+        },
+        "movement": {
+            "name": "⚙️ Systèmes de Mouvement",
+            "items": [
+                {
+                    "id": "cogwheel",
+                    "name": "Engrenage",
+                    "description": "Transmet la rotation à 90 degrés. Composant fondamental des systèmes mécaniques.",
+                    "craft": "4 Planches + 1 Lingot de fer",
+                    "usage": "Placez entre deux arbres pour changer la direction de rotation",
+                    "image": "images/create_base/items/cogwheel.png",
+                    "craft_image": "images/create_base/crafts/cogwheel_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "large_cogwheel",
+                    "name": "Grand Engrenage",
+                    "description": "Engrenage de grande taille pour transmissions puissantes.",
+                    "craft": "8 Planches + 2 Lingots de fer",
+                    "usage": "Transmet plus de puissance que l'engrenage standard",
+                    "image": "images/create_base/items/large_cogwheel.png",
+                    "craft_image": "images/create_base/crafts/large_cogwheel_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "shaft",
+                    "name": "Arbre",
+                    "description": "Transmet la rotation sur une ligne droite. Base de tous les systèmes mécaniques.",
+                    "craft": "2 Bâtons + 1 Planche",
+                    "usage": "Connecte les sources d'énergie aux machines",
+                    "image": "images/create_base/items/shaft.png",
+                    "craft_image": "images/create_base/crafts/shaft_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "belt",
+                    "name": "Courroie",
+                    "description": "Transmet la rotation sur de longues distances sans arbres.",
+                    "craft": "3 Laines + 2 Cordes",
+                    "usage": "Relie des poulies éloignées",
+                    "image": "images/create_base/items/belt.png",
+                    "craft_image": "images/create_base/crafts/belt_craft.png",
+                    "needs_verification": true
+                }
+            ]
+        },
+        "energy": {
+            "name": "💡 Génération d'Énergie",
+            "items": [
+                {
+                    "id": "water_wheel",
+                    "name": "Roue à Eau",
+                    "description": "Génère de l'énergie rotationnelle grâce au courant de l'eau. Source stable et puissante.",
+                    "craft": "8 Planches + 4 Bâtons + 2 Engrenages",
+                    "usage": "Placez dans l'eau courante pour générer de l'énergie",
+                    "image": "images/create_base/items/water_wheel.png",
+                    "craft_image": "images/create_base/crafts/water_wheel_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "windmill_bearing",
+                    "name": "Support d'Éolienne",
+                    "description": "Support pour construire des éoliennes personnalisées.",
+                    "craft": "4 Planches + 2 Lingots de fer + 1 Engrenage",
+                    "usage": "Base pour construire des pales d'éolienne",
+                    "image": "images/create_base/items/windmill_bearing.png",
+                    "craft_image": "images/create_base/crafts/windmill_bearing_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "hand_crank",
+                    "name": "Manivelle",
+                    "description": "Génère manuellement de l'énergie rotationnelle. Idéal pour les débuts.",
+                    "craft": "3 Bâtons + 2 Planches",
+                    "usage": "Clic droit pour générer de l'énergie manuellement",
+                    "image": "images/create_base/items/hand_crank.png",
+                    "craft_image": "images/create_base/crafts/hand_crank_craft.png",
+                    "needs_verification": true
+                }
+            ]
+        },
+        "tools": {
+            "name": "🔧 Outils & Utilitaires",
+            "items": [
+                {
+                    "id": "wrench",
+                    "name": "Clé",
+                    "description": "Outil essentiel pour configurer et ajuster les machines Create.",
+                    "craft": "2 Lingots de fer + 1 Bâton",
+                    "usage": "Clic droit pour configurer, Shift+Clic pour démonter",
+                    "image": "images/create_base/items/wrench.png",
+                    "craft_image": "images/create_base/crafts/wrench_craft.png",
+                    "needs_verification": true
+                },
+                {
+                    "id": "extendo_grip",
+                    "name": "Pince Extensible",
+                    "description": "Permet d'interagir avec les machines à distance.",
+                    "craft": "3 Lingots de fer + 2 Pistons + 1 Pointe de Redstone",
+                    "usage": "Clic droit pour interagir à distance avec les machines",
+                    "image": "images/create_base/items/extendo_grip.png",
+                    "craft_image": "images/create_base/crafts/extendo_grip_craft.png",
+                    "needs_verification": true
+                }
+            ]
+        }
+    }
+};
+
+console.log('✅ Create Base chargé : ' + createBaseData.item_count + ' items');

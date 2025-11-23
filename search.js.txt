@@ -1,0 +1,309 @@
+// === SYSTÈME DE RECHERCHE ET NAVIGATION ===
+let currentDatabase = {};
+
+function initializeWiki() {
+    // COMBINER TOUTES LES DONNÉES
+    currentDatabase = {
+        "metadata": {
+            "total_items": createBaseData.item_count + Object.values(createExtensionsData).reduce((sum, mod) => sum + mod.item_count, 0),
+            "images_missing": createBaseData.item_count + Object.values(createExtensionsData).reduce((sum, mod) => sum + mod.item_count, 0),
+            "images_added": 0
+        },
+        "mods": {
+            "create_base": createBaseData,
+            ...createExtensionsData
+        }
+    };
+
+    console.log('🏭 Wiki initialisé : ' + currentDatabase.metadata.total_items + ' items au total');
+
+    // GÉNÉRER LA NAVIGATION
+    generateNavigation();
+    
+    // CONFIGURER LA RECHERCHE
+    setupSearch();
+    
+    // AFFICHER LA PAGE CREATE DE BASE
+    showPage('create_base');
+    
+    // METTRE À JOUR LES STATS
+    updateStats();
+}
+
+function generateNavigation() {
+    const navContainer = document.getElementById('modsNavigation');
+    let html = '';
+    
+    Object.entries(currentDatabase.mods).forEach(([modId, mod]) => {
+        html += `
+            <li>
+                <a href="#" onclick="showPage('${modId}')" class="nav-link">
+                    ${mod.name} (${mod.item_count} items)
+                </a>
+            </li>
+        `;
+    });
+    
+    navContainer.innerHTML = html;
+}
+
+function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim();
+        
+        // CACHER LES RÉSULTATS SI RECHERCHE VIDE
+        if (query.length < 2) {
+            searchResults.style.display = 'none';
+            return;
+        }
+        
+        // EFFECTUER LA RECHERCHE
+        const results = searchItems(query);
+        
+        if (results.length > 0) {
+            let resultsHTML = '<div style="padding: 1rem; border-bottom: 2px solid var(--accent); background: var(--light-bg);">';
+            resultsHTML += '<strong>🔍 ' + results.length + ' résultat(s) pour "' + query + '"</strong>';
+            resultsHTML += '</div>';
+            
+            results.slice(0, 10).forEach(item => {
+                resultsHTML += `
+                    <div class="search-result-item" onclick="showItem('${item.id}', '${item.mod}')">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <strong>${item.name}</strong><br>
+                                <small style="color: #666;">${item.mod} • ${item.category}</small>
+                            </div>
+                            ${item.needs_verification ? '<span class="image-missing">📸</span>' : '<span class="image-added">✅</span>'}
+                        </div>
+                        <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #555;">
+                            ${item.description.substring(0, 100)}...
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (results.length > 10) {
+                resultsHTML += `<div style="padding: 1rem; text-align: center; background: var(--light-bg);">
+                    <em>... et ${results.length - 10} résultats supplémentaires</em>
+                </div>`;
+            }
+            
+            searchResults.innerHTML = resultsHTML;
+            searchResults.style.display = 'block';
+        } else {
+            searchResults.innerHTML = `
+                <div style="padding: 2rem; text-align: center; color: #666;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🔍</div>
+                    <strong>Aucun résultat trouvé</strong><br>
+                    <small>Essayez d'autres termes de recherche</small>
+                </div>
+            `;
+            searchResults.style.display = 'block';
+        }
+    });
+    
+    // CACHER LES RÉSULTATS QUAND ON CLIQUE AILLEURS
+    document.addEventListener('click', function(e) {
+        if (!searchResults.contains(e.target) && e.target !== searchInput) {
+            searchResults.style.display = 'none';
+        }
+    });
+}
+
+function searchItems(query) {
+    const results = [];
+    const searchTerms = query.toLowerCase().split(' ');
+    
+    Object.entries(currentDatabase.mods).forEach(([modId, mod]) => {
+        Object.values(mod.categories).forEach(category => {
+            category.items.forEach(item => {
+                const searchText = (item.name + ' ' + item.description + ' ' + category.name).toLowerCase();
+                
+                // VÉRIFIER SI TOUS LES TERMES SONT PRÉSENTS
+                const allTermsMatch = searchTerms.every(term => searchText.includes(term));
+                
+                if (allTermsMatch) {
+                    results.push({
+                        ...item,
+                        mod: mod.name,
+                        category: category.name,
+                        modId: modId
+                    });
+                }
+            });
+        });
+    });
+    
+    return results;
+}
+
+function showPage(modId) {
+    const mod = currentDatabase.mods[modId];
+    if (!mod) {
+        console.error('Mod non trouvé :', modId);
+        return;
+    }
+    
+    // METTRE À JOUR LE HEADER
+    document.getElementById('pageTitle').textContent = mod.name;
+    document.getElementById('pageSubtitle').textContent = mod.description;
+    document.getElementById('currentPage').textContent = mod.name;
+    
+    // METTRE À JOUR LA NAVIGATION ACTIVE
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    document.querySelector(`[onclick="showPage('${modId}')"]`).classList.add('active');
+    
+    // GÉNÉRER LE CONTENU
+    let contentHTML = '';
+    
+    Object.entries(mod.categories).forEach(([categoryId, category]) => {
+        contentHTML += `
+            <div class="content-section fade-in">
+                <div class="section-header">
+                    <h2>${category.name}</h2>
+                </div>
+                <div class="section-content">
+                    <div class="items-grid">
+        `;
+        
+        category.items.forEach(item => {
+            contentHTML += generateItemCard(item);
+        });
+        
+        contentHTML += `
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    document.getElementById('wikiContent').innerHTML = contentHTML;
+    
+    // CACHER LES RÉSULTATS DE RECHERCHE
+    document.getElementById('searchResults').style.display = 'none';
+    
+    // METTRE À JOUR LES STATS
+    updateStats();
+}
+
+function generateItemCard(item) {
+    const imageStatus = item.needs_verification ? 
+        '<div class="image-missing">📸 Image manquante</div>' : 
+        '<div class="image-added">✅ Image ajoutée</div>';
+    
+    return `
+        <div class="item-card" data-item="${item.id}">
+            <div class="item-header">
+                <div class="item-icon">⚙️</div>
+                <div style="flex: 1;">
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-meta">
+                        ${imageStatus}
+                    </div>
+                </div>
+            </div>
+            <p>${item.description}</p>
+            <div class="crafting-info">
+                <strong>🔨 Fabrication :</strong> ${item.craft}
+            </div>
+            <div class="crafting-info">
+                <strong>🎯 Utilisation :</strong> ${item.usage}
+            </div>
+        </div>
+    `;
+}
+
+function showItem(itemId, modId) {
+    // TROUVER L'ITEM DANS LA BASE DE DONNÉES
+    let targetItem = null;
+    let targetModId = modId;
+    
+    if (!targetModId) {
+        // SI MOD NON SPÉCIFIÉ, CHERCHER DANS TOUS LES MODS
+        for (const [modId, mod] of Object.entries(currentDatabase.mods)) {
+            for (const category of Object.values(mod.categories)) {
+                const item = category.items.find(i => i.id === itemId);
+                if (item) {
+                    targetItem = item;
+                    targetModId = modId;
+                    break;
+                }
+            }
+            if (targetItem) break;
+        }
+    } else {
+        // CHERCHER DANS LE MOD SPÉCIFIÉ
+        const mod = currentDatabase.mods[targetModId];
+        for (const category of Object.values(mod.categories)) {
+            const item = category.items.find(i => i.id === itemId);
+            if (item) {
+                targetItem = item;
+                break;
+            }
+        }
+    }
+    
+    if (targetItem) {
+        // AFFICHER LA PAGE DU MOD ET SCROLLER VERS L'ITEM
+        showPage(targetModId);
+        
+        // ATTENDRE QUE LE CONTENU SOIT CHARGÉ PUIS SCROLLER
+        setTimeout(() => {
+            const itemElement = document.querySelector(`[data-item="${itemId}"]`);
+            if (itemElement) {
+                itemElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // ANIMATION DE SURBRillance
+                itemElement.style.animation = 'pulse 2s';
+                setTimeout(() => {
+                    itemElement.style.animation = '';
+                }, 2000);
+            }
+        }, 100);
+    }
+    
+    // CACHER LES RÉSULTATS DE RECHERCHE
+    document.getElementById('searchResults').style.display = 'none';
+    document.getElementById('searchInput').value = '';
+}
+
+function updateStats() {
+    const total = currentDatabase.metadata.total_items;
+    const missing = currentDatabase.metadata.images_missing;
+    const added = currentDatabase.metadata.images_added;
+    const percentage = Math.round((added / total) * 100);
+    
+    document.getElementById('sidebarStats').innerHTML = `
+        📊 ${added}/${total} images<br>
+        ⏳ ${percentage}% complété
+    `;
+}
+
+// AJOUTER L'ANIMATION PULSE
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(184, 134, 11, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
+    }
+    
+    .search-result-item {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    
+    .search-result-item:hover {
+        background: rgba(205, 133, 63, 0.1);
+    }
+`;
+document.head.appendChild(style);
+
+console.log('✅ Système de recherche chargé');

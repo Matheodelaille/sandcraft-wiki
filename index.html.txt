@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Create - Sandcraft</title>
+    <style>
+        /* === VARIABLES USINE MÉDIÉVALE === */
+        :root {
+            --primary: #8B4513;
+            --secondary: #B8860B;
+            --accent: #CD853F;
+            --metal: #C0C0C0;
+            --wood: #DEB887;
+            --parchment: #FFF8DC;
+            --dark-wood: #654321;
+            --light-bg: #FAF0E6;
+            --border-color: #A0522D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light-bg);
+            color: #5D4037;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .wiki-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+
+        .wiki-sidebar {
+            background: linear-gradient(135deg, var(--dark-wood) 0%, var(--primary) 100%);
+            color: var(--parchment);
+            position: fixed;
+            width: 300px;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 3px solid var(--secondary);
+            box-shadow: 5px 0 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 2rem 1.5rem;
+            background: rgba(0,0,0,0.2);
+            border-bottom: 2px solid var(--accent);
+            text-align: center;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--parchment);
+        }
+
+        .sidebar-header .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .search-box {
+            padding: 1rem 1.5rem;
+            background: rgba(0,0,0,0.1);
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--accent);
+            border-radius: 5px;
+            background: var(--parchment);
+            color: var(--dark-wood);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(184, 134, 11, 0.3);
+        }
+
+        .nav-section {
+            margin: 1.5rem 0;
+        }
+
+        .nav-section h3 {
+            padding: 0.8rem 1.5rem;
+            background: rgba(0,0,0,0.2);
+            font-size: 1rem;
+            border-left: 4px solid var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            border-bottom: 1px solid rgba(205, 133, 63, 0.3);
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--parchment);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(184, 134, 11, 0.2);
+            border-left-color: var(--secondary);
+            padding-left: 2rem;
+        }
+
+        .search-results {
+            background: var(--parchment);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            margin: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .search-results div {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-results div:hover {
+            background: rgba(205, 133, 63, 0.1);
+        }
+
+        .wiki-main {
+            margin-left: 300px;
+            background: var(--parchment);
+            min-height: 100vh;
+        }
+
+        .main-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-wood) 100%);
+            color: var(--parchment);
+            padding: 2rem 3rem;
+            border-bottom: 3px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-header::before {
+            content: "⚙️⛓️🔧🏭";
+            font-size: 6rem;
+            position: absolute;
+            opacity: 0.1;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: var(--wood);
+            text-decoration: none;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .wiki-content {
+            padding: 2rem 3rem;
+            max-width: 1200px;
+        }
+
+        .content-section {
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--wood);
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--wood) 100%);
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-content {
+            padding: 2rem;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .item-card {
+            background: var(--light-bg);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: var(--secondary);
+        }
+
+        .item-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .item-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .item-name {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .crafting-info {
+            background: rgba(205, 133, 63, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .image-missing {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        .image-added {
+            background: #51cf66;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        .gear-decoration {
+            position: fixed;
+            opacity: 0.03;
+            font-size: 20rem;
+            z-index: -1;
+            animation: rotate 60s linear infinite;
+            pointer-events: none;
+        }
+
+        .gear-1 {
+            top: 10%;
+            right: 10%;
+        }
+
+        .gear-2 {
+            bottom: 20%;
+            left: 5%;
+            animation-direction: reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(184, 134, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
+        }
+
+        .search-result-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-result-item:hover {
+            background: rgba(205, 133, 63, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .wiki-container {
+                grid-template-columns: 1fr;
+            }
+            .wiki-sidebar {
+                display: none;
+            }
+            .wiki-main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gear-decoration gear-1">⚙️</div>
+    <div class="gear-decoration gear-2">⚙️</div>
+    
+    <div class="wiki-container">
+        <aside class="wiki-sidebar">
+            <div class="sidebar-header">
+                <h1>🏭 SANDCRAFT</h1>
+                <div class="subtitle">Wiki Create Complet</div>
+                <div class="stats" id="sidebarStats">Chargement...</div>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher un item...">
+            </div>
+            
+            <nav class="nav-section">
+                <h3>📖 MODS CREATE</h3>
+                <ul class="nav-links" id="modsNavigation"></ul>
+            </nav>
+            
+            <div class="search-results" id="searchResults" style="display: none;"></div>
+        </aside>
+        
+        <main class="wiki-main">
+            <header class="main-header">
+                <div class="breadcrumb">
+                    <a href="#" onclick="showPage('accueil')">🏠 Accueil</a> › 
+                    <span id="currentPage">🏭 Create</span>
+                </div>
+                <h1 class="page-title" id="pageTitle">🏭 CREATE</h1>
+                <p class="page-subtitle" id="pageSubtitle">Système complet d'ingénierie mécanique</p>
+            </header>
+            
+            <div class="wiki-content" id="wikiContent">
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2>🎯 Chargement du Wiki Create...</h2>
+                    </div>
+                    <div class="section-content">
+                        <p>Initialisation des 347 items...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // === DONNÉES CREATE DE BASE ===
+        const createBaseData = {
+            "name": "Create Base",
+            "description": "Mod principal d'ingénierie mécanique et d'automatisation",
+            "item_count": 184,
+            "categories": {
+                "machines": {
+                    "name": "🧱 Machines de Transformation",
+                    "items": [
+                        {
+                            "id": "mechanical_press",
+                            "name": "Presse Mécanique",
+                            "description": "Compacte les items sous pression pour créer de nouveaux matériaux. Essentiel pour l'automatisation de production.",
+                            "craft": "4 Planches + 2 Lingots de fer + 1 Engrenage",
+                            "usage": "Placez les items à compacter et fournissez de l'énergie rotationnelle",
+                            "image": "images/create_base/items/mechanical_press.png",
+                            "craft_image": "images/create_base/crafts/mechanical_press_craft.png",
+                            "needs_verification": true
+                        },
+                        {
+                            "id": "millstone",
+                            "name": "Meule",
+                            "description": "Transforme les blocs en poudres et ressources secondaires par broyage. Double la production de minerais.",
+                            "craft": "3 Pierre + 2 Engrenages + 2 Planches",
+                            "usage": "Alimentez avec de l'énergie et placez les items à broyer",
+                            "image": "images/create_base/items/millstone.png",
+                            "craft_image": "images/create_base/crafts/millstone_craft.png",
+                            "needs_verification": true
+                        }
+                    ]
+                },
+                "movement": {
+                    "name": "⚙️ Systèmes de Mouvement",
+                    "items": [
+                        {
+                            "id": "cogwheel",
+                            "name": "Engrenage",
+                            "description": "Transmet la rotation à 90 degrés. Composant fondamental des systèmes mécaniques.",
+                            "craft": "4 Planches + 1 Lingot de fer",
+                            "usage": "Placez entre deux arbres pour changer la direction de rotation",
+                            "image": "images/create_base/items/cogwheel.png",
+                            "craft_image": "images/create_base/crafts/cogwheel_craft.png",
+                            "needs_verification": true
+                        },
+                        {
+                            "id": "belt",
+                            "name": "Courroie",
+                            "description": "Transmet la rotation sur de longues distances sans arbres.",
+                            "craft": "3 Laines + 2 Cordes",
+                            "usage": "Relie des poulies éloignées",
+                            "image": "images/create_base/items/belt.png",
+                            "craft_image": "images/create_base/crafts/belt_craft.png",
+                            "needs_verification": true
+                        }
+                    ]
+                }
+            }
+        };
+
+        // === EXTENSIONS ===
+        const createExtensionsData = {
+            "central_kitchen": {
+                "name": "Create: Central Kitchen",
+                "description": "Automatisation culinaire avancée et transformation alimentaire",
+                "item_count": 28,
+                "categories": {
+                    "cooking": {
+                        "name": "🍳 Cuisine Automatisée",
+                        "items": [
+                            {
+                                "id": "automatic_cooker",
+                                "name": "Cuisinier Automatique",
+                                "description": "Cuit les aliments automatiquement grâce à des systèmes de chauffage précis.",
+                                "craft": "1 Four + 2 Engrenages + 1 Entonnoir + 2 Pistons",
+                                "usage": "Placez les aliments crus et récupérez les cuits automatiquement",
+                                "image": "images/central_kitchen/items/automatic_cooker.png",
+                                "craft_image": "images/central_kitchen/crafts/automatic_cooker_craft.png",
+                                "needs_verification": true
+                            }
+                        ]
+                    }
+                }
+            },
+            "big_cannons": {
+                "name": "Create: Big Cannons", 
+                "description": "Système d'artillerie industrielle et mécanismes de défense avancés",
+                "item_count": 42,
+                "categories": {
+                    "artillery": {
+                        "name": "💥 Artillerie Lourde",
+                        "items": [
+                            {
+                                "id": "big_cannon",
+                                "name": "Grand Canon",
+                                "description": "Canon de siège puissant capable de détruire des structures à distance.",
+                                "craft": "8 Lingots de fer + 4 Mécanismes + 2 Barils + 1 Poudre à canon",
+                                "usage": "Chargez avec des projectiles et allumez la mèche",
+                                "image": "images/big_cannons/items/big_cannon.png",
+                                "craft_image": "images/big_cannons/crafts/big_cannon_craft.png", 
+                                "needs_verification": true
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+
+        // === SYSTÈME DE RECHERCHE ===
+        let currentDatabase = {};
+
+        function initializeWiki() {
+            currentDatabase = {
+                "metadata": {
+                    "total_items": createBaseData.item_count + Object.values(createExtensionsData).reduce((sum, mod) => sum + mod.item_count, 0),
+                    "images_missing": createBaseData.item_count + Object.values(createExtensionsData).reduce((sum, mod) => sum + mod.item_count, 0),
+                    "images_added": 0
+                },
+                "mods": {
+                    "create_base": createBaseData,
+                    ...createExtensionsData
+                }
+            };
+
+            generateNavigation();
+            setupSearch();
+            showPage('create_base');
+            updateStats();
+            
+            console.log('🎉 Wiki Create Sandcraft chargé !');
+            console.log('📊 Total items:', currentDatabase.metadata.total_items);
+        }
+
+        function generateNavigation() {
+            const navContainer = document.getElementById('modsNavigation');
+            let html = '';
+            
+            Object.entries(currentDatabase.mods).forEach(([modId, mod]) => {
+                html += `<li><a href="#" onclick="showPage('${modId}')" class="nav-link">${mod.name} (${mod.item_count} items)</a></li>`;
+            });
+            
+            navContainer.innerHTML = html;
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim();
+                
+                if (query.length < 2) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                
+                const results = searchItems(query);
+                
+                if (results.length > 0) {
+                    let resultsHTML = '<div style="padding: 1rem; border-bottom: 2px solid var(--accent); background: var(--light-bg);"><strong>🔍 ' + results.length + ' résultat(s) pour "' + query + '"</strong></div>';
+                    
+                    results.slice(0, 8).forEach(item => {
+                        resultsHTML += `
+                            <div class="search-result-item" onclick="showItem('${item.id}', '${item.modId}')">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div>
+                                        <strong>${item.name}</strong><br>
+                                        <small style="color: #666;">${item.mod} • ${item.category}</small>
+                                    </div>
+                                    ${item.needs_verification ? '<span class="image-missing">📸</span>' : '<span class="image-added">✅</span>'}
+                                </div>
+                                <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #555;">
+                                    ${item.description.substring(0, 80)}...
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    searchResults.innerHTML = resultsHTML;
+                    searchResults.style.display = 'block';
+                } else {
+                    searchResults.innerHTML = '<div style="padding: 2rem; text-align: center; color: #666;"><strong>Aucun résultat trouvé</strong></div>';
+                    searchResults.style.display = 'block';
+                }
+            });
+        }
+
+        function searchItems(query) {
+            const results = [];
+            const searchTerms = query.toLowerCase().split(' ');
+            
+            Object.entries(currentDatabase.mods).forEach(([modId, mod]) => {
+                Object.values(mod.categories).forEach(category => {
+                    category.items.forEach(item => {
+                        const searchText = (item.name + ' ' + item.description + ' ' + category.name).toLowerCase();
+                        const allTermsMatch = searchTerms.every(term => searchText.includes(term));
+                        
+                        if (allTermsMatch) {
+                            results.push({
+                                ...item,
+                                mod: mod.name,
+                                category: category.name,
+                                modId: modId
+                            });
+                        }
+                    });
+                });
+            });
+            
+            return results;
+        }
+
+        function showPage(modId) {
+            const mod = currentDatabase.mods[modId];
+            if (!mod) return;
+            
+            document.getElementById('pageTitle').textContent = mod.name;
+            document.getElementById('pageSubtitle').textContent = mod.description;
+            document.getElementById('currentPage').textContent = mod.name;
+            
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelector(`[onclick="showPage('${modId}')"]`).classList.add('active');
+            
+            let contentHTML = '';
+            
+            Object.entries(mod.categories).forEach(([categoryId, category]) => {
+                contentHTML += `
+                    <div class="content-section">
+                        <div class="section-header">
+                            <h2>${category.name}</h2>
+                        </div>
+                        <div class="section-content">
+                            <div class="items-grid">
+                `;
+                
+                category.items.forEach(item => {
+                    const imageStatus = item.needs_verification ? 
+                        '<div class="image-missing">📸 Image manquante</div>' : 
+                        '<div class="image-added">✅ Image ajoutée</div>';
+                    
+                    contentHTML += `
+                        <div class="item-card" data-item="${item.id}">
+                            <div class="item-header">
+                                <div class="item-icon">⚙️</div>
+                                <div style="flex: 1;">
+                                    <div class="item-name">${item.name}</div>
+                                    <div class="item-meta">${imageStatus}</div>
+                                </div>
+                            </div>
+                            <p>${item.description}</p>
+                            <div class="crafting-info">
+                                <strong>🔨 Fabrication :</strong> ${item.craft}
+                            </div>
+                            <div class="crafting-info">
+                                <strong>🎯 Utilisation :</strong> ${item.usage}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                contentHTML += `
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('wikiContent').innerHTML = contentHTML;
+            document.getElementById('searchResults').style.display = 'none';
+            updateStats();
+        }
+
+        function showItem(itemId, modId) {
+            showPage(modId);
+            
+            setTimeout(() => {
+                const itemElement = document.querySelector(`[data-item="${itemId}"]`);
+                if (itemElement) {
+                    itemElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    itemElement.style.animation = 'pulse 2s';
+                }
+            }, 100);
+            
+            document.getElementById('searchResults').style.display = 'none';
+            document.getElementById('searchInput').value = '';
+        }
+
+        function updateStats() {
+            const total = currentDatabase.metadata.total_items;
+            const missing = currentDatabase.metadata.images_missing;
+            const added = currentDatabase.metadata.images_added;
+            const percentage = Math.round((added / total) * 100);
+            
+            document.getElementById('sidebarStats').innerHTML = `
+                📊 ${added}/${total} images<br>
+                ⏳ ${percentage}% complété
+            `;
+        }
+
+        // DÉMARRAGE
+        document.addEventListener('DOMContentLoaded', initializeWiki);
+    </script>
+</body>
+</html>

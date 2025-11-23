@@ -1,0 +1,440 @@
+/* === VARIABLES USINE MÉDIÉVALE === */
+:root {
+    --primary: #8B4513;
+    --secondary: #B8860B;
+    --accent: #CD853F;
+    --metal: #C0C0C0;
+    --wood: #DEB887;
+    --parchment: #FFF8DC;
+    --dark-wood: #654321;
+    --light-bg: #FAF0E6;
+    --border-color: #A0522D;
+}
+
+/* === RESET ET BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--light-bg);
+    color: #5D4037;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* === LAYOUT PRINCIPAL === */
+.wiki-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+}
+
+/* === SIDEBAR STYLE FANDOM === */
+.wiki-sidebar {
+    background: linear-gradient(135deg, var(--dark-wood) 0%, var(--primary) 100%);
+    color: var(--parchment);
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 3px solid var(--secondary);
+    box-shadow: 5px 0 25px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 2rem 1.5rem;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 2px solid var(--accent);
+    text-align: center;
+}
+
+.sidebar-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--parchment);
+}
+
+.sidebar-header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.stats {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* === RECHERCHE === */
+.search-box {
+    padding: 1rem 1.5rem;
+    background: rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--accent);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--accent);
+    border-radius: 5px;
+    background: var(--parchment);
+    color: var(--dark-wood);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 10px rgba(184, 134, 11, 0.3);
+}
+
+/* === NAVIGATION === */
+.nav-section {
+    margin: 1.5rem 0;
+}
+
+.nav-section h3 {
+    padding: 0.8rem 1.5rem;
+    background: rgba(0,0,0,0.2);
+    font-size: 1rem;
+    border-left: 4px solid var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    border-bottom: 1px solid rgba(205, 133, 63, 0.3);
+}
+
+.nav-links a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: var(--parchment);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(184, 134, 11, 0.2);
+    border-left-color: var(--secondary);
+    padding-left: 2rem;
+}
+
+/* === RÉSULTATS RECHERCHE === */
+.search-results {
+    background: var(--parchment);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    margin: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-results div {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-results div:hover {
+    background: rgba(205, 133, 63, 0.1);
+}
+
+.search-results strong {
+    color: var(--primary);
+}
+
+.search-results small {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* === CONTENU PRINCIPAL === */
+.wiki-main {
+    margin-left: 300px;
+    background: var(--parchment);
+    min-height: 100vh;
+}
+
+.main-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--dark-wood) 100%);
+    color: var(--parchment);
+    padding: 2rem 3rem;
+    border-bottom: 3px solid var(--secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-header::before {
+    content: "⚙️⛓️🔧🏭";
+    font-size: 6rem;
+    position: absolute;
+    opacity: 0.1;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.breadcrumb a {
+    color: var(--wood);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* === CONTENU DE LA PAGE === */
+.wiki-content {
+    padding: 2rem 3rem;
+    max-width: 1200px;
+}
+
+.content-section {
+    background: white;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border: 2px solid var(--wood);
+    border-left: 5px solid var(--secondary);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.content-section:hover {
+    transform: translateY(-2px);
+}
+
+.section-header {
+    background: linear-gradient(135deg, var(--light-bg) 0%, var(--wood) 100%);
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+.section-header h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-content {
+    padding: 2rem;
+}
+
+/* === GRID D'ITEMS === */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.item-card {
+    background: var(--light-bg);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.item-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: var(--secondary);
+}
+
+.item-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.item-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.item-name {
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.item-meta {
+    margin-top: 0.3rem;
+}
+
+/* === INFORMATIONS DE CRAFT === */
+.crafting-info {
+    background: rgba(205, 133, 63, 0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    border-left: 3px solid var(--accent);
+}
+
+.crafting-info strong {
+    color: var(--primary);
+}
+
+/* === INDICATEURS IMAGES === */
+.image-missing {
+    background: #ff6b6b;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.image-added {
+    background: #51cf66;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+/* === ÉLÉMENTS DÉCORATIFS === */
+.gear-decoration {
+    position: fixed;
+    opacity: 0.03;
+    font-size: 20rem;
+    z-index: -1;
+    animation: rotate 60s linear infinite;
+    pointer-events: none;
+}
+
+.gear-1 {
+    top: 10%;
+    right: 10%;
+}
+
+.gear-2 {
+    bottom: 20%;
+    left: 5%;
+    animation-direction: reverse;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .wiki-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .wiki-sidebar {
+        display: none;
+    }
+    
+    .wiki-main {
+        margin-left: 0;
+    }
+    
+    .wiki-content {
+        padding: 1rem;
+    }
+    
+    .main-header {
+        padding: 1.5rem;
+    }
+    
+    .items-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .section-content {
+        padding: 1rem;
+    }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* === SCROLL SMOOTH === */
+html {
+    scroll-behavior: smooth;
+}
+
+/* === FOCUS VISIBLE === */
+*:focus {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
