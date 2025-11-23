@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Create - Sandcraft</title>
+    <style>
+        /* STYLES SIMPLIFIÉS MAIS FONCTIONNELS */
+        :root {
+            --primary: #8B4513;
+            --secondary: #B8860B; 
+            --accent: #CD853F;
+            --wood: #DEB887;
+            --parchment: #FFF8DC;
+            --dark-wood: #654321;
+            --light-bg: #FAF0E6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light-bg);
+            color: #5D4037;
+            line-height: 1.6;
+        }
+        
+        .wiki-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .wiki-sidebar {
+            width: 300px;
+            background: linear-gradient(135deg, var(--dark-wood) 0%, var(--primary) 100%);
+            color: var(--parchment);
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 3px solid var(--secondary);
+        }
+        
+        .wiki-main {
+            margin-left: 300px;
+            flex: 1;
+            background: var(--parchment);
+            min-height: 100vh;
+        }
+        
+        .main-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-wood) 100%);
+            color: var(--parchment);
+            padding: 2rem 3rem;
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .content-section {
+            background: white;
+            margin: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--wood);
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .item-card {
+            background: var(--light-bg);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .wiki-container {
+                flex-direction: column;
+            }
+            
+            .wiki-sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+            
+            .wiki-main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wiki-container">
+        <!-- SIDEBAR -->
+        <aside class="wiki-sidebar">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h1>🏭 SANDCRAFT</h1>
+                <p>Wiki Create Complet</p>
+                <div id="sidebarStats">0/329 images</div>
+            </div>
+            
+            <input type="text" placeholder="🔍 Rechercher..." style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 5px; border: none;">
+            
+            <nav>
+                <h3>📖 MODS CREATE</h3>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li style="margin: 10px 0;"><a href="#" style="color: var(--parchment); text-decoration: none;">Create Base (184 items)</a></li>
+                    <li style="margin: 10px 0;"><a href="#" style="color: var(--parchment); text-decoration: none;">Central Kitchen (28 items)</a></li>
+                    <li style="margin: 10px 0;"><a href="#" style="color: var(--parchment); text-decoration: none;">Big Cannons (42 items)</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- CONTENU PRINCIPAL -->
+        <main class="wiki-main">
+            <header class="main-header">
+                <h1>🏭 CREATE BASE</h1>
+                <p>Mod principal d'ingénierie mécanique</p>
+            </header>
+            
+            <div class="content-section">
+                <h2>🧱 Machines de Transformation</h2>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <h3>⚙️ Presse Mécanique</h3>
+                        <p>Compacte les items sous pression pour créer de nouveaux matériaux.</p>
+                        <div style="background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 5px; margin-top: 1rem;">
+                            <strong>🔨 Fabrication :</strong> 4 Planches + 2 Lingots de fer + 1 Engrenage
+                        </div>
+                    </div>
+                    
+                    <div class="item-card">
+                        <h3>🌀 Meule</h3>
+                        <p>Transforme les blocs en poudres et ressources secondaires.</p>
+                        <div style="background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 5px; margin-top: 1rem;">
+                            <strong>🔨 Fabrication :</strong> 3 Pierre + 2 Engrenages + 2 Planches
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
