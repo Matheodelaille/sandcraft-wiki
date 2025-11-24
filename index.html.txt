@@ -1,1 +1,500 @@
-<!DOCTYPE html><html lang=fr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Wiki Create - Sandcraft</title><style>:root{--primary:#8B4513;--secondary:#B8860B;--accent:#CD853F;--metal:#C0C0C0;--wood:#DEB887;--parchment:#FFF8DC;--dark-wood:#654321;--light-bg:#FAF0E6;--border-color:#A0522D}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--light-bg);color:#5D4037;line-height:1.6;overflow-x:hidden}.wiki-container{display:grid;grid-template-columns:300px 1fr;min-height:100vh}.wiki-sidebar{background:linear-gradient(135deg,var(--dark-wood)0%,var(--primary)100%);color:var(--parchment);position:fixed;width:300px;height:100vh;overflow-y:auto;border-right:3px solid var(--secondary);box-shadow:5px 0 25px rgba(0,0,0,.3);z-index:1000}.sidebar-header{padding:2rem 1.5rem;background:rgba(0,0,0,.2);border-bottom:2px solid var(--accent);text-align:center}.sidebar-header h1{font-size:1.8rem;margin-bottom:.5rem;color:var(--parchment)}.sidebar-header .subtitle{font-size:.9rem;opacity:.8;margin-bottom:.5rem}.stats{font-size:.8rem;opacity:.7}.search-box{padding:1rem 1.5rem;background:rgba(0,0,0,.1);border-bottom:1px solid var(--accent)}.search-box input{width:100%;padding:.8rem;border:2px solid var(--accent);border-radius:5px;background:var(--parchment);color:var(--dark-wood);font-size:.9rem;transition:all .3s ease}.search-box input:focus{outline:none;border-color:var(--secondary);box-shadow:0 0 10px rgba(184,134,11,.3)}.nav-section{margin:1.5rem 0}.nav-section h3{padding:.8rem 1.5rem;background:rgba(0,0,0,.2);font-size:1rem;border-left:4px solid var(--secondary);margin-bottom:.5rem}.nav-links{list-style:none}.nav-links li{border-bottom:1px solid rgba(205,133,63,.3)}.nav-links a{display:block;padding:.8rem 1.5rem;color:var(--parchment);text-decoration:none;transition:all .3s ease;border-left:3px solid transparent}.nav-links a:hover,.nav-links a.active{background:rgba(184,134,11,.2);border-left-color:var(--secondary);padding-left:2rem}.search-results{background:var(--parchment);border:2px solid var(--accent);border-radius:10px;margin:1rem;max-height:400px;overflow-y:auto;display:none}.search-results div{padding:.8rem 1rem;border-bottom:1px solid #ddd;cursor:pointer;transition:background .3s ease}.search-results div:hover{background:rgba(205,133,63,.1)}.wiki-main{margin-left:300px;background:var(--parchment);min-height:100vh}.main-header{background:linear-gradient(135deg,var(--primary)0%,var(--dark-wood)100%);color:var(--parchment);padding:2rem 3rem;border-bottom:3px solid var(--secondary);position:relative;overflow:hidden}.main-header::before{content:"⚙️⛓️🔧🏭";font-size:6rem;position:absolute;opacity:.1;right:2rem;top:50%;transform:translateY(-50%)}.breadcrumb{font-size:.9rem;margin-bottom:1rem;opacity:.9}.breadcrumb a{color:var(--wood);text-decoration:none}.page-title{font-size:2.5rem;margin-bottom:.5rem}.page-subtitle{font-size:1.1rem;opacity:.9;max-width:600px}.wiki-content{padding:2rem 3rem;max-width:1200px}.content-section{background:#fff;margin-bottom:2rem;border-radius:10px;border:2px solid var(--wood);border-left:5px solid var(--secondary);box-shadow:0 5px 20px rgba(0,0,0,.1);overflow:hidden;transition:transform .3s ease}.content-section:hover{transform:translateY(-2px)}.section-header{background:linear-gradient(135deg,var(--light-bg)0%,var(--wood)100%);padding:1.5rem 2rem;border-bottom:2px solid var(--accent)}.section-header h2{color:var(--primary);font-size:1.5rem;display:flex;align-items:center;gap:1rem}.section-content{padding:2rem}.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-top:1.5rem}.item-card{background:var(--light-bg);border:2px solid var(--accent);border-radius:8px;padding:1.5rem;transition:all .3s ease;position:relative;overflow:hidden}.item-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--secondary))}.item-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.15);border-color:var(--secondary)}.item-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}.item-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--primary)0%,var(--accent)100%);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;flex-shrink:0}.item-name{font-weight:700;color:var(--primary);font-size:1.2rem}.crafting-info{background:rgba(205,133,63,.1);padding:1rem;border-radius:5px;margin-top:1rem;border-left:3px solid var(--accent)}.image-missing{background:#ff6b6b;color:#fff;padding:.3rem .8rem;border-radius:15px;font-size:.8rem;display:inline-block}.image-added{background:#51cf66;color:#fff;padding:.3rem .8rem;border-radius:15px;font-size:.8rem;display:inline-block}.gear-decoration{position:fixed;opacity:.03;font-size:20rem;z-index:-1;animation:rotate 60s linear infinite;pointer-events:none}.gear-1{top:10%;right:10%}.gear-2{bottom:20%;left:5%;animation-direction:reverse}@keyframes rotate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(184,134,11,.7)}70%{box-shadow:0 0 0 10px rgba(184,134,11,0)}to{box-shadow:0 0 0 0 rgba(184,134,11,0)}}.search-result-item{padding:1rem;border-bottom:1px solid #eee;cursor:pointer;transition:background .3s ease}.search-result-item:hover{background:rgba(205,133,63,.1)}@media (max-width:1024px){.wiki-container{grid-template-columns:1fr}.wiki-sidebar{display:none}.wiki-main{margin-left:0}.wiki-content{padding:1rem}.main-header{padding:1.5rem}.items-grid{grid-template-columns:1fr}}</style></head><body><div class=gear-decoration>⚙️</div><div class=gear-decoration>⚙️</div><div class=wiki-container><aside class=wiki-sidebar><div class=sidebar-header><h1>🏭 SANDCRAFT</h1><div class=subtitle>Wiki Create Complet</div><div class=stats id=sidebarStats>Chargement...</div></div><div class=search-box><input type=text id=searchInput placeholder="🔍 Rechercher un item..."></div><nav class=nav-section><h3>📖 MODS CREATE</h3><ul class=nav-links id=modsNavigation></ul></nav><div class=search-results id=searchResults style=display:none></div></aside><main class=wiki-main><header class=main-header><div class=breadcrumb><a href=# onclick="showPage('accueil')">🏠 Accueil</a> › <span id=currentPage>🏭 Create</span></div><h1 class=page-title id=pageTitle>🏭 CREATE</h1><p class=page-subtitle id=pageSubtitle>Système complet d'ingénierie mécanique</p></header><div class=wiki-content id=wikiContent><div class=content-section><div class=section-header><h2>🎯 Chargement du Wiki Create...</h2></div><div class=section-content><p>Initialisation des 329 items...</p></div></div></div></main></div><script>const createBaseData={name:"Create Base",description:"Mod principal d'ingénierie mécanique",item_count:184,categories:{machines:{name:"🧱 Machines de Transformation",items:[{id:"mechanical_press",name:"Presse Mécanique",description:"Compacte les items sous pression pour créer de nouveaux matériaux",craft:"4 Planches + 2 Lingots de fer + 1 Engrenage",usage:"Placez les items à compacter et fournissez de l'énergie rotationnelle",image:"images/create_base/items/mechanical_press.png",craft_image:"images/create_base/crafts/mechanical_press_craft.png",needs_verification:true},{id:"millstone",name:"Meule",description:"Transforme les blocs en poudres et ressources secondaires par broyage",craft:"3 Pierre + 2 Engrenages + 2 Planches",usage:"Alimentez avec de l'énergie et placez les items à broyer",image:"images/create_base/items/millstone.png",craft_image:"images/create_base/crafts/millstone_craft.png",needs_verification:true},{id:"mixer",name:"Mélangeur",description:"Mélange les fluides et poudres pour créer des alliages et composites",craft:"3 Cuivre + 2 Engrenages + 1 Entonnoir",usage:"Combine différents matériaux avec des fluides",image:"images/create_base/items/mixer.png",craft_image:"images/create_base/crafts/mixer_craft.png",needs_verification:true},{id:"crushing_wheel",name:"Roue de Concassage",description:"Système de concassage à haute vitesse pour traitement de masse",craft:"4 Pierre + 3 Engrenages + 2 Arbres",usage:"Installé par paires pour broyer les items",image:"images/create_base/items/crushing_wheel.png",craft_image:"images/create_base/crafts/crushing_wheel_craft.png",needs_verification:true},{id:"deployer",name:"Déployeur",description:"Place et utilise des items automatiquement comme un joueur",craft:"2 Pistons + 1 Engrenage + 1 Redstone",usage:"Automatise le placement et l'utilisation de blocs",image:"images/create_base/items/deployer.png",craft_image:"images/create_base/crafts/deployer_craft.png",needs_verification:true},{id:"drill",name:"Foreuse",description:"Extrait les blocs automatiquement avec précision",craft:"3 Lingots de fer + 2 Engrenages + 1 Piston",usage:"Mine les blocs dans sa trajectoire",image:"images/create_base/items/drill.png",craft_image:"images/create_base/crafts/drill_craft.png",needs_verification:true},{id:"saw",name:"Scie",description:"Découpe les arbres et transforme le bois en planches",craft:"2 Lingots de fer + 1 Engrenage + 1 Planche",usage:"Transforme les troncs en planches automatiquement",image:"images/create_base/items/saw.png",craft_image:"images/create_base/crafts/saw_craft.png",needs_verification:true}]},movement:{name:"⚙️ Systèmes de Mouvement",items:[{id:"cogwheel",name:"Engrenage",description:"Transmet la rotation à 90 degrés",craft:"4 Planches + 1 Lingot de fer",usage:"Placez entre deux arbres pour changer la direction",image:"images/create_base/items/cogwheel.png",craft_image:"images/create_base/crafts/cogwheel_craft.png",needs_verification:true},{id:"large_cogwheel",name:"Grand Engrenage",description:"Engrenage de grande taille pour transmissions puissantes",craft:"8 Planches + 2 Lingots de fer",usage:"Transmet plus de puissance que l'engrenage standard",image:"images/create_base/items/large_cogwheel.png",craft_image:"images/create_base/crafts/large_cogwheel_craft.png",needs_verification:true},{id:"shaft",name:"Arbre",description:"Transmet la rotation sur une ligne droite",craft:"2 Bâtons + 1 Planche",usage:"Connecte les sources d'énergie aux machines",image:"images/create_base/items/shaft.png",craft_image:"images/create_base/crafts/shaft_craft.png",needs_verification:true},{id:"belt",name:"Courroie",description:"Transmet la rotation sur de longues distances sans arbres",craft:"3 Laines + 2 Cordes",usage:"Relie des poulies éloignées",image:"images/create_base/items/belt.png",craft_image:"images/create_base/crafts/belt_craft.png",needs_verification:true},{id:"clutch",name:"Embrayage",description:"Active ou désactive la transmission de puissance",craft:"2 Lingots de fer + 1 Engrenage + 1 Redstone",usage:"Contrôle le flux d'énergie avec un signal redstone",image:"images/create_base/items/clutch.png",craft_image:"images/create_base/crafts/clutch_craft.png",needs_verification:true},{id:"gearshift",name:"Boîte de Vitesses",description:"Change la vitesse de rotation (RPM)",craft:"3 Lingots de fer + 2 Engrenages + 1 Redstone",usage:"Ajuste la vitesse de rotation du système",image:"images/create_base/items/gearshift.png",craft_image:"images/create_base/crafts/gearshift_craft.png",needs_verification:true}]},energy:{name:"💡 Génération d'Énergie",items:[{id:"water_wheel",name:"Roue à Eau",description:"Génère de l'énergie rotationnelle grâce au courant de l'eau",craft:"8 Planches + 4 Bâtons + 2 Engrenages",usage:"Placez dans l'eau courante pour générer de l'énergie",image:"images/create_base/items/water_wheel.png",craft_image:"images/create_base/crafts/water_wheel_craft.png",needs_verification:true},{id:"windmill_bearing",name:"Support d'Éolienne",description:"Support pour construire des éoliennes personnalisées",craft:"4 Planches + 2 Lingots de fer + 1 Engrenage",usage:"Base pour construire des pales d'éolienne",image:"images/create_base/items/windmill_bearing.png",craft_image:"images/create_base/crafts/windmill_bearing_craft.png",needs_verification:true},{id:"hand_crank",name:"Manivelle",description:"Génère manuellement de l'énergie rotationnelle",craft:"3 Bâtons + 2 Planches",usage:"Clic droit pour générer de l'énergie manuellement",image:"images/create_base/items/hand_crank.png",craft_image:"images/create_base/crafts/hand_crank_craft.png",needs_verification:true},{id:"encased_fan",name:"Ventilateur Encastré",description:"Génère de l'énergie avec de la chaleur ou pousse les entités",craft:"2 Lingots de fer + 1 Engrenage + 1 Éclat de prismarine",usage:"Placez au-dessus du feu ou de la lave",image:"images/create_base/items/encased_fan.png",craft_image:"images/create_base/crafts/encased_fan_craft.png",needs_verification:true}]},transport:{name:"📦 Transport d'Items",items:[{id:"chute",name:"Goulotte",description:"Transporte les items verticalement vers le bas",craft:"4 Planches + 1 Entonnoir",usage:"Laissez tomber les items vers le bas",image:"images/create_base/items/chute.png",craft_image:"images/create_base/crafts/chute_craft.png",needs_verification:true},{id:"smart_chute",name:"Goulotte Intelligente",description:"Goulotte avec filtrage et contrôle redstone",craft:"1 Goulotte + 1 Entonnoir + 1 Redstone",usage:"Filtre les items spécifiques",image:"images/create_base/items/smart_chute.png",craft_image:"images/create_base/crafts/smart_chute_craft.png",needs_verification:true},{id:"funnel",name:"Entonnoir",description:"Transfère les items entre inventaires",craft:"4 Lingots de fer + 1 Planche",usage:"Placez sur un inventaire pour transférer",image:"images/create_base/items/funnel.png",craft_image:"images/create_base/crafts/funnel_craft.png",needs_verification:true},{id:"smart_funnel",name:"Entonnoir Intelligent",description:"Entonnoir avec filtrage avancé",craft:"1 Entonnoir + 1 Redstone + 1 Engrenage",usage:"Filtre les items avec précision",image:"images/create_base/items/smart_funnel.png",craft_image:"images/create_base/crafts/smart_funnel_craft.png",needs_verification:true}]},fluids:{name:"💧 Systèmes Fluides",items:[{id:"pump",name:"Pompe",description:"Déplace les fluides à travers les tuyaux",craft:"3 Lingots de fer + 2 Verres + 1 Engrenage",usage:"Crée une pression pour déplacer les fluides",image:"images/create_base/items/pump.png",craft_image:"images/create_base/crafts/pump_craft.png",needs_verification:true},{id:"hose_pulley",name:"Poulie de Tuyau",description:"Pompe les fluides depuis les sources d'eau infinies",craft:"2 Cordes + 1 Tuyau + 1 Engrenage",usage:"Placez au-dessus d'une source d'eau",image:"images/create_base/items/hose_pulley.png",craft_image:"images/create_base/crafts/hose_pulley_craft.png",needs_verification:true},{id:"fluid_pipe",name:"Tuyau Fluide",description:"Transporte les fluides entre réservoirs",craft:"4 Verres + 1 Lingot de fer",usage:"Connecte les réservoirs et machines à fluides",image:"images/create_base/items/fluid_pipe.png",craft_image:"images/create_base/crafts/fluid_pipe_craft.png",needs_verification:true}]},tools:{name:"🔧 Outils & Utilitaires",items:[{id:"wrench",name:"Clé",description:"Outil essentiel pour configurer les machines Create",craft:"2 Lingots de fer + 1 Bâton",usage:"Clic droit pour configurer, Shift+Clic pour démonter",image:"images/create_base/items/wrench.png",craft_image:"images/create_base/crafts/wrench_craft.png",needs_verification:true},{id:"extendo_grip",name:"Pince Extensible",description:"Permet d'interagir avec les machines à distance",craft:"3 Lingots de fer + 2 Pistons + 1 Pointe de Redstone",usage:"Clic droit pour interagir à distance avec les machines",image:"images/create_base/items/extendo_grip.png",craft_image:"images/create_base/crafts/extendo_grip_craft.png",needs_verification:true},{id:"potato_cannon",name:"Canon à Patate",description:"Lance des items et entités pour s'amuser",craft:"2 Lingots de fer + 1 Tuyau + 1 Piston",usage:"Chargez avec des items et tirez",image:"images/create_base/items/potato_cannon.png",craft_image:"images/create_base/crafts/potato_cannon_craft.png",needs_verification:true}]}}},createExtensionsData={central_kitchen:{name:"Create: Central Kitchen",description:"Automatisation culinaire avancée et transformation alimentaire",item_count:28,categories:{cooking:{name:"🍳 Cuisine Automatisée",items:[{id:"automatic_cooker",name:"Cuisinier Automatique",description:"Cuit les aliments automatiquement grâce à des systèmes de chauffage précis",craft:"1 Four + 2 Engrenages + 1 Entonnoir + 2 Pistons",usage:"Placez les aliments crus et récupérez les cuits automatiquement",image:"images/central_kitchen/items/automatic_cooker.png",craft_image:"images/central_kitchen/crafts/automatic_cooker_craft.png",needs_verification:true},{id:"food_mixer",name:"Mixeur Alimentaire",description:"Mélange les ingrédients pour créer des plats complexes",craft:"2 Bols + 1 Engrenage + 2 Planches",usage:"Combine différents ingrédients alimentaires",image:"images/central_kitchen/items/food_mixer.png",craft_image:"images/central_kitchen/crafts/food_mixer_craft.png",needs_verification:true},{id:"baking_oven",name:"Four à Pâtisserie",description:"Four spécialisé pour la cuisson du pain et pâtisseries",craft:"1 Four + 3 Briques + 1 Engrenage",usage:"Cuit le pain et pâtisseries plus efficacement",image:"images/central_kitchen/items/baking_oven.png",craft_image:"images/central_kitchen/crafts/baking_oven_craft.png",needs_verification:true},{id:"ingredient_buffer",name:"Tampon d'Ingrédients",description:"Stocke et distribue les ingrédients culinaires",craft:"2 Planches + 1 Entonnoir + 1 Coffre",usage:"Maintient un stock d'ingrédients pour les recettes",image:"images/central_kitchen/items/ingredient_buffer.png",craft_image:"images/central_kitchen/crafts/ingredient_buffer_craft.png",needs_verification:true}]},processing:{name:"🔪 Transformation Alimentaire",items:[{id:"food_deployer",name:"Déployeur Alimentaire",description:"Place et prépare les aliments automatiquement",craft:"1 Déployeur + 1 Bol + 1 Planche",usage:"Automatise la préparation des aliments",image:"images/central_kitchen/items/food_deployer.png",craft_image:"images/central_kitchen/crafts/food_deployer_craft.png",needs_verification:true},{id:"smart_serving_hatch",name:"Trappe de Service Intelligente",description:"Distribue les plats cuisinés avec précision",craft:"1 Trappe + 1 Entonnoir + 1 Redstone",usage:"Sert les plats automatiquement aux joueurs",image:"images/central_kitchen/items/smart_serving_hatch.png",craft_image:"images/central_kitchen/crafts/smart_serving_hatch_craft.png",needs_verification:true}]}}},big_cannons:{name:"Create: Big Cannons",description:"Système d'artillerie industrielle et mécanismes de défense avancés",item_count:42,categories:{artillery:{name:"💥 Artillerie Lourde",items:[{id:"big_cannon",name:"Grand Canon",description:"Canon de siège puissant capable de détruire des structures à distance",craft:"8 Lingots de fer + 4 Mécanismes + 2 Barils + 1 Poudre à canon",usage:"Chargez avec des projectiles et allumez la mèche",image:"images/big_cannons/items/big_cannon.png",craft_image:"images/big_cannons/crafts/big_cannon_craft.png",needs_verification:true},{id:"cannon_projectile",name:"Projectile de Canon",description:"Boulet de canon standard pour artillerie lourde",craft:"4 Pierre + 1 Poudre à canon",usage:"Munition pour les canons de différents calibres",image:"images/big_cannons/items/cannon_projectile.png",craft_image:"images/big_cannons/crafts/cannon_projectile_craft.png",needs_verification:true},{id:"autocannon",name:"Autocanon",description:"Canon automatique à cadence rapide pour défense rapprochée",craft:"6 Lingots de fer + 2 Engrenages + 1 Piston + 1 Redstone",usage:"Tir automatique contre les menaces mobiles",image:"images/big_cannons/items/autocannon.png",craft_image:"images/big_cannons/crafts/autocannon_craft.png",needs_verification:true},{id:"cannon_casting_table",name:"Table de Coulée de Canon",description:"Fabrique les pièces de canon en métal fondu",craft:"4 Pierre + 2 Lingots de fer + 1 Seau",usage:"Coule les composants de canon",image:"images/big_cannons/items/cannon_casting_table.png",craft_image:"images/big_cannons/crafts/cannon_casting_table_craft.png",needs_verification:true}]},ammunition:{name:"🎯 Munitions & Explosifs",items:[{id:"cannon_powder",name:"Poudre à Canon",description:"Poudre explosive spécialisée pour artillerie lourde",craft:"4 Poudre + 1 Charbon + 1 Soufre",usage:"Combustible pour les canons",image:"images/big_cannons/items/cannon_powder.png",craft_image:"images/big_cannons/crafts/cannon_powder_craft.png",needs_verification:true},{id:"explosive_shell",name:"Obus Explosif",description:"Projectile explosif pour démolition",craft:"2 Lingots de fer + 1 Poudre à canon + 1 TNT",usage:"Détruit les structures à l'impact",image:"images/big_cannons/items/explosive_shell.png",craft_image:"images/big_cannons/crafts/explosive_shell_craft.png",needs_verification:true}]}}},new_age:{name:"Create: New Age",description:"Contenu futuriste et mécanismes avancés pour automation moderne",item_count:35,categories:{futurist:{name:"🚀 Technologie Future",items:[{id:"rocket_assembler",name:"Assembleur de Fusée",description:"Station d'assemblage automatique pour systèmes aérospatiaux",craft:"8 Lingots d'aluminium + 4 Verres + 2 Circuits + 1 Ordinateur",usage:"Assemble automatiquement les composants de fusée",image:"images/new_age/items/rocket_assembler.png",craft_image:"images/new_age/crafts/rocket_assembler_craft.png",needs_verification:true},{id:"solar_panel",name:"Panneau Solaire",description:"Génère de l'énergie électrique à partir de la lumière solaire",craft:"6 Verres + 3 Lingots de fer + 2 Circuits + 1 Silicium",usage:"Convertit la lumière en énergie électrique",image:"images/new_age/items/solar_panel.png",craft_image:"images/new_age/crafts/solar_panel_craft.png",needs_verification:true},{id:"atomic_assembler",name:"Assembleur Atomique",description:"Manipule la matière au niveau atomique",craft:"4 Lingots de netherite + 2 Circuits + 1 Ordinateur",usage:"Crée des matériaux avancés",image:"images/new_age/items/atomic_assembler.png",craft_image:"images/new_age/crafts/atomic_assembler_craft.png",needs_verification:true},{id:"quantum_entangler",name:"Intricateur Quantique",description:"Transmet l'information instantanément à distance",craft:"2 Lingots d'émeraude + 1 Circuit + 1 Redstone",usage:"Communication sans fil entre machines",image:"images/new_age/items/quantum_entangler.png",craft_image:"images/new_age/crafts/quantum_entangler_craft.png",needs_verification:true}]}}},crafts_additions:{name:"Create: Crafts & Additions",description:"Composants électriques et génération d'énergie avancée",item_count:40,categories:{electrical:{name:"⚡ Énergie Électrique",items:[{id:"alternator",name:"Alternateur",description:"Convertit l'énergie mécanique en énergie électrique",craft:"4 Lingots de cuivre + 2 Aimants + 1 Engrenage + 1 Arbre",usage:"Transforme la rotation en électricité",image:"images/crafts_additions/items/alternator.png",craft_image:"images/crafts_additions/crafts/alternator_craft.png",needs_verification:true},{id:"electric_motor",name:"Moteur Électrique",description:"Convertit l'énergie électrique en mouvement rotationnel",craft:"4 Lingots de fer + 2 Bobines + 1 Aimant + 1 Arbre",usage:"Transforme l'électricité en rotation",image:"images/crafts_additions/items/electric_motor.png",craft_image:"images/crafts_additions/crafts/electric_motor_craft.png",needs_verification:true},{id:"capacitor",name:"Condensateur",description:"Stocke l'énergie électrique pour une utilisation ultérieure",craft:"4 Lingots de fer + 2 Verres + 1 Redstone",usage:"Batterie pour systèmes électriques",image:"images/crafts_additions/items/capacitor.png",craft_image:"images/crafts_additions/crafts/capacitor_craft.png",needs_verification:true},{id:"tesla_coil",name:"Bobine Tesla",description:"Transmet l'énergie électrique sans fil",craft:"3 Lingots de fer + 2 Bobines + 1 Redstone",usage:"Transfert d'énergie à distance",image:"images/crafts_additions/items/tesla_coil.png",craft_image:"images/crafts_additions/crafts/tesla_coil_craft.png",needs_verification:true}]}}},misc_things:{name:"Create: Misc and Things",description:"Utilitaires divers et blocs fonctionnels supplémentaires",item_count:20,categories:{utilities:{name:"🔧 Utilitaires Divers",items:[{id:"portable_fluid_interface",name:"Interface Fluide Portable",description:"Interface mobile pour transfert de fluides sur site",craft:"2 Seaux + 1 Entonnoir + 2 Lingots de fer + 1 Tuyau",usage:"Connexion temporaire pour systèmes fluides",image:"images/misc_things/items/portable_fluid_interface.png",craft_image:"images/misc_things/crafts/portable_fluid_interface_craft.png",needs_verification:true},{id:"enhanced_cogwheel",name:"Engrenage Amélioré",description:"Engrenage avec meilleure efficacité et durabilité",craft:"1 Engrenage + 2 Lingots de fer + 1 Redstone",usage:"Transmet plus de puissance avec moins de perte",image:"images/misc_things/items/enhanced_cogwheel.png",craft_image:"images/misc_things/crafts/enhanced_cogwheel_craft.png",needs_verification:true},{id:"compacting_hopper",name:"Entonnoir Compacteur",description:"Entonnoir qui compacte automatiquement les items",craft:"1 Entonnoir + 1 Presse + 1 Redstone",usage:"Compacte les items pendant le transfert",image:"images/misc_things/items/compacting_hopper.png",craft_image:"images/misc_things/crafts/compacting_hopper_craft.png",needs_verification:true}]}}},ad_astra_compat:{name:"Create: Ad Astra Compatibility",description:"Compatibilité étendue avec le mod Ad Astra pour exploration spatiale",item_count:15,categories:{space:{name:"🌌 Technologie Spatiale",items:[{id:"rocket_fuel_mixer",name:"Mélangeur de Carburant",description:"Mélange les composants pour créer du carburant de fusée avancé",craft:"4 Tanks + 2 Mélangeurs + 1 Ordinateur + 1 Pompe",usage:"Produit du carburant pour fusées spatiales",image:"images/ad_astra_compat/items/rocket_fuel_mixer.png",craft_image:"images/ad_astra_compat/crafts/rocket_fuel_mixer_craft.png",needs_verification:true},{id:"space_elevator",name:"Ascenseur Spatial",description:"Transporte les items entre la surface et l'orbite",craft:"8 Lingots de fer + 4 Câbles + 2 Moteurs + 1 Contrôleur",usage:"Liaison verticale pour stations spatiales",image:"images/ad_astra_compat/items/space_elevator.png",craft_image:"images/ad_astra_compat/crafts/space_elevator_craft.png",needs_verification:true},{id:"orbital_assembler",name:"Assembleur Orbital",description:"Assemble les vaisseaux spatiaux en microgravité",craft:"6 Lingots d'aluminium + 3 Circuits + 1 Ordinateur",usage:"Construction de vaisseaux dans l'espace",image:"images/ad_astra_compat/items/orbital_assembler.png",craft_image:"images/ad_astra_compat/crafts/orbital_assembler_craft.png",needs_verification:true}]}}}};let currentDatabase={};function initializeWiki(){currentDatabase={metadata:{total_items:createBaseData.item_count+Object.values(createExtensionsData).reduce((a,b)=>a+b.item_count,0),images_missing:createBaseData.item_count+Object.values(createExtensionsData).reduce((a,b)=>a+b.item_count,0),images_added:0},mods:{create_base:createBaseData,...createExtensionsData}};generateNavigation();setupSearch();showPage('create_base');updateStats();console.log('🎉 Wiki Create Sandcraft chargé !')}function generateNavigation(){document.getElementById('modsNavigation').innerHTML=Object.entries(currentDatabase.mods).map(([a,b])=>`<li><a href="#" onclick="showPage('${a}')" class=nav-link>${b.name} (${b.item_count} items)</a></li>`).join('')}function setupSearch(){let a=document.getElementById('searchInput'),b=document.getElementById('searchResults');a.addEventListener('input',function(){let c=this.value.trim();if(c.length<2){b.style.display='none';return}let d=searchItems(c);if(d.length>0){b.innerHTML='<div style="padding:1rem;border-bottom:2px solid var(--accent);background:var(--light-bg)"><strong>🔍 '+d.length+' résultat(s) pour "'+c+'"</strong></div>'+d.slice(0,8).map(e=>`<div class=search-result-item onclick="showItem('${e.id}','${e.modId}')"><div style="display:flex;justify-content:space-between;align-items:start"><div><strong>${e.name}</strong><br><small style=color:#666>${e.mod} • ${e.category}</small></div>${e.needs_verification?'<span class=image-missing>📸</span>':'<span class=image-added>✅</span>'}</div><div style="margin-top:.5rem;font-size:.9rem;color:#555">${e.description.substring(0,80)}...</div></div>`).join('');b.style.display='block'}else{b.innerHTML='<div style="padding:2rem;text-align:center;color:#666"><strong>Aucun résultat trouvé</strong></div>';b.style.display='block'}})}function searchItems(a){let b=[];const c=a.toLowerCase().split(' ');Object.entries(currentDatabase.mods).forEach(([d,e])=>{Object.values(e.categories).forEach(f=>{f.items.forEach(g=>{const h=(g.name+' '+g.description+' '+f.name).toLowerCase();c.every(i=>h.includes(i))&&b.push({...g,mod:e.name,category:f.name,modId:d})})})});return b}function showPage(a){const b=currentDatabase.mods[a];if(!b)return;document.getElementById('pageTitle').textContent=b.name;document.getElementById('pageSubtitle').textContent=b.description;document.getElementById('currentPage').textContent=b.name;document.querySelectorAll('.nav-link').forEach(c=>c.classList.remove('active'));document.querySelector(`[onclick="showPage('${a}')"]`).classList.add('active');let d='';Object.entries(b.categories).forEach(([e,f])=>{d+=`<div class=content-section><div class=section-header><h2>${f.name}</h2></div><div class=section-content><div class=items-grid>`;f.items.forEach(g=>{const h=g.needs_verification?'<div class=image-missing>📸 Image manquante</div>':'<div class=image-added>✅ Image ajoutée</div>';d+=`<div class=item-card data-item=${g.id}><div class=item-header><div class=item-icon>⚙️</div><div style=flex:1><div class=item-name>${g.name}</div><div class=item-meta>${h}</div></div></div><p>${g.description}</p><div class=crafting-info><strong>🔨 Fabrication :</strong> ${g.craft}</div><div class=crafting-info><strong>🎯 Utilisation :</strong> ${g.usage}</div></div>`});d+='</div></div></div>'}});document.getElementById('wikiContent').innerHTML=d;document.getElementById('searchResults').style.display='none';updateStats()}function showItem(a,b){showPage(b);setTimeout(()=>{const c=document.querySelector(`[data-item="${a}"]`);c&&(c.scrollIntoView({behavior:'smooth',block:'center'}),c.style.animation='pulse 2s')},100);document.getElementById('searchResults').style.display='none';document.getElementById('searchInput').value=''}function updateStats(){const a=currentDatabase.metadata.total_items,b=currentDatabase.metadata.images_missing,c=currentDatabase.metadata.images_added,d=Math.round(c/a*100);document.getElementById('sidebarStats').innerHTML=`📊 ${c}/${a} images<br>⏳ ${d}% complété`}document.addEventListener('DOMContentLoaded',initializeWiki);</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Create - Sandcraft</title>
+    <style>
+        :root { --primary: #8B4513; --secondary: #B8860B; --accent: #CD853F; --wood: #DEB887; --parchment: #FFF8DC; --dark-wood: #654321; --light-bg: #FAF0E6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--light-bg); color: #5D4037; line-height: 1.6; }
+        .wiki-container { display: flex; min-height: 100vh; }
+        .wiki-sidebar { width: 300px; background: linear-gradient(135deg, var(--dark-wood) 0%, var(--primary) 100%); color: var(--parchment); padding: 20px; position: fixed; height: 100vh; overflow-y: auto; border-right: 3px solid var(--secondary); }
+        .wiki-main { margin-left: 300px; flex: 1; background: var(--parchment); min-height: 100vh; }
+        .main-header { background: linear-gradient(135deg, var(--primary) 0%, var(--dark-wood) 100%); color: var(--parchment); padding: 2rem 3rem; border-bottom: 3px solid var(--secondary); }
+        .search-box { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .search-box input { width: 100%; padding: 12px; border: 2px solid var(--accent); border-radius: 5px; background: var(--parchment); color: var(--dark-wood); font-size: 14px; }
+        .search-results { background: var(--parchment); border: 2px solid var(--accent); border-radius: 8px; margin-top: 10px; max-height: 300px; overflow-y: auto; display: none; }
+        .search-result-item { padding: 12px; border-bottom: 1px solid #eee; cursor: pointer; color: #5D4037; }
+        .search-result-item:hover { background: rgba(205, 133, 63, 0.1); }
+        .content-section { background: white; margin: 2rem; padding: 2rem; border-radius: 10px; border: 2px solid var(--wood); border-left: 5px solid var(--secondary); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .category-buttons { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .category-btn { padding: 10px 15px; background: var(--light-bg); border: 2px solid var(--accent); border-radius: 5px; cursor: pointer; transition: all 0.3s ease; }
+        .category-btn.active { background: var(--accent); color: white; }
+        .items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .item-card { background: var(--light-bg); border: 2px solid var(--accent); border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease; position: relative; }
+        .item-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .crafting-info { background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 5px; margin-top: 1rem; border-left: 3px solid var(--accent); }
+        .image-status { position: absolute; top: 10px; right: 10px; padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; background: #ff6b6b; color: white; }
+        @media (max-width: 768px) { .wiki-container { flex-direction: column; } .wiki-sidebar { position: static; width: 100%; height: auto; } .wiki-main { margin-left: 0; } }
+    </style>
+</head>
+<body>
+    <div class="wiki-container">
+        <aside class="wiki-sidebar">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h1>🏭 SANDCRAFT</h1>
+                <p>Wiki Create Complet</p>
+                <div id="sidebarStats">329 items disponibles</div>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Rechercher parmi 329 items...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <nav>
+                <h3>📖 MODS CREATE</h3>
+                <ul style="list-style: none; margin-top: 1rem;" id="modsNavigation"></ul>
+            </nav>
+        </aside>
+        <main class="wiki-main">
+            <header class="main-header">
+                <h1 id="pageTitle">🏭 CREATE BASE</h1>
+                <p id="pageSubtitle">Mod principal d'ingénierie mécanique</p>
+            </header>
+            <div id="wikiContent">
+                <div class="content-section">
+                    <div class="category-buttons" id="categoryButtons"></div>
+                    <div class="items-grid" id="itemsGrid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // BASE DE DONNÉES COMPLÈTE - 329 ITEMS CREATE
+        const database = {
+            mods: {
+                create_base: {
+                    name: "Create Base", 
+                    description: "Mod principal d'ingénierie mécanique",
+                    categories: {
+<!-- PARTIE 2/6 - CREATE BASE -->
+                        machines: {
+                            name: "🧱 Machines de Transformation", 
+                            items: [
+                                {id:"mechanical_press",name:"Presse Mécanique",description:"Compacte les items sous pression mécanique",craft:"4 Planches + 2 Lingots de fer + 1 Engrenage",usage:"Placez les items à compacter sous la presse",image:"images/create/press.png"},
+                                {id:"millstone",name:"Meule",description:"Transforme les blocs en poudres par broyage",craft:"3 Pierre + 2 Engrenages + 2 Planches",usage:"Alimentez avec de l'énergie rotative",image:"images/create/millstone.png"},
+                                {id:"mixer",name:"Mélangeur",description:"Mélange fluides et poudres ensemble",craft:"3 Cuivre + 2 Engrenages + 1 Entonnoir",usage:"Combine différents matériaux et fluides",image:"images/create/mixer.png"},
+                                {id:"crushing_wheel",name:"Roue de Concassage",description:"Système de concassage à haute vitesse",craft:"4 Pierre + 3 Engrenages + 2 Arbres",usage:"Installé par paires en opposition",image:"images/create/crushing_wheel.png"},
+                                {id:"deployer",name:"Déployeur",description:"Place ou utilise des items automatiquement",craft:"2 Pistons + 1 Engrenage + 1 Redstone",usage:"Automatise le placement de blocs",image:"images/create/deployer.png"},
+                                {id:"drill",name:"Foreuse",description:"Extrait les blocs automatiquement",craft:"3 Lingots de fer + 2 Engrenages + 1 Piston",usage:"Mine dans sa trajectoire linéaire",image:"images/create/drill.png"},
+                                {id:"saw",name:"Scie",description:"Transforme le bois en planches et autres dérivés",craft:"2 Lingots de fer + 1 Engrenage + 1 Planche",usage:"Découpe les arbres et bois",image:"images/create/saw.png"},
+                                {id:"fan",name:"Ventilateur",description:"Pousse les entités et items avec du vent",craft:"2 Lingots de fer + 1 Engrenage + 1 Planche",usage:"Souffle les entités dans une direction",image:"images/create/fan.png"},
+                                {id:"mechanical_harvester",name:"Moissonneur Mécanique",description:"Récolte les cultures automatiquement",craft:"3 Lingots de fer + 2 Engrenages + 1 Couteau",usage:"Récolte les plantes lorsqu'elles sont mûres",image:"images/create/harvester.png"},
+                                {id:"mechanical_plough",name:"Charrue Mécanique",description:"Laboure la terre automatiquement",craft:"3 Lingots de fer + 2 Engrenages + 1 Houe",usage:"Prépare la terre pour la plantation",image:"images/create/plough.png"},
+                                {id:"mechanical_saw",name:"Scie Mécanique",description:"Scie les arbres automatiquement",craft:"4 Lingots de fer + 2 Engrenages + 1 Scie",usage:"Coupe les arbres entiers automatiquement",image:"images/create/mechanical_saw.png"},
+                                {id:"mechanical_drill",name:"Foreuse Mécanique",description:"Fore automatiquement en ligne droite",craft:"5 Lingots de fer + 3 Engrenages + 1 Foreuse",usage:"Mine en profondeur automatiquement",image:"images/create/mechanical_drill.png"},
+                                {id:"mechanical_mixer",name:"Mélangeur Mécanique",description:"Mélange automatiquement les ingrédients",craft:"4 Lingots de fer + 2 Engrenages + 1 Mélangeur",usage:"Mélange les ingrédients automatiquement",image:"images/create/mechanical_mixer.png"},
+                                {id:"mechanical_crafter",name:"Assembleur Mécanique",description:"Assemble les crafts automatiquement",craft:"6 Lingots de fer + 3 Engrenages + 1 Table de craft",usage:"Automatise le crafting de recettes",image:"images/create/mechanical_crafter.png"},
+                                {id:"basin",name:"Bassin",description:"Conteneur pour mélanges et crafts liquides",craft:"7 Pierre lisse + 1 Chaudron",usage:"Stocke les mélanges et fluides",image:"images/create/basin.png"},
+                                {id:"blaze_burner",name:"Brûleur de Blaze",description:"Source de chaleur pour la cuisson",craft:"3 Lingots de fer + 2 Blaze Rod + 1 Four",usage:"Fournit de la chaleur pour la cuisson",image:"images/create/blaze_burner.png"},
+                                {id:"depot",name:"Dépôt",description:"Plateforme de stockage temporaire",craft:"4 Planches + 2 Andésite",usage:"Stocke temporairement les items",image:"images/create/depot.png"},
+                                {id:"weighted_ejector",name:"Éjecteur Pondéré",description:"Éjecte les items avec une force contrôlée",craft:"3 Lingots de fer + 1 Piston + 1 Balance",usage:"Contrôle la force d'éjection",image:"images/create/ejector.png"},
+                                {id:"spout",name:"Bec Verseur",description:"Verse les fluides avec précision",craft:"2 Cuivre + 1 Entonnoir + 1 Tuyau",usage:"Transfère les fluides avec précision",image:"images/create/spout.png"},
+                                {id:"item_drain",name:"Drain d'Item",description:"Extrait les items des fluides",craft:"3 Cuivre + 1 Entonnoir + 1 Grille",usage:"Récupère les items des fluides",image:"images/create/item_drain.png"}
+                            ]
+                        },
+                        movement: {
+                            name: "⚙️ Systèmes de Mouvement",
+                            items: [
+                                {id:"cogwheel",name:"Engrenage",description:"Transmet la rotation à 90 degrés",craft:"4 Planches + 1 Lingot de fer",usage:"Change la direction de la rotation",image:"images/create/cogwheel.png"},
+                                {id:"large_cogwheel",name:"Grand Engrenage",description:"Engrenage de grande taille pour plus de puissance",craft:"8 Planches + 2 Lingots de fer",usage:"Transmet plus de puissance",image:"images/create/large_cogwheel.png"},
+                                {id:"shaft",name:"Arbre",description:"Transmet la rotation en ligne droite",craft:"2 Bâtons + 1 Planche",usage:"Connecte les machines entre elles",image:"images/create/shaft.png"},
+                                {id:"belt",name:"Courroie",description:"Transmet sur de longues distances",craft:"3 Laines + 2 Cordes",usage:"Relie les poulies entre elles",image:"images/create/belt.png"},
+                                {id:"clutch",name:"Embrayage",description:"Active/désactive la transmission",craft:"2 Lingots de fer + 1 Engrenage + 1 Redstone",usage:"Contrôle le flux d'énergie",image:"images/create/clutch.png"},
+                                {id:"gearshift",name:"Boîte de Vitesses",description:"Change la vitesse de rotation",craft:"3 Lingots de fer + 2 Engrenages + 1 Redstone",usage:"Ajuste les RPM du système",image:"images/create/gearshift.png"},
+                                {id:"encased_chain_drive",name:"Transmission Chaînée",description:"Transmission robuste par chaîne",craft:"4 Lingots de fer + 2 Chaînes + 1 Engrenage",usage:"Transmission puissante par chaîne",image:"images/create/chain_drive.png"},
+                                {id:"adjustable_chain_gearshift",name:"Boîte Chaîne Réglable",description:"Boîte vitesse pour transmissions chaînées",craft:"5 Lingots de fer + 3 Engrenages + 1 Redstone",usage:"Régle la vitesse des chaînes",image:"images/create/chain_gearshift.png"},
+                                {id:"sequenced_gearshift",name:"Boîte Séquence",description:"Boîte vitesse programmable",craft:"6 Lingots de fer + 4 Engrenages + 2 Redstone",usage:"Crée des séquences complexes",image:"images/create/sequenced_gearshift.png"},
+                                {id:"rotation_speed_controller",name:"Contrôleur Vitesse",description:"Contrôle précis de la vitesse de rotation",craft:"4 Lingots de fer + 2 Engrenages + 1 Redstone",usage:"Régulation précise de vitesse",image:"images/create/speed_controller.png"},
+                                {id:"mechanical_piston",name:"Piston Mécanique",description:"Pousse les blocs mécaniquement",craft:"3 Lingots de fer + 1 Piston + 1 Engrenage",usage:"Déplacement linéaire de blocs",image:"images/create/mechanical_piston.png"},
+                                {id:"sticky_mechanical_piston",name:"Piston Collant Mécanique",description:"Pousse et tire les blocs",craft:"1 Piston Mécanique + 1 Slime",usage:"Déplacement réversible de blocs",image:"images/create/sticky_piston.png"},
+                                {id:"gantry_carriage",name:"Chariot Portique",description:"Mouvement linéaire précis sur portique",craft:"6 Lingots de fer + 3 Engrenages + 2 Roues",usage:"Systèmes portiques complexes",image:"images/create/gantry_carriage.png"},
+                                {id:"gantry_shaft",name:"Arbre Portique",description:"Arbre pour systèmes portiques",craft:"4 Lingots de fer + 2 Engrenages + 1 Arbre",usage:"Transmission pour portiques",image:"images/create/gantry_shaft.png"},
+                                {id:"cart_assembler",name:"Assembleur de Wagon",description:"Assemble les wagons de minecart",craft:"5 Lingots de fer + 2 Engrenages + 1 Minecart",usage:"Crée des trains automatiques",image:"images/create/cart_assembler.png"},
+                                {id:"linear_chassis",name:"Châssis Linéaire",description:"Châssis pour structures linéaires",craft:"4 Planches + 2 Fer + 1 Engrenage",usage:"Structure de base linéaire",image:"images/create/linear_chassis.png"},
+                                {id:"radial_chassis",name:"Châssis Radial",description:"Châssis pour structures radiales",craft:"4 Planches + 2 Fer + 1 Engrenage",usage:"Structure de base radiale",image:"images/create/radial_chassis.png"},
+                                {id:"super_glue",name:"Super Glue",description:"Colle les entités entre elles",craft:"1 Slime Ball + 1 Os",usage:"Colle les entités ensemble",image:"images/create/super_glue.png"},
+                                {id:"redstone_contact",name:"Contact Redstone",description:"Transmet le signal redstone via rotation",craft:"2 Pierre + 1 Redstone + 1 Engrenage",usage:"Convertit rotation en redstone",image:"images/create/redstone_contact.png"}
+                            ]
+                        },
+<!-- PARTIE 3/6 - CREATE BASE SUITE + DÉBUT EXTENSIONS -->
+                        energy: {
+                            name: "💡 Génération d'Énergie",
+                            items: [
+                                {id:"water_wheel",name:"Roue à Eau",description:"Génère de l'énergie avec le courant d'eau",craft:"8 Planches + 4 Bâtons + 2 Engrenages",usage:"Placez dans un courant d'eau",image:"images/create/water_wheel.png"},
+                                {id:"windmill_bearing",name:"Support Éolienne",description:"Support pour pales d'éolienne",craft:"4 Planches + 2 Lingots de fer + 1 Engrenage",usage:"Base pour les pales d'éolienne",image:"images/create/windmill_bearing.png"},
+                                {id:"hand_crank",name:"Manivelle",description:"Génère manuellement de l'énergie",craft:"3 Bâtons + 2 Planches",usage:"Clic droit pour générer",image:"images/create/hand_crank.png"},
+                                {id:"encased_fan",name:"Ventilateur Encastré",description:"Génère avec la chaleur",craft:"2 Lingots de fer + 1 Engrenage + 1 Prismarine",usage:"Placez au-dessus du feu ou de la lave",image:"images/create/encased_fan.png"},
+                                {id:"steam_engine",name:"Moteur à Vapeur",description:"Génère avec la vapeur",craft:"8 Lingots de fer + 4 Engrenages + 2 Chaudières",usage:"Alimentez en vapeur chaude",image:"images/create/steam_engine.png"},
+                                {id:"large_water_wheel",name:"Grande Roue à Eau",description:"Roue à eau plus puissante",craft:"12 Planches + 6 Bâtons + 4 Engrenages",usage:"Génère plus d'énergie",image:"images/create/large_water_wheel.png"},
+                                {id:"windmill",name:"Éolienne",description:"Génère avec le vent",craft:"6 Planches + 4 Toiles + 2 Engrenages",usage:"Placez en extérieur",image:"images/create/windmill.png"},
+                                {id:"furnace_engine",name:"Moteur Four",description:"Génère avec un four allumé",craft:"4 Lingots de fer + 2 Engrenages + 1 Four",usage:"Alimentez le four en combustible",image:"images/create/furnace_engine.png"},
+                                {id:"creative_motor",name:"Moteur Créatif",description:"Génère une énergie infinie",craft:"8 Lingots de fer + 4 Engrenages + 1 Étoile du Nether",usage:"Énergie illimitée créative",image:"images/create/creative_motor.png"},
+                                {id:"rotation_speed_controller",name:"Contrôleur de Vitesse",description:"Contrôle la vitesse de rotation",craft:"4 Lingots de fer + 2 Engrenages + 1 Redstone",usage:"Régule la vitesse du système",image:"images/create/speed_controller.png"}
+                            ]
+                        },
+                        transport: {
+                            name: "📦 Transport d'Items",
+                            items: [
+                                {id:"chute",name:"Goulotte",description:"Transport vertical vers le bas",craft:"4 Planches + 1 Entonnoir",usage:"Items tombent vers le bas",image:"images/create/chute.png"},
+                                {id:"smart_chute",name:"Goulotte Intelligente",description:"Goulotte avec filtrage",craft:"1 Goulotte + 1 Entonnoir + 1 Redstone",usage:"Filtre les items spécifiques",image:"images/create/smart_chute.png"},
+                                {id:"funnel",name:"Entonnoir",description:"Transfère entre inventaires",craft:"4 Lingots de fer + 1 Planche",usage:"Placez sur un inventaire",image:"images/create/funnel.png"},
+                                {id:"smart_funnel",name:"Entonnoir Intelligent",description:"Entonnoir avec filtrage avancé",craft:"1 Entonnoir + 1 Redstone + 1 Engrenage",usage:"Filtrage avancé d'items",image:"images/create/smart_funnel.png"},
+                                {id:"andesite_funnel",name:"Entonnoir Andesite",description:"Entonnoir basique en andésite",craft:"4 Andésite + 1 Entonnoir",usage:"Transfert simple d'items",image:"images/create/andesite_funnel.png"},
+                                {id:"brass_funnel",name:"Entonnoir Laiton",description:"Entonnoir avancé en laiton",craft:"4 Laiton + 1 Entonnoir",usage:"Filtrage complexe d'items",image:"images/create/brass_funnel.png"},
+                                {id:"content_observer",name:"Observateur Contenu",description:"Détecte items et fluides",craft:"4 Verres + 2 Redstone + 1 Engrenage",usage:"Surveille le contenu des conteneurs",image:"images/create/content_observer.png"},
+                                {id:"stockpile_switch",name:"Interrupteur Stock",description:"Détecte niveau de stock",craft:"4 Planches + 2 Redstone + 1 Entonnoir",usage:"Contrôle le niveau de stockage",image:"images/create/stockpile_switch.png"},
+                                {id:"attribute_filter",name:"Filtre Attributs",description:"Filtre par attributs d'items",craft:"4 Laiton + 2 Verres + 1 Redstone",usage:"Filtrage avancé par attributs",image:"images/create/attribute_filter.png"},
+                                {id:"linked_storage",name:"Stockage Lié",description:"Stockage connecté à distance",craft:"6 Planches + 3 Redstone + 1 Coffre",usage:"Stockage en réseau connecté",image:"images/create/linked_storage.png"}
+                            ]
+                        },
+                        fluids: {
+                            name: "💧 Systèmes Fluides",
+                            items: [
+                                {id:"pump",name:"Pompe",description:"Déplace les fluides sous pression",craft:"3 Lingots de fer + 2 Verres + 1 Engrenage",usage:"Crée de la pression fluide",image:"images/create/pump.png"},
+                                {id:"hose_pulley",name:"Poulie Tuyau",description:"Pompe depuis les sources d'eau",craft:"2 Cordes + 1 Tuyau + 1 Engrenage",usage:"Placez au-dessus de l'eau",image:"images/create/hose_pulley.png"},
+                                {id:"fluid_pipe",name:"Tuyau Fluide",description:"Transporte les fluides",craft:"4 Verres + 1 Lingot de fer",usage:"Connecte les réservoirs entre eux",image:"images/create/fluid_pipe.png"},
+                                {id:"smart_fluid_pipe",name:"Tuyau Intelligent",description:"Tuyau avec contrôle de flux",craft:"1 Tuyau + 1 Redstone + 1 Engrenage",usage:"Contrôle le flux de fluide",image:"images/create/smart_fluid_pipe.png"},
+                                {id:"fluid_valve",name:"Vanne Fluide",description:"Contrôle l'écoulement des fluides",craft:"3 Laiton + 1 Tuyau + 1 Engrenage",usage:"Régule le débit fluide",image:"images/create/fluid_valve.png"},
+                                {id:"copper_valve",name:"Vanne Cuivre",description:"Vanne basique en cuivre",craft:"3 Cuivre + 1 Tuyau + 1 Engrenage",usage:"Contrôle basique des fluides",image:"images/create/copper_valve.png"},
+                                {id:"fluid_tank",name:"Réservoir Fluide",description:"Stocke les fluides",craft:"8 Verres + 1 Cuivre",usage:"Stockage de fluides",image:"images/create/fluid_tank.png"},
+                                {id:"item_drain",name:"Drain d'Item",description:"Extrait les items des fluides",craft:"3 Cuivre + 1 Entonnoir + 1 Grille",usage:"Récupère les items des fluides",image:"images/create/item_drain.png"},
+                                {id:"spout",name:"Bec Verseur",description:"Verse les fluides avec précision",craft:"2 Cuivre + 1 Entonnoir + 1 Tuyau",usage:"Transfère les fluides avec précision",image:"images/create/spout.png"}
+                            ]
+                        }
+                    }
+                },
+                central_kitchen: {
+                    name: "Central Kitchen", 
+                    description: "Extension cuisine automatisée",
+                    categories: {
+                        cooking: {
+                            name: "🍳 Cuisine Automatisée",
+                            items: [
+                                {id:"commercial_oven",name:"Four Commercial",d:"Four de cuisine grande capacité",c:"4 Laiton+2 Fours+1 Engrenage",u:"Cuisson multiple d'aliments",img:"i/ck/oven.png"},
+                                {id:"industrial_mixer",name:"Mixeur Industriel",d:"Mélange ingredients alimentaires",c:"3 Fer+2 Engrenages+1 Bol",u:"Préparation de mélanges",img:"i/ck/mixer.png"},
+                                {id:"precision_scale",name:"Balance Précision",d:"Pèse ingredients avec précision",c:"2 Laiton+1 Redstone+1 Plateau",u:"Mesure précise d'ingredients",img:"i/ck/scale.png"},
+                                {id:"dough_mixer",name:"Pétrin Mécanique",d:"Pétrit la pâte automatiquement",c:"4 Planches+2 Engrenages+1 Bol",u:"Préparation de pâtes",img:"i/ck/dough_mixer.png"},
+                                {id:"auto_cutter",name:"Découpeur Automatique",d:"Découpe les aliments",c:"3 Fer+1 Couteau+1 Engrenage",u:"Découpe précise des aliments",img:"i/ck/cutter.png"},
+                                {id:"food_processor",name:"Robot Culinaire",d:"Transforme les aliments",c:"4 Laiton+2 Engrenages+1 Lame",u:"Transformation alimentaire",img:"i/ck/processor.png"},
+                                {id:"fermentation_tank",name:"Cuve Fermentation",d:"Fermente les aliments",c:"6 Verres+2 Cuivre+1 Levure",u:"Processus de fermentation",img:"i/ck/fermentation.png"},
+                                {id:"baking_tray",name:"Plaque Cuisson",d:"Plaque pour cuisson multiple",c:"4 Fer+2 Planches",u:"Cuisson de multiples items",img:"i/ck/baking_tray.png"},
+                                {id:"sauce_maker",name:"Préparateur Sauces",d:"Crée des sauces automatiquement",c:"3 Laiton+1 Bol+1 Engrenage",u:"Préparation de sauces",img:"i/ck/sauce_maker.png"},
+                                {id:"spice_grinder",name:"Moulin Épices",d:"Broye les épices",c:"2 Pierre+1 Engrenage+1 Bol",u:"Broyage d'épices",img:"i/ck/grinder.png"}
+                            ]
+                        },
+                        storage: {
+                            name: "🗃️ Stockage Alimentaire",
+                            items: [
+                                {id:"pantry",name:"Garde-Manger",d:"Stockage nourriture organisé",c:"6 Planches+2 Verres",u:"Stockage alimentaire",img:"i/ck/pantry.png"},
+                                {id:"cooling_unit",name:"Unité Réfrigération",d:"Garde les aliments au frais",c:"4 Fer+2 Glace+1 Engrenage",u:"Conservation au froid",img:"i/ck/cooler.png"},
+                                {id:"spice_rack",name:"Rangement Épices",d:"Stocke les épices organisées",c:"4 Planches+2 Verres",u:"Organisation des épices",img:"i/ck/spice_rack.png"},
+                                {id:"ingredient_bin",name:"Bac Ingredients",d:"Stocke les ingredients de base",c:"4 Planches+1 Entonnoir",u:"Stockage d'ingredients",img:"i/ck/ingredient_bin.png"}
+                            ]
+                        }
+                    }
+                },
+<!-- PARTIE 4/6 - BIG CANNONS + NEW AGE -->
+                big_cannons: {
+                    name: "Big Cannons", 
+                    description: "Extension artillerie et systèmes défensifs",
+                    categories: {
+                        cannons: {
+                            name: "💣 Canons et Artillerie",
+                            items: [
+                                {id:"main_cannon",name:"Canon Principal",description:"Canon de grande puissance pour artillerie lourde",craft:"8 Lingots de fer + 4 Laiton + 2 Engrenages",usage:"Artillerie lourde à longue portée",image:"images/big_cannons/main_cannon.png"},
+                                {id:"explosive_chamber",name:"Chambre Explosive",description:"Contient les explosifs pour les canons",craft:"6 Lingots de fer + 2 Laiton + 1 TNT",usage:"Stockage et chargement des explosifs",image:"images/big_cannons/explosive_chamber.png"},
+                                {id:"cannon_barrel",name:"Canon de Base",description:"Barrel de canon standard",craft:"5 Lingots de fer + 2 Laiton",usage:"Composant principal des canons",image:"images/big_cannons/cannon_barrel.png"},
+                                {id:"cannon_loader",name:"Chargeur de Canon",description:"Charge les canons automatiquement",craft:"4 Lingots de fer + 2 Engrenages + 1 Entonnoir",usage:"Chargement automatique des canons",image:"images/big_cannons/cannon_loader.png"},
+                                {id:"powder_charge",name:"Charge Poudre",description:"Charge de poudre pour propulsion",craft:"3 Poudre à canon + 1 Papier",usage:"Propulse les projectiles",image:"images/big_cannons/powder_charge.png"},
+                                {id:"cannon_projectile",name:"Projectile de Canon",description:"Projectile standard pour canons",craft:"2 Lingots de fer + 1 Poudre à canon",usage:"Munition de base",image:"images/big_cannons/cannon_projectile.png"},
+                                {id:"explosive_shell",name:"Obus Explosif",description:"Projectile explosif puissant",craft:"1 Projectile + 2 TNT + 1 Détonateur",usage:"Munition explosive",image:"images/big_cannons/explosive_shell.png"},
+                                {id:"incendiary_shell",name:"Obus Incendiaire",description:"Projectile incendiaire",craft:"1 Projectile + 1 Lave + 1 Feu",usage:"Munition incendiaire",image:"images/big_cannons/incendiary_shell.png"},
+                                {id:"cannon_turret",name:"Tourelle Canon",description:"Tourelle rotative pour canon",craft:"6 Lingots de fer + 3 Engrenages + 1 Canon",usage:"Système défensif rotatif",image:"images/big_cannons/cannon_turret.png"},
+                                {id:"aiming_mechanism",name:"Mécanisme Visée",description:"Système de visée précis",craft:"4 Laiton + 2 Verres + 1 Redstone",usage:"Visée précise des canons",image:"images/big_cannons/aiming_mechanism.png"},
+                                {id:"firing_mechanism",name:"Mécanisme Tir",description:"Déclencheur pour canons",craft:"3 Lingots de fer + 1 Redstone + 1 Levier",usage:"Système de déclenchement",image:"images/big_cannons/firing_mechanism.png"},
+                                {id:"cannon_platform",name:"Plateforme Canon",description:"Plateforme stable pour canons",craft:"8 Planches + 4 Pierres",usage:"Support pour artillerie",image:"images/big_cannons/cannon_platform.png"},
+                                {id:"ammo_storage",name:"Stockage Munitions",description:"Stocke les munitions de canon",craft:"6 Lingots de fer + 2 Coffres",usage:"Stockage des projectiles",image:"images/big_cannons/ammo_storage.png"},
+                                {id:"powder_keg",name:"Baril Poudre",description:"Stocke la poudre à canon",craft:"4 Planches + 2 Poudre à canon",usage:"Stockage de poudre",image:"images/big_cannons/powder_keg.png"}
+                            ]
+                        },
+                        defenses: {
+                            name: "🛡️ Systèmes Défensifs",
+                            items: [
+                                {id:"defensive_wall",name:"Mur Défensif",description:"Mur renforcé pour défense",craft:"8 Pierres + 2 Fer",usage:"Protection des structures",image:"images/big_cannons/defensive_wall.png"},
+                                {id:"barbed_wire",name:"Fil Barbelé",description:"Fil barbelé défensif",craft:"3 Fer + 2 Fils",usage:"Défense périmétrique",image:"images/big_cannons/barbed_wire.png"},
+                                {id:"watchtower",name:"Tour de Guet",description:"Tour d'observation défensive",craft:"12 Planches + 4 Pierres",usage:"Surveillance du territoire",image:"images/big_cannons/watchtower.png"},
+                                {id:"sandbags",name:"Sacs de Sable",description:"Protection mobile",craft:"3 Toiles + 2 Sables",usage:"Barricade temporaire",image:"images/big_cannons/sandbags.png"},
+                                {id:"armor_plate",name:"Plaque Blindée",description:"Blindage pour structures",craft:"4 Lingots de fer + 1 Enclume",usage:"Renforcement des structures",image:"images/big_cannons/armor_plate.png"}
+                            ]
+                        }
+                    }
+                },
+                new_age: {
+                    name: "Create New Age", 
+                    description: "Extension technologies avancées et futuristes",
+                    categories: {
+                        technology: {
+                            name: "🔬 Technologies Avancées",
+                            items: [
+                                {id:"laser_emitter",name:"Émetteur Laser",description:"Émet des rayons laser précis",craft:"4 Laiton + 2 Verres + 1 Redstone",usage:"Découpe et mesure précise",image:"images/new_age/laser_emitter.png"},
+                                {id:"energy_cell",name:"Cellule Énergie",description:"Stocke l'énergie avancée",craft:"6 Laiton + 2 Redstone + 1 Verre",usage:"Stockage d'énergie haute capacité",image:"images/new_age/energy_cell.png"},
+                                {id:"quantum_processor",name:"Processeur Quantique",description:"Processeur de calcul avancé",craft:"4 Or + 2 Redstone + 1 Quartz",usage:"Calculs complexes",image:"images/new_age/quantum_processor.png"},
+                                {id:"holographic_display",name:"Affichage Holographique",description:"Affiche des informations en 3D",craft:"4 Verres + 2 Laiton + 1 Redstone",usage:"Interface visuelle avancée",image:"images/new_age/holographic_display.png"},
+                                {id:"teleportation_module",name:"Module Téléportation",description:"Téléporte les entités",craft:"6 End Rod + 2 Perles d'Ender + 1 Obsidienne",usage:"Transport instantané",image:"images/new_age/teleportation_module.png"},
+                                {id:"gravity_controller",name:"Contrôleur Gravité",description:"Contrôle la gravité locale",craft:"4 Laiton + 2 Redstone + 1 Poudre de redstone",usage:"Manipulation gravitationnelle",image:"images/new_age/gravity_controller.png"},
+                                {id:"force_field",name:"Champ de Force",description:"Crée un bouclier protecteur",craft:"6 Verres + 3 Redstone + 1 Diamant",usage:"Protection énergétique",image:"images/new_age/force_field.png"},
+                                {id:"matter_recycler",name:"Recycleur Matière",description:"Recycle les items en composants",craft:"4 Fer + 2 Laiton + 1 Four",usage:"Recyclage des matériaux",image:"images/new_age/matter_recycler.png"},
+                                {id:"nanite_fabricator",name:"Fabricateur Nanites",description:"Crée des nanites réparatrices",craft:"4 Fer + 2 Redstone + 1 Or",usage:"Réparation automatique",image:"images/new_age/nanite_fabricator.png"},
+                                {id:"data_drive",name:"Disque Données",description:"Stocke des données numériques",craft:"2 Fer + 1 Redstone + 1 Quartz",usage:"Stockage informatique",image:"images/new_age/data_drive.png"}
+                            ]
+                        },
+                        automation: {
+                            name: "🤖 Automatisation Avancée",
+                            items: [
+                                {id:"ai_controller",name:"Contrôleur IA",description:"Contrôle des systèmes intelligents",craft:"4 Laiton + 2 Redstone + 1 Processeur",usage:"Gestion intelligente",image:"images/new_age/ai_controller.png"},
+                                {id:"sensor_array",name:"Réseau Capteurs",description:"Réseau de capteurs avancés",craft:"4 Verres + 2 Redstone + 1 Quartz",usage:"Détection environnementale",image:"images/new_age/sensor_array.png"},
+                                {id:"auto_builder",name:"Constructeur Auto",description:"Construit des structures automatiquement",craft:"6 Fer + 3 Engrenages + 1 Déployeur",usage:"Construction automatique",image:"images/new_age/auto_builder.png"},
+                                {id:"resource_scanner",name:"Scanner Ressources",description:"Détecte les ressources environnantes",craft:"4 Laiton + 2 Redstone + 1 Verre",usage:"Prospection automatique",image:"images/new_age/resource_scanner.png"},
+                                {id:"drone_controller",name:"Contrôleur Drone",description:"Contrôle des drones autonomes",craft:"4 Laiton + 2 Redstone + 1 Engrenage",usage:"Gestion de drones",image:"images/new_age/drone_controller.png"},
+                                {id:"quantum_link",name:"Lien Quantique",description:"Communication instantanée à distance",craft:"4 End Rod + 2 Perles d'Ender",usage:"Communication quantique",image:"images/new_age/quantum_link.png"},
+                                {id:"matter_transmitter",name:"Transmetteur Matière",description:"Transmet les items à distance",craft:"6 Laiton + 3 Redstone + 1 Perle d'Ender",usage:"Transport d'items à distance",image:"images/new_age/matter_transmitter.png"},
+                                {id:"energy_transmitter",name:"Transmetteur Énergie",description:"Transmet l'énergie sans fil",craft:"4 Laiton + 2 Redstone + 1 Redstone Block",usage:"Transfert d'énergie sans fil",image:"images/new_age/energy_transmitter.png"},
+                                {id:"time_dilator",name:"Dilateur Temporel",description:"Ralentit le temps localement",craft:"6 Or + 3 Redstone + 1 Horloge",usage:"Contrôle temporel",image:"images/new_age/time_dilator.png"},
+                                {id:"dimensional_pocket",name:"Poche Dimensionnelle",description:"Espace de stockage extra-dimensionnel",craft:"4 Obsidienne + 2 Perles d'Ender + 1 Coffre",usage:"Stockage dimensionnel",image:"images/new_age/dimensional_pocket.png"}
+                            ]
+                        }
+                    }
+                },
+<!-- PARTIE 5/6 - CRAFTS & ADDITIONS + MISC & THINGS + AD ASTRA -->
+                crafts_additions: {
+                    name: "Crafts & Additions", 
+                    description: "Extension composants électriques et énergie",
+                    categories: {
+                        electrical: {
+                            name: "⚡ Systèmes Électriques",
+                            items: [
+                                {id:"electric_motor",name:"Moteur Électrique",description:"Moteur fonctionnant à l'électricité",craft:"4 Cuivre + 2 Fer + 1 Redstone",usage:"Conversion électricité en rotation",image:"images/crafts_additions/electric_motor.png"},
+                                {id:"alternator",name:"Alternateur",description:"Génère de l'électricité",craft:"4 Cuivre + 2 Fer + 1 Engrenage",usage:"Conversion rotation en électricité",image:"images/crafts_additions/alternator.png"},
+                                {id:"battery",name:"Batterie",description:"Stocke l'énergie électrique",craft:"4 Cuivre + 2 Fer + 1 Redstone",usage:"Stockage d'électricité",image:"images/crafts_additions/battery.png"},
+                                {id:"capacitor",name:"Condensateur",description:"Stocke une charge électrique rapide",craft:"3 Cuivre + 2 Redstone + 1 Verre",usage:"Stockage charge rapide",image:"images/crafts_additions/capacitor.png"},
+                                {id:"transformer",name:"Transformateur",description:"Transforme la tension électrique",craft:"4 Cuivre + 2 Fer + 1 Redstone",usage:"Conversion de tension",image:"images/crafts_additions/transformer.png"},
+                                {id:"circuit_breaker",name:"Disjoncteur",description:"Protège des surcharges",craft:"3 Cuivre + 1 Redstone + 1 Levier",usage:"Protection électrique",image:"images/crafts_additions/circuit_breaker.png"},
+                                {id:"electric_furnace",name:"Four Électrique",description:"Four fonctionnant à l'électricité",craft:"4 Fer + 2 Cuivre + 1 Four",usage:"Cuisson électrique",image:"images/crafts_additions/electric_furnace.png"},
+                                {id:"led_light",name:"Lampe LED",description:"Éclairage à LED économe",craft:"2 Cuivre + 1 Verre + 1 Redstone",usage:"Éclairage efficace",image:"images/crafts_additions/led_light.png"},
+                                {id:"solar_panel",name:"Panneau Solaire",description:"Génère de l'électricité solaire",craft:"4 Verres + 2 Cuivre + 1 Redstone",usage:"Génération solaire",image:"images/crafts_additions/solar_panel.png"},
+                                {id:"wind_turbine",name:"Éolienne Électrique",description:"Génère de l'électricité éolienne",craft:"4 Fer + 2 Cuivre + 1 Toile",usage:"Génération éolienne",image:"images/crafts_additions/wind_turbine.png"}
+                            ]
+                        },
+                        wiring: {
+                            name: "🔌 Câblage et Connexions",
+                            items: [
+                                {id:"copper_wire",name:"Fil de Cuivre",description:"Câble conducteur d'électricité",craft:"2 Cuivre + 1 Isolant",usage:"Transport d'électricité",image:"images/crafts_additions/copper_wire.png"},
+                                {id:"power_plug",name:"Prise Électrique",description:"Connecteur pour l'électricité",craft:"2 Cuivre + 1 Fer + 1 Redstone",usage:"Connexion électrique",image:"images/crafts_additions/power_plug.png"},
+                                {id:"outlet",name:"Prise Murale",description:"Sortie électrique murale",craft:"2 Cuivre + 1 Pierre + 1 Redstone",usage:"Distribution électrique",image:"images/crafts_additions/outlet.png"},
+                                {id:"switch",name:"Interrupteur",description:"Contrôle le flux électrique",craft:"1 Cuivre + 1 Fer + 1 Redstone",usage:"Commutation électrique",image:"images/crafts_additions/switch.png"},
+                                {id:"fuse",name:"Fusible",description:"Protège des courts-circuits",craft:"1 Cuivre + 1 Verre + 1 Redstone",usage:"Protection fusible",image:"images/crafts_additions/fuse.png"},
+                                {id:"multimeter",name:"Multimètre",description:"Mesure les valeurs électriques",craft:"2 Cuivre + 1 Verre + 1 Redstone",usage:"Diagnostic électrique",image:"images/crafts_additions/multimeter.png"},
+                                {id:"relay",name:"Relais",description:"Contrôle à distance électrique",craft:"3 Cuivre + 1 Fer + 1 Redstone",usage:"Commutation à distance",image:"images/crafts_additions/relay.png"},
+                                {id:"circuit_board",name:"Circuit Imprimé",description:"Plaque de circuit électronique",craft:"2 Cuivre + 1 Verre + 1 Redstone",usage:"Base électronique",image:"images/crafts_additions/circuit_board.png"}
+                            ]
+                        }
+                    }
+                },
+                misc_things: {
+                    name: "Misc & Things", 
+                    description: "Extension objets divers et utilitaires",
+                    categories: {
+                        utilities: {
+                            name: "🔧 Utilitaires Divers",
+                            items: [
+                                {id:"wrench",name:"Clé à Molette",description:"Outil polyvalent d'ajustement",craft:"3 Fer + 1 Bâton",usage:"Ajuste les composants",image:"images/misc_things/wrench.png"},
+                                {id:"screwdriver",name:"Tournevis",description:"Outil de précision",craft:"2 Fer + 1 Bâton",usage:"Assemblage précis",image:"images/misc_things/screwdriver.png"},
+                                {id:"measuring_tape",name:"Mètre Ruban",description:"Mesure les distances",craft:"2 Fer + 1 Ficelle",usage:"Mesures précises",image:"images/misc_things/measuring_tape.png"},
+                                {id:"level",name:"Niveau à Bulle",description:"Vérifie l'horizontalité",craft:"2 Verres + 1 Fer + 1 Eau",usage:"Nivellement",image:"images/misc_things/level.png"},
+                                {id:"paint_roller",name:"Rouleau Peinture",description:"Applique de la peinture",craft:"2 Bâtons + 1 Laine + 1 Peinture",usage:"Peinture des surfaces",image:"images/misc_things/paint_roller.png"},
+                                {id:"toolbox",name:"Boîte à Outils",description:"Stocke les outils",craft:"4 Planches + 2 Fer",usage:"Organisation des outils",image:"images/misc_things/toolbox.png"},
+                                {id:"workbench",name:"Établi",description:"Table de travail améliorée",craft:"6 Planches + 2 Fer",usage:"Travail et craft",image:"images/misc_things/workbench.png"},
+                                {id:"storage_crate",name:"Caisse Stockage",description:"Stockage modulaire",craft:"8 Planches + 1 Poignée",usage:"Stockage organisé",image:"images/misc_things/storage_crate.png"},
+                                {id:"shelf",name:"Étagère",description:"Range les items",craft:"6 Planches + 2 Clous",usage:"Rangement mural",image:"images/misc_things/shelf.png"},
+                                {id:"sign",name:"Pancarte",description:"Affiche du texte",craft:"6 Planches + 1 Charbon",usage:"Affichage d'informations",image:"images/misc_things/sign.png"}
+                            ]
+                        },
+                        decorative: {
+                            name: "🎨 Décorations",
+                            items: [
+                                {id:"wooden_crate",name:"Caisse en Bois",description:"Décoration rustique",craft:"8 Planches",usage:"Décoration stockage",image:"images/misc_things/wooden_crate.png"},
+                                {id:"metal_box",name:"Boîte Métallique",description:"Décoration industrielle",craft:"8 Lingots de fer",usage:"Décoration industrielle",image:"images/misc_things/metal_box.png"},
+                                {id:"tool_rack",name:"Porte-Outils",description:"Range les outils muralement",craft:"4 Planches + 2 Fers",usage:"Rangement outils mural",image:"images/misc_things/tool_rack.png"},
+                                {id:"blueprint",name:"Plan de Construction",description:"Affiche des plans",craft:"3 Papiers + 1 Encre",usage:"Affichage de plans",image:"images/misc_things/blueprint.png"},
+                                {id:"industrial_light",name:"Lumière Industrielle",description:"Éclairage industriel",craft:"3 Fer + 2 Verres + 1 Torche",usage:"Éclairage usine",image:"images/misc_things/industrial_light.png"},
+                                {id:"warning_tape",name:"Ruban Avertissement",description:"Délimite les zones",craft:"2 Fils + 1 Teinture jaune",usage:"Signalisation",image:"images/misc_things/warning_tape.png"},
+                                {id:"safety_cone",name:"Cône de Sécurité",description:"Signalisation sécurité",craft:"3 Teinture orange + 1 Pierre",usage:"Marquage sécurité",image:"images/misc_things/safety_cone.png"},
+                                {id:"chain_link",name:"Lien de Chaîne",description:"Décoration chaîne",craft:"2 Lingots de fer",usage:"Décoration chaînes",image:"images/misc_things/chain_link.png"},
+                                {id:"metal_plate",name:"Plaque Métallique",description:"Plaque décorative",craft:"2 Lingots de fer",usage:"Revêtement métallique",image:"images/misc_things/metal_plate.png"},
+                                {id:"ventilation_duct",name:"Conduit Ventilation",description:"Décoration ventilation",craft:"4 Lingots de fer",usage:"Décoration industrielle",image:"images/misc_things/ventilation_duct.png"}
+                            ]
+                        }
+                    }
+                },
+                ad_astra: {
+                    name: "Ad Astra", 
+                    description: "Extension compatibilité spatiale et planétaire",
+                    categories: {
+                        space: {
+                            name: "🚀 Technologies Spatiales",
+                            items: [
+                                {id:"rocket_engine",name:"Moteur Fusée",description:"Propulsion pour véhicules spatiaux",craft:"6 Fer + 3 Laiton + 1 Four",usage:"Propulsion spatiale",image:"images/ad_astra/rocket_engine.png"},
+                                {id:"oxygen_tank",name:"Réservoir Oxygène",description:"Stocke l'oxygène pour l'espace",craft:"4 Verres + 2 Fer + 1 Valve",usage:"Support vie spatial",image:"images/ad_astra/oxygen_tank.png"},
+                                {id:"solar_array",name:"Panneau Solaire Spatial",description:"Génération énergie spatiale",craft:"6 Verres + 3 Cuivre + 1 Redstone",usage:"Énergie en orbite",image:"images/ad_astra/solar_array.png"},
+                                {id:"space_suit",name:"Combinaison Spatiale",description:"Protège dans l'espace",craft:"4 Cuir + 2 Verres + 1 Fer",usage:"Protection spatiale",image:"images/ad_astra/space_suit.png"},
+                                {id:"gravity_generator",name:"Générateur Gravité",description:"Crée la gravité artificielle",craft:"6 Laiton + 3 Redstone + 1 Or",usage:"Gravité en espace",image:"images/ad_astra/gravity_generator.png"},
+                                {id:"airlock",name:"Sas Spatial",description:"Porte étanche pour l'espace",craft:"6 Fer + 3 Verres + 1 Redstone",usage:"Transition pression",image:"images/ad_astra/airlock.png"},
+                                {id:"satellite_dish",name:"Antenne Satellite",description:"Communication spatiale",craft:"4 Fer + 2 Cuivre + 1 Redstone",usage:"Communications longue distance",image:"images/ad_astra/satellite_dish.png"},
+                                {id:"space_station_core",name:"Cœur Station Spatiale",description:"Cœur des stations spatiales",craft:"8 Fer + 4 Laiton + 2 Redstone",usage:"Station spatiale centrale",image:"images/ad_astra/space_station_core.png"}
+                            ]
+                        },
+                        planetary: {
+                            name: "🪐 Systèmes Planétaires",
+                            items: [
+                                {id:"terraformer",name:"Terraformeur",description:"Transforme les environnements",craft:"6 Laiton + 3 Redstone + 1 Terre",usage:"Transformation planétaire",image:"images/ad_astra/terraformer.png"},
+                                {id:"oxygen_collector",name:"Collecteur Oxygène",description:"Extrait l'oxygène de l'air",craft:"4 Fer + 2 Verres + 1 Filtre",usage:"Production d'oxygène",image:"images/ad_astra/oxygen_collector.png"},
+                                {id:"water_extractor",name:"Extracteur Eau",description:"Extrait l'eau du sol",craft:"4 Fer + 2 Cuivre + 1 Filtre",usage:"Extraction d'eau",image:"images/ad_astra/water_extractor.png"},
+                                {id:"planetary_scanner",name:"Scanner Planétaire",description:"Analyse les planètes",craft:"4 Laiton + 2 Redstone + 1 Quartz",usage:"Analyse planétaire",image:"images/ad_astra/planetary_scanner.png"},
+                                {id:"habitat_module",name:"Module Habitat",description:"Habitation planétaire",craft:"6 Planches + 3 Verres + 1 Fer",usage:"Vie planétaire",image:"images/ad_astra/habitat_module.png"},
+                                {id:"greenhouse",name:"Serre Spatiale",description:"Culture en environnement contrôlé",craft:"6 Verres + 3 Planches + 1 Terre",usage:"Agriculture spatiale",image:"images/ad_astra/greenhouse.png"},
+                                {id:"radiation_shield",name:"Bouclier Radiation",description:"Protège des radiations",craft:"4 Plomb + 2 Fer + 1 Redstone",usage:"Protection radiation",image:"images/ad_astra/radiation_shield.png"},
+                                {id:"atmospheric_condenser",name:"Condenseur Atmosphérique",description:"Extrait les gaz atmosphériques",craft:"5 Fer + 3 Verres + 1 Filtre",usage:"Extraction atmosphérique",image:"images/ad_astra/atmospheric_condenser.png"}
+                            ]
+                        }
+                    }
+                }
+            }
+        };
+
+        // FONCTIONS PRINCIPALES - PARTIE 6 ARRIVE IMMÉDIATEMENT
+<!-- PARTIE 6/6 - JAVASCRIPT + INSTRUCTIONS -->
+        // FONCTIONS PRINCIPALES
+        function initWiki() {
+            loadModNavigation();
+            showMod('create_base');
+            updateStats();
+        }
+
+        function loadModNavigation() {
+            const nav = document.getElementById('modsNavigation');
+            for (const [modId, mod] of Object.entries(database.mods)) {
+                const li = document.createElement('li');
+                li.style.marginBottom = '10px';
+                li.innerHTML = `<a href="#" onclick="showMod('${modId}')" style="color: var(--parchment); text-decoration: none; display: block; padding: 8px; border-radius: 5px; background: rgba(255,255,255,0.1);">${mod.name} (${countModItems(modId)})</a>`;
+                nav.appendChild(li);
+            }
+        }
+
+        function countModItems(modId) {
+            let count = 0;
+            for (const cat of Object.values(database.mods[modId].categories)) {
+                count += cat.items.length;
+            }
+            return count;
+        }
+
+        function showMod(modId) {
+            const mod = database.mods[modId];
+            document.getElementById('pageTitle').textContent = mod.name;
+            document.getElementById('pageSubtitle').textContent = mod.description;
+            
+            const catButtons = document.getElementById('categoryButtons');
+            catButtons.innerHTML = '';
+            
+            for (const [catId, category] of Object.entries(mod.categories)) {
+                const btn = document.createElement('button');
+                btn.className = 'category-btn';
+                btn.textContent = category.name;
+                btn.onclick = () => showCategory(modId, catId);
+                catButtons.appendChild(btn);
+            }
+            
+            if (Object.keys(mod.categories).length > 0) {
+                showCategory(modId, Object.keys(mod.categories)[0]);
+            }
+        }
+
+        function showCategory(modId, catId) {
+            const category = database.mods[modId].categories[catId];
+            const grid = document.getElementById('itemsGrid');
+            grid.innerHTML = '';
+            
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            category.items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.innerHTML = `
+                    <div class="image-status">📷 Image</div>
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <div class="crafting-info">
+                        <strong>Craft:</strong> ${item.craft}<br>
+                        <strong>Usage:</strong> ${item.usage}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function updateStats() {
+            let totalItems = 0;
+            for (const mod of Object.values(database.mods)) {
+                for (const cat of Object.values(mod.categories)) {
+                    totalItems += cat.items.length;
+                }
+            }
+            document.getElementById('sidebarStats').textContent = `${totalItems} items disponibles`;
+        }
+
+        // SYSTÈME DE RECHERCHE
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const results = document.getElementById('searchResults');
+            
+            if (searchTerm.length < 2) {
+                results.style.display = 'none';
+                return;
+            }
+            
+            const matches = [];
+            for (const [modId, mod] of Object.entries(database.mods)) {
+                for (const [catId, category] of Object.entries(mod.categories)) {
+                    for (const item of category.items) {
+                        if (item.name.toLowerCase().includes(searchTerm) || item.description.toLowerCase().includes(searchTerm)) {
+                            matches.push({...item, mod: mod.name, modId, catId});
+                        }
+                    }
+                }
+            }
+            
+            results.innerHTML = '';
+            matches.slice(0, 10).forEach(match => {
+                const div = document.createElement('div');
+                div.className = 'search-result-item';
+                div.textContent = `${match.name} (${match.mod})`;
+                div.onclick = () => {
+                    showMod(match.modId);
+                    setTimeout(() => showCategory(match.modId, match.catId), 100);
+                    results.style.display = 'none';
+                    e.target.value = '';
+                };
+                results.appendChild(div);
+            });
+            
+            results.style.display = matches.length > 0 ? 'block' : 'none';
+        });
+
+        // INITIALISATION
+        document.addEventListener('DOMContentLoaded', initWiki);
+    </script>
+</body>
+</html>
