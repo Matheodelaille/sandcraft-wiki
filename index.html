@@ -117,7 +117,7 @@
                                 {id:"redstone_contact",name:"Contact Redstone",description:"Transmet le signal redstone via rotation",craft:"2 Pierre + 1 Redstone + 1 Engrenage",usage:"Convertit rotation en redstone",image:"images/create/redstone_contact.png"}
                             ]
                         },
-                                                energy: {
+                        energy: {
                             name: "💡 Génération d'Énergie",
                             items: [
                                 {id:"water_wheel",name:"Roue à Eau",description:"Génère de l'énergie avec le courant d'eau",craft:"8 Planches + 4 Bâtons + 2 Engrenages",usage:"Placez dans un courant d'eau",image:"images/create/water_wheel.png"},
@@ -280,7 +280,7 @@
                                 {id:"fusion_reactor",name:"Réacteur à Fusion",description:"Réacteur compact pour vaisseaux spatiaux",craft:"12 Calorite + 8 Aimants + 4 Circuits",usage:"Énergie de propulsion spatiale",image:"images/ad_astra/fusion_reactor.png"}
                             ]
                         }
-                    },
+                    }
                 },
                 create_misc_things: {
                     name: "Create Misc & Things", 
@@ -559,7 +559,6 @@
             loadModNavigation();
             showMod('create_base');
             updateStats();
-            debugItemCount();
         }
 
         function loadModNavigation() {
@@ -634,38 +633,14 @@
         }
 
         function updateStats() {
-    let totalItems = 0;
-    let uniqueItems = new Set(); // Pour éviter les doublons
-    
-    for (const mod of Object.values(database.mods)) {
-        for (const cat of Object.values(mod.categories)) {
-            totalItems += cat.items.length;
-            // Comptage pour debug
-            cat.items.forEach(item => {
-                uniqueItems.add(item.id);
-            });
+            let totalItems = 0;
+            for (const mod of Object.values(database.mods)) {
+                for (const cat of Object.values(mod.categories)) {
+                    totalItems += cat.items.length;
+                }
+            }
+            document.getElementById('sidebarStats').textContent = `${totalItems} items disponibles`;
         }
-    }
-    
-    console.log(`📊 Debug: ${totalItems} items bruts, ${uniqueItems.size} items uniques`);
-    document.getElementById('sidebarStats').textContent = `${uniqueItems.size} items disponibles`;
-}
-        function debugItemCount() {
-    console.log("=== DEBUG COMPTAGE ITEMS ===");
-    
-    let modCounts = {};
-    for (const [modId, mod] of Object.entries(database.mods)) {
-        let modTotal = 0;
-        for (const cat of Object.values(mod.categories)) {
-            modTotal += cat.items.length;
-        }
-        modCounts[modId] = modTotal;
-        console.log(`${modId}: ${modTotal} items`);
-    }
-    
-    console.log("Total théorique:", Object.values(modCounts).reduce((a, b) => a + b, 0));
-    console.log("========================");
-}
 
         // SYSTÈME DE RECHERCHE
         document.getElementById('searchInput').addEventListener('input', function(e) {
