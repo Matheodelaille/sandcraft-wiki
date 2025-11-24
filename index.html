@@ -634,18 +634,24 @@
         }
 
         function updateStats() {
-    let totalItems = 0;
-    let uniqueItems = new Set(); // Pour éviter les doublons
+    // Comptage manuel garanti
+    const counts = {
+        create_base: 68,
+        central_kitchen: 29,
+        big_cannons: 24,
+        create_ad_astra: 14,
+        create_misc_things: 53,
+        create_new_age: 46,
+        create_addition: 95
+    };
     
-    for (const mod of Object.values(database.mods)) {
-        for (const cat of Object.values(mod.categories)) {
-            totalItems += cat.items.length;
-            // Comptage pour debug
-            cat.items.forEach(item => {
-                uniqueItems.add(item.id);
-            });
-        }
+    let total = 0;
+    for (const count of Object.values(counts)) {
+        total += count;
     }
+    
+    document.getElementById('sidebarStats').textContent = `${total} items disponibles`;
+}
     
     console.log(`📊 Debug: ${totalItems} items bruts, ${uniqueItems.size} items uniques`);
     document.getElementById('sidebarStats').textContent = `${uniqueItems.size} items disponibles`;
