@@ -633,14 +633,22 @@
         }
 
         function updateStats() {
-            let totalItems = 0;
-            for (const mod of Object.values(database.mods)) {
-                for (const cat of Object.values(mod.categories)) {
-                    totalItems += cat.items.length;
-                }
-            }
-            document.getElementById('sidebarStats').textContent = `${totalItems} items disponibles`;
+    let totalItems = 0;
+    let uniqueItems = new Set(); // Pour éviter les doublons
+    
+    for (const mod of Object.values(database.mods)) {
+        for (const cat of Object.values(mod.categories)) {
+            totalItems += cat.items.length;
+            // Comptage pour debug
+            cat.items.forEach(item => {
+                uniqueItems.add(item.id);
+            });
         }
+    }
+    
+    console.log(`📊 Debug: ${totalItems} items bruts, ${uniqueItems.size} items uniques`);
+    document.getElementById('sidebarStats').textContent = `${uniqueItems.size} items disponibles`;
+}
 
         // SYSTÈME DE RECHERCHE
         document.getElementById('searchInput').addEventListener('input', function(e) {
