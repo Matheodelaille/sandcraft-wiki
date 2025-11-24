@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki Create - Sandcraft</title>
     <style>
-        <style>
+  <style>
     :root { 
         --primary: #8B4513; --secondary: #B8860B; --accent: #CD853F; 
         --wood: #DEB887; --parchment: #FFF8DC; --dark-wood: #654321; --light-bg: #FAF0E6; 
@@ -30,94 +30,44 @@
     .item-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
     .crafting-info { background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 5px; margin-top: 1rem; border-left: 3px solid var(--accent); font-size: 14px; }
     .image-status { position: absolute; top: 10px; right: 10px; padding: 5px 10px; border-radius: 15px; font-size: 0.7rem; background: #ff6b6b; color: white; }
-        /* ===== RESPONSIVE DESIGN OPTIMISÉ ===== */
     
-    /* Tablettes */
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
         .wiki-sidebar { width: 250px; }
         .wiki-main { margin-left: 250px; }
         .items-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
         .main-header { padding: 1.5rem 2rem; }
     }
-    
-    /* Mobiles - Écrans moyens */
     @media (max-width: 768px) {
         .wiki-container { flex-direction: column; }
-        .wiki-sidebar { 
-            position: static; 
-            width: 100%; 
-            height: auto;
-            max-height: 40vh;
-            border-right: none;
-            border-bottom: 3px solid var(--secondary);
-        }
+        .wiki-sidebar { position: static; width: 100%; height: auto; max-height: 40vh; border-right: none; border-bottom: 3px solid var(--secondary); }
         .wiki-main { margin-left: 0; }
-        .main-header {
-            padding: 1rem 1.5rem;
-            text-align: center;
-        }
-        .content-section {
-            margin: 1rem;
-            padding: 1.5rem;
-        }
-        .items-grid { 
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-        .category-buttons {
-            flex-direction: column;
-            gap: 8px;
-        }
-        .category-btn {
-            min-width: auto;
-            padding: 10px 12px;
-        }
+        .main-header { padding: 1rem 1.5rem; text-align: center; }
+        .content-section { margin: 1rem; padding: 1.5rem; }
+        .items-grid { grid-template-columns: 1fr; gap: 1rem; }
+        .category-buttons { flex-direction: column; gap: 8px; }
+        .category-btn { min-width: auto; padding: 10px 12px; }
         body { font-size: 15px; }
         .item-card { padding: 1.25rem; }
-        .crafting-info {
-            padding: 0.75rem;
-            font-size: 13px;
-        }
+        .crafting-info { padding: 0.75rem; font-size: 13px; }
     }
-    
-    /* Petits mobiles */
     @media (max-width: 480px) {
-        .main-header {
-            padding: 0.75rem 1rem;
-        }
-        .main-header h1 {
-            font-size: 1.5rem;
-        }
-        .main-header p {
-            font-size: 0.9rem;
-        }
-        .content-section {
-            margin: 0.5rem;
-            padding: 1rem;
-            border-radius: 8px;
-        }
+        .main-header { padding: 0.75rem 1rem; }
+        .main-header h1 { font-size: 1.5rem; }
+        .main-header p { font-size: 0.9rem; }
+        .content-section { margin: 0.5rem; padding: 1rem; border-radius: 8px; }
         .item-card { padding: 1rem; }
         .search-box { padding: 10px; }
-        .search-box input {
-            padding: 10px;
-            font-size: 16px;
-        }
+        .search-box input { padding: 10px; font-size: 16px; }
         body { font-size: 14px; }
-        .category-btn {
-            padding: 8px 10px;
-            font-size: 13px;
-        }
+        .category-btn { padding: 8px 10px; font-size: 13px; }
     }
-    
-    /* Très petits écrans */
     @media (max-width: 360px) {
         .wiki-sidebar { padding: 15px; }
         .content-section { padding: 0.75rem; }
         .item-card { padding: 0.75rem; }
         .crafting-info { padding: 0.5rem; }
     }
-
-    /* Amélioration de l'accessibilité */
     @media (hover: none) {
         .item-card:hover { transform: none; }
     }
