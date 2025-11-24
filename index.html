@@ -737,13 +737,15 @@
         }
 
         function updateStats() {
-            let totalItems = 0;
-            for (const mod of Object.values(database.mods)) {
-                for (const cat of Object.values(mod.categories)) {
-                    totalItems += cat.items.length;
-                }
-            }
-            document.getElementById('sidebarStats').textContent = `${totalItems} items disponibles`;
+    let totalItems = 0;
+    for (const mod of Object.values(database.mods)) {
+        for (const cat of Object.values(mod.categories)) {
+            totalItems += cat.items.length;
+        }
+    }
+    document.getElementById('sidebarStats').textContent = `${totalItems} items disponibles`;
+    console.log(`📊 Vérification : ${totalItems} items comptabilisés`);
+}
         }
 
         // SYSTÈME DE RECHERCHE
