@@ -5,29 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki Create - Sandcraft</title>
     <style>
-    :root { --primary: #8B4513; --secondary: #B8860B; --accent: #CD853F; --wood: #DEB887; --parchment: #FFF8DC; --dark-wood: #654321; --light-bg: #FAF0E6; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--light-bg); color: #5D4037; line-height: 1.6; }
-    .wiki-container { display: flex; min-height: 100vh; }
-    .wiki-sidebar { width: 300px; background: linear-gradient(135deg, var(--dark-wood) 0%, var(--primary) 100%); color: var(--parchment); padding: 20px; position: fixed; height: 100vh; overflow-y: auto; border-right: 3px solid var(--secondary); }
-    .wiki-main { margin-left: 300px; flex: 1; background: var(--parchment); min-height: 100vh; }
-    .main-header { background: linear-gradient(135deg, var(--primary) 0%, var(--dark-wood) 100%); color: var(--parchment); padding: 2rem 3rem; border-bottom: 3px solid var(--secondary); }
-    .search-box { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-    .search-box input { width: 100%; padding: 12px; border: 2px solid var(--accent); border-radius: 5px; background: var(--parchment); color: var(--dark-wood); font-size: 14px; }
-    .search-results { background: var(--parchment); border: 2px solid var(--accent); border-radius: 8px; margin-top: 10px; max-height: 300px; overflow-y: auto; display: none; }
-    .search-result-item { padding: 12px; border-bottom: 1px solid #eee; cursor: pointer; color: #5D4037; }
-    .search-result-item:hover { background: rgba(205, 133, 63, 0.1); }
-    .content-section { background: white; margin: 2rem; padding: 2rem; border-radius: 10px; border: 2px solid var(--wood); border-left: 5px solid var(--secondary); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-    .category-buttons { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-    .category-btn { padding: 10px 15px; background: var(--light-bg); border: 2px solid var(--accent); border-radius: 5px; cursor: pointer; transition: all 0.3s ease; }
-    .category-btn.active { background: var(--accent); color: white; }
-    .items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-    .item-card { background: var(--light-bg); border: 2px solid var(--accent); border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease; position: relative; }
-    .item-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-    .crafting-info { background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 5px; margin-top: 1rem; border-left: 3px solid var(--accent); }
-    .image-status { position: absolute; top: 10px; right: 10px; padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; background: #ff6b6b; color: white; }
-    @media (max-width: 768px) { .wiki-container { flex-direction: column; } .wiki-sidebar { position: static; width: 100%; height: auto; } .wiki-main { margin-left: 0; } }
-</style>
+        :root { --primary: #8B4513; --secondary: #B8860B; --accent: #CD853F; --wood: #DEB887; --parchment: #FFF8DC; --dark-wood: #654321; --light-bg: #FAF0E6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--light-bg); color: #5D4037; line-height: 1.6; }
+        .wiki-container { display: flex; min-height: 100vh; }
+        .wiki-sidebar { width: 300px; background: linear-gradient(135deg, var(--dark-wood) 0%, var(--primary) 100%); color: var(--parchment); padding: 20px; position: fixed; height: 100vh; overflow-y: auto; border-right: 3px solid var(--secondary); }
+        .wiki-main { margin-left: 300px; flex: 1; background: var(--parchment); min-height: 100vh; }
+        .main-header { background: linear-gradient(135deg, var(--primary) 0%, var(--dark-wood) 100%); color: var(--parchment); padding: 2rem 3rem; border-bottom: 3px solid var(--secondary); }
+        .search-box { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .search-box input { width: 100%; padding: 12px; border: 2px solid var(--accent); border-radius: 5px; background: var(--parchment); color: var(--dark-wood); font-size: 14px; }
+        .search-results { background: var(--parchment); border: 2px solid var(--accent); border-radius: 8px; margin-top: 10px; max-height: 300px; overflow-y: auto; display: none; }
+        .search-result-item { padding: 12px; border-bottom: 1px solid #eee; cursor: pointer; color: #5D4037; }
+        .search-result-item:hover { background: rgba(205, 133, 63, 0.1); }
+        .content-section { background: white; margin: 2rem; padding: 2rem; border-radius: 10px; border: 2px solid var(--wood); border-left: 5px solid var(--secondary); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .category-buttons { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .category-btn { padding: 10px 15px; background: var(--light-bg); border: 2px solid var(--accent); border-radius: 5px; cursor: pointer; transition: all 0.3s ease; }
+        .category-btn.active { background: var(--accent); color: white; }
+        .items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .item-card { background: var(--light-bg); border: 2px solid var(--accent); border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease; position: relative; }
+        .item-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .crafting-info { background: rgba(205, 133, 63, 0.1); padding: 1rem; border-radius: 5px; margin-top: 1rem; border-left: 3px solid var(--accent); }
+        .image-status { position: absolute; top: 10px; right: 10px; padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; background: #ff6b6b; color: white; }
+        @media (max-width: 768px) { .wiki-container { flex-direction: column; } .wiki-sidebar { position: static; width: 100%; height: auto; } .wiki-main { margin-left: 0; } }
+    </style>
 </head>
 <body>
     <div class="wiki-container">
@@ -93,7 +93,7 @@
                                 {id:"item_drain",name:"Drain d'Item",description:"Extrait les items des fluides",craft:"3 Cuivre + 1 Entonnoir + 1 Grille",usage:"Récupère les items des fluides",image:"images/create/item_drain.png"}
                             ]
                         },
-                                 movement: {
+                        movement: {
                             name: "⚙️ Systèmes de Mouvement",
                             items: [
                                 {id:"cogwheel",name:"Engrenage",description:"Transmet la rotation à 90 degrés",craft:"4 Planches + 1 Lingot de fer",usage:"Change la direction de la rotation",image:"images/create/cogwheel.png"},
@@ -117,7 +117,7 @@
                                 {id:"redstone_contact",name:"Contact Redstone",description:"Transmet le signal redstone via rotation",craft:"2 Pierre + 1 Redstone + 1 Engrenage",usage:"Convertit rotation en redstone",image:"images/create/redstone_contact.png"}
                             ]
                         },
-                        energy: {
+                                                energy: {
                             name: "💡 Génération d'Énergie",
                             items: [
                                 {id:"water_wheel",name:"Roue à Eau",description:"Génère de l'énergie avec le courant d'eau",craft:"8 Planches + 4 Bâtons + 2 Engrenages",usage:"Placez dans un courant d'eau",image:"images/create/water_wheel.png"},
@@ -162,7 +162,7 @@
                         }
                     }
                 },
-                                central_kitchen: {
+                central_kitchen: {
                     name: "Central Kitchen", 
                     description: "Extension cuisine automatisée",
                     categories: {
@@ -178,15 +178,10 @@
                                 {id:"fermentation_tank",name:"Cuve Fermentation",description:"Fermente les aliments",craft:"6 Verres + 2 Cuivre + 1 Levure",usage:"Processus de fermentation",image:"images/central_kitchen/fermentation.png"},
                                 {id:"baking_tray",name:"Plaque Cuisson",description:"Plaque pour cuisson multiple",craft:"4 Fer + 2 Planches",usage:"Cuisson de multiples items",image:"images/central_kitchen/baking_tray.png"},
                                 {id:"sauce_maker",name:"Préparateur Sauces",description:"Crée des sauces automatiquement",craft:"3 Laiton + 1 Bol + 1 Engrenage",usage:"Préparation de sauces",image:"images/central_kitchen/sauce_maker.png"},
-                                {id:"spice_grinder",name:"Moulin Épices",description:"Broye les épices",craft:"2 Pierre + 1 Engrenage + 1 Bol",usage:"Broyage d'épices",image:"images/central_kitchen/grinder.png"},
-                                {id:"dough_press",name:"Presse à Pâte",description:"Aplatit la pâte uniformément",craft:"3 Fer + 1 Piston + 1 Planche",usage:"Préparation de pâtes plates",image:"images/central_kitchen/dough_press.png"},
-                                {id:"pastry_bag",name:"Poche à Douille",description:"Décore les pâtisseries",craft:"2 Laines + 1 Entonnoir",usage:"Décoration culinaire précise",image:"images/central_kitchen/pastry_bag.png"},
-                                {id:"candy_maker",name:"Machine à Bonbons",description:"Produit des confiseries",craft:"4 Laiton + 2 Chaudrons + 1 Sucre",usage:"Fabrication de bonbons",image:"images/central_kitchen/candy_maker.png"},
-                                {id:"ice_cream_maker",name:"Machine à Glace",description:"Crème glacée automatique",craft:"3 Fer + 2 Seaux + 1 Engrenage",usage:"Production de crème glacée",image:"images/central_kitchen/ice_cream_maker.png"},
-                                {id:"chocolate_tempering",name:"Tempéreuse Chocolat",description:"Tempère le chocolat parfaitement",craft:"4 Laiton + 2 Réservoirs + 1 Chauffage",usage:"Traitement du chocolat",image:"images/central_kitchen/chocolate_temper.png"}
+                                {id:"spice_grinder",name:"Moulin Épices",description:"Broye les épices",craft:"2 Pierre + 1 Engrenage + 1 Bol",usage:"Broyage d'épices",image:"images/central_kitchen/grinder.png"}
                             ]
                         },
-                        storage: {
+                                                storage: {
                             name: "🗃️ Stockage Alimentaire",
                             items: [
                                 {id:"pantry",name:"Garde-Manger",description:"Stockage nourriture organisé",craft:"6 Planches + 2 Verres",usage:"Stockage alimentaire",image:"images/central_kitchen/pantry.png"},
@@ -257,7 +252,7 @@
                         }
                     }
                 },
-                                create_ad_astra: {
+                create_ad_astra: {
                     name: "Create Ad Astra Compat", 
                     description: "Compatibilité avec le mod Ad Astra - traitement des minerais spatiaux",
                     categories: {
@@ -269,16 +264,16 @@
                                 {id:"crushed_calorite_ore",name:"Crushed Calorite Ore",description:"Minerai de Calorite concassé, matière première exotique",craft:"Minerai de Calorite dans une meule ou concasseur",usage:"Fabrication d'équipements spatiaux endgame",image:"images/ad_astra/crushed_calorite_ore.png"},
                                 {id:"desh_ingot",name:"Lingot de Desh",description:"Lingot spatial résistant aux conditions extrêmes",craft:"Minerai de Desh fondu",usage:"Construction spatiale avancée",image:"images/ad_astra/desh_ingot.png"},
                                 {id:"ostrum_ingot",name:"Lingot d'Ostrum",description:"Alliage spatial haute performance",craft:"Minerai d'Ostrum fondu",usage:"Composants spatiaux spécialisés",image:"images/ad_astra/ostrum_ingot.png"},
-                                {id:"calorite_ingot",name:"Lingot de Calorite",description:"Matériau spatial endgame ultra-résistant",craft:"Minerai de Calorite fondu",usage:"Technologies spatiales ultimes",image:"images/ad_astra/calorite_ingot.png"},
+                                {id:"calorite_ingot",name:"Lingot de Calorite",description:"Matériau spatial endgame ultra-résistant",craft:"Minerai de Calorite fondu",usage:"Technologies spatiales ultimes",image:"images/ad_astra/calorite_ingot.png"}
+                            ]
+                        },
+                                                energy: {
+                            name: "🚀 Énergie Spatiale",
+                            items: [
                                 {id:"space_press",name:"Presse Spatiale",description:"Presse spécialisée pour matériaux spatiaux",craft:"6 Desh + 4 Laiton + 2 Engrenages",usage:"Traitement des alliages spatiaux",image:"images/ad_astra/space_press.png"},
                                 {id:"vacuum_chamber",name:"Chambre à Vide",description:"Environnement contrôlé pour expériences spatiales",craft:"8 Verres + 4 Desh + 2 Systèmes scellés",usage:"Simulation conditions spatiales",image:"images/ad_astra/vacuum_chamber.png"},
                                 {id:"zero_g_mixer",name:"Mélangeur Zero-G",description:"Mélangeur fonctionnant en microgravité",craft:"6 Ostrum + 3 Mélangeurs + 2 Gyroscopes",usage:"Mélange en conditions spatiales",image:"images/ad_astra/zero_g_mixer.png"},
-                                {id:"solar_forge",name:"Forge Solaire",description:"Utilise l'énergie solaire concentrée",craft:"8 Calorite + 4 Miroirs + 2 Foyers",usage:"Fusion avancée des matériaux",image:"images/ad_astra/solar_forge.png"}
-                            ]
-                        },
-                        energy: {
-                            name: "🚀 Énergie Spatiale",
-                            items: [
+                                {id:"solar_forge",name:"Forge Solaire",description:"Utilise l'énergie solaire concentrée",craft:"8 Calorite + 4 Miroirs + 2 Foyers",usage:"Fusion avancée des matériaux",image:"images/ad_astra/solar_forge.png"},
                                 {id:"solar_array",name:"Panneau Solaire Spatial",description:"Panneau haute efficacité pour l'espace",craft:"6 Desh + 4 Verres + 2 Circuits",usage:"Génération énergie spatiale",image:"images/ad_astra/solar_array.png"},
                                 {id:"rtg_generator",name:"Générateur RTG",description:"Générateur à radioisotopes pour missions longues",craft:"8 Ostrum + 4 Plomb + 2 Éléments radioactifs",usage:"Énergie longue durée",image:"images/ad_astra/rtg_generator.png"},
                                 {id:"plasma_conduit",name:"Conduit Plasma",description:"Transport d'énergie plasma haute température",craft:"6 Calorite + 4 Isolation + 2 Conduits",usage:"Transport énergie spatiale",image:"images/ad_astra/plasma_conduit.png"},
@@ -331,7 +326,7 @@
                                 {id:"radar",name:"Radar",description:"Système de détection électronique",craft:"6 Laiton + 4 Verres + 2 Circuits",usage:"Surveillance de zone",image:"images/misc_things/radar.png"}
                             ]
                         },
-                        materials: {
+                                                materials: {
                             name: "📦 Matériaux & Resources",
                             items: [
                                 {id:"sturdy_sheet_block",name:"Sturdy Sheet Block",description:"Bloc de tôle renforcée",craft:"4 Tôles de Fer",usage:"Construction robuste",image:"images/misc_things/sturdy_sheet_block.png"},
@@ -367,7 +362,7 @@
                         }
                     }
                 },
-                                create_new_age: {
+                create_new_age: {
                     name: "Create New Age", 
                     description: "Systèmes d'énergie électrique, nucléaire et technologies avancées",
                     categories: {
@@ -403,7 +398,7 @@
                                 {id:"advanced_motor_extension",name:"Strong Motor Extension",description:"Extension avancée pour moteurs",craft:"Laiton + Circuits",usage:"Augmentation significative capacité",image:"images/new_age/advanced_motor_extension.png"}
                             ]
                         },
-                        nuclear_reactor: {
+                                                nuclear_reactor: {
                             name: "☢️ Réacteur Nucléaire",
                             items: [
                                 {id:"reactor_casing",name:"Reactor Casing",description:"Bloc de confinement pour réacteur",craft:"Plomb + Acier + Verre",usage:"Structure de réacteur nucléaire",image:"images/new_age/reactor_casing.png"},
@@ -473,7 +468,7 @@
                                 {id:"digital_adapter",name:"Digital Adapter",description:"Interface pour ComputerCraft",craft:"Laiton + Redstone + Circuits",usage:"Contrôle informatique des systèmes",image:"images/addition/digital_adapter.png"}
                             ]
                         },
-                                                energy_storage: {
+                        energy_storage: {
                             name: "🔋 Stockage Énergie",
                             items: [
                                 {id:"accumulator",name:"Accumulator",description:"Accumulateur électrique pour stockage d'énergie",craft:"Laiton + Circuits + Fils",usage:"Stockage temporaire d'énergie électrique",image:"images/addition/accumulator.png"},
@@ -559,8 +554,7 @@
             }
         };
 
-        // FONCTIONS PRINCIPALES - CODE IDENTIQUE À L'ORIGINAL
-               // FONCTIONS PRINCIPALES
+        // FONCTIONS PRINCIPALES
         function initWiki() {
             loadModNavigation();
             showMod('create_base');
@@ -603,7 +597,6 @@
                 btn.onclick = () => showCategory(modId, catId);
                 catButtons.appendChild(btn);
                 
-                // Active et affiche la première catégorie automatiquement
                 if (index === 0) {
                     btn.classList.add('active');
                     showCategory(modId, catId);
@@ -616,7 +609,6 @@
             const grid = document.getElementById('itemsGrid');
             grid.innerHTML = '';
             
-            // Réactive le bon bouton de catégorie
             document.querySelectorAll('.category-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.textContent === category.name) {
@@ -624,7 +616,6 @@
                 }
             });
             
-            // Affiche TOUS les items
             category.items.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'item-card';
@@ -642,16 +633,13 @@
         }
 
         function updateStats() {
-    let totalItems = 0;
-    for (const mod of Object.values(database.mods)) {
-        for (const cat of Object.values(mod.categories)) {
-            totalItems += cat.items.length;
-        }
-    }
-    document.getElementById('sidebarStats').textContent = `${totalItems} items disponibles`;
-}
-    console.log(`📊 Vérification : ${totalItems} items comptabilisés`);
-}
+            let totalItems = 0;
+            for (const mod of Object.values(database.mods)) {
+                for (const cat of Object.values(mod.categories)) {
+                    totalItems += cat.items.length;
+                }
+            }
+            document.getElementById('sidebarStats').textContent = `${totalItems} items disponibles`;
         }
 
         // SYSTÈME DE RECHERCHE
@@ -696,4 +684,4 @@
         document.addEventListener('DOMContentLoaded', initWiki);
     </script>
 </body>
-</html> 
+</html>
