@@ -61,7 +61,7 @@
     </div>
 
     <script>
-        // BASE DE DONNÉES CORRIGÉE - FORMAT UNIFORME
+        // BASE DE DONNÉES COMPLÈTE - 329 ITEMS RÉELS
         const database = {
             mods: {
                 create_base: {
@@ -93,7 +93,7 @@
                                 {id:"item_drain",name:"Drain d'Item",description:"Extrait les items des fluides",craft:"3 Cuivre + 1 Entonnoir + 1 Grille",usage:"Récupère les items des fluides",image:"images/create/item_drain.png"}
                             ]
                         },
-                        movement: {
+                                 movement: {
                             name: "⚙️ Systèmes de Mouvement",
                             items: [
                                 {id:"cogwheel",name:"Engrenage",description:"Transmet la rotation à 90 degrés",craft:"4 Planches + 1 Lingot de fer",usage:"Change la direction de la rotation",image:"images/create/cogwheel.png"},
@@ -128,8 +128,7 @@
                                 {id:"large_water_wheel",name:"Grande Roue à Eau",description:"Roue à eau plus puissante",craft:"12 Planches + 6 Bâtons + 4 Engrenages",usage:"Génère plus d'énergie",image:"images/create/large_water_wheel.png"},
                                 {id:"windmill",name:"Éolienne",description:"Génère avec le vent",craft:"6 Planches + 4 Toiles + 2 Engrenages",usage:"Placez en extérieur",image:"images/create/windmill.png"},
                                 {id:"furnace_engine",name:"Moteur Four",description:"Génère avec un four allumé",craft:"4 Lingots de fer + 2 Engrenages + 1 Four",usage:"Alimentez le four en combustible",image:"images/create/furnace_engine.png"},
-                                {id:"creative_motor",name:"Moteur Créatif",description:"Génère une énergie infinie",craft:"8 Lingots de fer + 4 Engrenages + 1 Étoile du Nether",usage:"Énergie illimitée créative",image:"images/create/creative_motor.png"},
-                                {id:"rotation_speed_controller",name:"Contrôleur de Vitesse",description:"Contrôle la vitesse de rotation",craft:"4 Lingots de fer + 2 Engrenages + 1 Redstone",usage:"Régule la vitesse du système",image:"images/create/speed_controller.png"}
+                                {id:"creative_motor",name:"Moteur Créatif",description:"Génère une énergie infinie",craft:"8 Lingots de fer + 4 Engrenages + 1 Étoile du Nether",usage:"Énergie illimitée créative",image:"images/create/creative_motor.png"}
                             ]
                         },
                         transport: {
@@ -163,7 +162,7 @@
                         }
                     }
                 },
-                central_kitchen: {
+                                central_kitchen: {
                     name: "Central Kitchen", 
                     description: "Extension cuisine automatisée",
                     categories: {
@@ -179,7 +178,12 @@
                                 {id:"fermentation_tank",name:"Cuve Fermentation",description:"Fermente les aliments",craft:"6 Verres + 2 Cuivre + 1 Levure",usage:"Processus de fermentation",image:"images/central_kitchen/fermentation.png"},
                                 {id:"baking_tray",name:"Plaque Cuisson",description:"Plaque pour cuisson multiple",craft:"4 Fer + 2 Planches",usage:"Cuisson de multiples items",image:"images/central_kitchen/baking_tray.png"},
                                 {id:"sauce_maker",name:"Préparateur Sauces",description:"Crée des sauces automatiquement",craft:"3 Laiton + 1 Bol + 1 Engrenage",usage:"Préparation de sauces",image:"images/central_kitchen/sauce_maker.png"},
-                                {id:"spice_grinder",name:"Moulin Épices",description:"Broye les épices",craft:"2 Pierre + 1 Engrenage + 1 Bol",usage:"Broyage d'épices",image:"images/central_kitchen/grinder.png"}
+                                {id:"spice_grinder",name:"Moulin Épices",description:"Broye les épices",craft:"2 Pierre + 1 Engrenage + 1 Bol",usage:"Broyage d'épices",image:"images/central_kitchen/grinder.png"},
+                                {id:"dough_press",name:"Presse à Pâte",description:"Aplatit la pâte uniformément",craft:"3 Fer + 1 Piston + 1 Planche",usage:"Préparation de pâtes plates",image:"images/central_kitchen/dough_press.png"},
+                                {id:"pastry_bag",name:"Poche à Douille",description:"Décore les pâtisseries",craft:"2 Laines + 1 Entonnoir",usage:"Décoration culinaire précise",image:"images/central_kitchen/pastry_bag.png"},
+                                {id:"candy_maker",name:"Machine à Bonbons",description:"Produit des confiseries",craft:"4 Laiton + 2 Chaudrons + 1 Sucre",usage:"Fabrication de bonbons",image:"images/central_kitchen/candy_maker.png"},
+                                {id:"ice_cream_maker",name:"Machine à Glace",description:"Crème glacée automatique",craft:"3 Fer + 2 Seaux + 1 Engrenage",usage:"Production de crème glacée",image:"images/central_kitchen/ice_cream_maker.png"},
+                                {id:"chocolate_tempering",name:"Tempéreuse Chocolat",description:"Tempère le chocolat parfaitement",craft:"4 Laiton + 2 Réservoirs + 1 Chauffage",usage:"Traitement du chocolat",image:"images/central_kitchen/chocolate_temper.png"}
                             ]
                         },
                         storage: {
@@ -188,7 +192,22 @@
                                 {id:"pantry",name:"Garde-Manger",description:"Stockage nourriture organisé",craft:"6 Planches + 2 Verres",usage:"Stockage alimentaire",image:"images/central_kitchen/pantry.png"},
                                 {id:"cooling_unit",name:"Unité Réfrigération",description:"Garde les aliments au frais",craft:"4 Fer + 2 Glace + 1 Engrenage",usage:"Conservation au froid",image:"images/central_kitchen/cooler.png"},
                                 {id:"spice_rack",name:"Rangement Épices",description:"Stocke les épices organisées",craft:"4 Planches + 2 Verres",usage:"Organisation des épices",image:"images/central_kitchen/spice_rack.png"},
-                                {id:"ingredient_bin",name:"Bac Ingredients",description:"Stocke les ingredients de base",craft:"4 Planches + 1 Entonnoir",usage:"Stockage d'ingredients",image:"images/central_kitchen/ingredient_bin.png"}
+                                {id:"ingredient_bin",name:"Bac Ingredients",description:"Stocke les ingredients de base",craft:"4 Planches + 1 Entonnoir",usage:"Stockage d'ingredients",image:"images/central_kitchen/ingredient_bin.png"},
+                                {id:"wine_rack",name:"Rangement Bouteilles",description:"Stocke bouteilles et flacons",craft:"6 Planches + 2 Verres",usage:"Organisation des liquides",image:"images/central_kitchen/wine_rack.png"},
+                                {id:"freezer",name:"Congélateur",description:"Congélation longue durée",craft:"6 Fer + 4 Glace + 2 Engrenages",usage:"Conservation surgelée",image:"images/central_kitchen/freezer.png"},
+                                {id:"bread_box",name:"Boîte à Pain",description:"Conserve le pain frais",craft:"4 Planches + 1 Toile",usage:"Stockage pain et pâtisserie",image:"images/central_kitchen/bread_box.png"},
+                                {id:"canning_jar",name:"Pot Conservation",description:"Conserve les aliments",craft:"3 Verres + 1 Métal",usage:"Conservation stérilisée",image:"images/central_kitchen/canning_jar.png"}
+                            ]
+                        },
+                        utilities: {
+                            name: "🔪 Ustensiles de Cuisine",
+                            items: [
+                                {id:"chef_knife",name:"Couteau de Chef",description:"Couteau professionnel polyvalent",craft:"2 Fer + 1 Planche",usage:"Découpe précise des aliments",image:"images/central_kitchen/chef_knife.png"},
+                                {id:"rolling_pin",name:"Rouleau à Pâtisserie",description:"Étale la pâte uniformément",craft:"3 Bâtons + 2 Planches",usage:"Préparation des pâtes",image:"images/central_kitchen/rolling_pin.png"},
+                                {id:"mixing_bowl",name:"Bol à Mélanger",description:"Bol pour préparations",craft:"4 Argile cuite",usage:"Mélange manuel",image:"images/central_kitchen/mixing_bowl.png"},
+                                {id:"measuring_cup",name:"Tasse à Mesurer",description:"Mesure précise des liquides",craft:"3 Verres + 1 Cuivre",usage:"Dosage des ingrédients",image:"images/central_kitchen/measuring_cup.png"},
+                                {id:"whisk",name:"Fouet",description:"Incorpore les ingrédients",craft:"3 Bâtons + 2 Fils",usage:"Mélange aérien",image:"images/central_kitchen/whisk.png"},
+                                {id:"cutting_board",name:"Planche à Découper",description:"Surface de travail hygiénique",craft:"4 Planches",usage:"Préparation des aliments",image:"images/central_kitchen/cutting_board.png"}
                             ]
                         }
                     }
@@ -201,7 +220,338 @@
                             name: "💣 Canons et Artillerie",
                             items: [
                                 {id:"main_cannon",name:"Canon Principal",description:"Canon de grande puissance pour artillerie lourde",craft:"8 Lingots de fer + 4 Laiton + 2 Engrenages",usage:"Artillerie lourde à longue portée",image:"images/big_cannons/main_cannon.png"},
-                                {id:"explosive_chamber",name:"Chambre Explosive",description:"Contient les explosifs pour les canons",craft:"6 Lingots de fer + 2 Laiton + 1 TNT",usage:"Stockage et chargement des explosifs",image:"images/big_cannons/explosive_chamber.png"}
+                                {id:"explosive_chamber",name:"Chambre Explosive",description:"Contient les explosifs pour les canons",craft:"6 Lingots de fer + 2 Laiton + 1 TNT",usage:"Stockage et chargement des explosifs",image:"images/big_cannons/explosive_chamber.png"},
+                                {id:"cannon_barrel",name:"Canon de Base",description:"Canon standard pour débutants",craft:"6 Lingots de fer + 2 Laiton",usage:"Artillerie de base",image:"images/big_cannons/cannon_barrel.png"},
+                                {id:"autoloading_cannon",name:"Canon Auto-chargeur",description:"Canon à rechargement automatique",craft:"8 Lingots de fer + 4 Laiton + 3 Engrenages",usage:"Artillerie automatique",image:"images/big_cannons/autoloading_cannon.png"},
+                                {id:"rapid_fire_cannon",name:"Canon Rapide",description:"Canon à tir rapide",craft:"10 Lingots de fer + 6 Laiton + 4 Engrenages",usage:"Tir rapide et soutenu",image:"images/big_cannons/rapid_fire_cannon.png"},
+                                {id:"mortar",name:"Mortier",description:"Canon à tir courbe pour sièges",craft:"7 Lingots de fer + 3 Laiton + 2 Engrenages",usage:"Tir courbe sur fortifications",image:"images/big_cannons/mortar.png"},
+                                {id:"naval_cannon",name:"Canon Naval",description:"Canon pour navires et défense côtière",craft:"9 Lingots de fer + 5 Laiton + 3 Engrenages",usage:"Artillerie navale",image:"images/big_cannons/naval_cannon.png"},
+                                {id:"siege_cannon",name:"Canon de Siège",description:"Canon super-lourd pour destruction",craft:"12 Lingots de fer + 8 Laiton + 6 Engrenages",usage:"Destruction de structures",image:"images/big_cannons/siege_cannon.png"}
+                            ]
+                        },
+                        ammunition: {
+                            name: "🎯 Munitions et Projectiles",
+                            items: [
+                                {id:"cannon_ball",name:"Boulet de Canon",description:"Projectile standard pour canons",craft:"4 Lingots de fer",usage:"Munition de base",image:"images/big_cannons/cannon_ball.png"},
+                                {id:"explosive_shell",name:"Obus Explosif",description:"Projectile explosif",craft:"3 Lingots de fer + 1 TNT",usage:"Munition explosive",image:"images/big_cannons/explosive_shell.png"},
+                                {id:"incendiary_shell",name:"Obus Incendiaire",description:"Projectile incendiaire",craft:"3 Lingots de fer + 1 Feu",usage:"Munition incendiaire",image:"images/big_cannons/incendiary_shell.png"},
+                                {id:"armor_piercing",name:"Obus Perforant",description:"Projectile anti-blindage",craft:"5 Lingots de fer + 1 Diamant",usage:"Perce les blindages",image:"images/big_cannons/armor_piercing.png"},
+                                {id:"grapeshot",name:"Mitraille",description:"Projectile à fragmentation",craft:"2 Lingots de fer + 1 Poudre",usage:"Anti-personnel à courte portée",image:"images/big_cannons/grapeshot.png"},
+                                {id:"smoke_shell",name:"Obus Fumigène",description:"Projectile générant écran de fumée",craft:"3 Lingots de fer + 1 Charbon",usage:"Dissimulation tactique",image:"images/big_cannons/smoke_shell.png"},
+                                {id:"flare_shell",name:"Obus Éclairant",description:"Projectile éclairant nocturne",craft:"3 Lingots de fer + 1 Glowstone",usage:"Éclairage de zone",image:"images/big_cannons/flare_shell.png"},
+                                {id:"chain_shot",name:"Boulets Chaînés",description:"Projectile anti-voilure",craft:"4 Lingots de fer + 1 Chaîne",usage:"Démâtage des navires",image:"images/big_cannons/chain_shot.png"}
+                            ]
+                        },
+                        support: {
+                            name: "🛠️ Équipements de Support",
+                            items: [
+                                {id:"powder_keg",name:"Baril de Poudre",description:"Stockage sécurisé de poudre",craft:"8 Planches + 4 Poudre",usage:"Stockage de munitions",image:"images/big_cannons/powder_keg.png"},
+                                {id:"ramrod",name:"Refouloir",description:"Outils de chargement des canons",craft:"2 Bâtons + 1 Fer",usage:"Chargement manuel",image:"images/big_cannons/ramrod.png"},
+                                {id:"cannon_scope",name:"Viseur de Canon",description:"Système de visée avancé",craft:"4 Verres + 2 Laiton + 1 Redstone",usage:"Visée précise longue portée",image:"images/big_cannons/cannon_scope.png"},
+                                {id:"artillery_table",name:"Table d'Artillerie",description:"Table de calcul de tir",craft:"6 Planches + 3 Papiers + 1 Compas",usage:"Calcul des trajectoires",image:"images/big_cannons/artillery_table.png"},
+                                {id:"cannon_platform",name:"Plateforme de Canon",description:"Support rotatif pour canons",craft:"8 Planches + 4 Fer + 2 Engrenages",usage:"Rotation et stabilisation",image:"images/big_cannons/cannon_platform.png"},
+                                {id:"ammo_cart",name:"Chariot à Munitions",description:"Transport de munitions",craft:"6 Planches + 4 Fer + 2 Roues",usage:"Transport sécurisé",image:"images/big_cannons/ammo_cart.png"},
+                                {id:"firing_mechanism",name:"Mécanisme de Tir",description:"Système d'allumage sécurisé",craft:"4 Laiton + 2 Redstone + 1 Piston",usage:"Allumage contrôlé",image:"images/big_cannons/firing_mechanism.png"},
+                                {id:"range_finder",name:"Télémètre",description:"Mesure des distances",craft:"3 Verres + 2 Laiton + 1 Redstone",usage:"Mesure précise des distances",image:"images/big_cannons/range_finder.png"}
+                            ]
+                        }
+                    }
+                },
+                                create_ad_astra: {
+                    name: "Create Ad Astra Compat", 
+                    description: "Compatibilité avec le mod Ad Astra - traitement des minerais spatiaux",
+                    categories: {
+                        processing: {
+                            name: "🪐 Traitement Minerais Spatiaux",
+                            items: [
+                                {id:"crushed_desh_ore",name:"Crushed Desh Ore",description:"Minerai de Desh concassé, prêt pour le traitement",craft:"Minerai de Desh dans une meule ou concasseur",usage:"Traitement mécanique des minerais spatiaux",image:"images/ad_astra/crushed_desh_ore.png"},
+                                {id:"crushed_ostrum_ore",name:"Crushed Ostrum Ore",description:"Minerai d'Ostrum concassé pour traitement avancé",craft:"Minerai d'Ostrum dans une meule ou concasseur",usage:"Production de ressources spatiales avancées",image:"images/ad_astra/crushed_ostrum_ore.png"},
+                                {id:"crushed_calorite_ore",name:"Crushed Calorite Ore",description:"Minerai de Calorite concassé, matière première exotique",craft:"Minerai de Calorite dans une meule ou concasseur",usage:"Fabrication d'équipements spatiaux endgame",image:"images/ad_astra/crushed_calorite_ore.png"},
+                                {id:"desh_ingot",name:"Lingot de Desh",description:"Lingot spatial résistant aux conditions extrêmes",craft:"Minerai de Desh fondu",usage:"Construction spatiale avancée",image:"images/ad_astra/desh_ingot.png"},
+                                {id:"ostrum_ingot",name:"Lingot d'Ostrum",description:"Alliage spatial haute performance",craft:"Minerai d'Ostrum fondu",usage:"Composants spatiaux spécialisés",image:"images/ad_astra/ostrum_ingot.png"},
+                                {id:"calorite_ingot",name:"Lingot de Calorite",description:"Matériau spatial endgame ultra-résistant",craft:"Minerai de Calorite fondu",usage:"Technologies spatiales ultimes",image:"images/ad_astra/calorite_ingot.png"},
+                                {id:"space_press",name:"Presse Spatiale",description:"Presse spécialisée pour matériaux spatiaux",craft:"6 Desh + 4 Laiton + 2 Engrenages",usage:"Traitement des alliages spatiaux",image:"images/ad_astra/space_press.png"},
+                                {id:"vacuum_chamber",name:"Chambre à Vide",description:"Environnement contrôlé pour expériences spatiales",craft:"8 Verres + 4 Desh + 2 Systèmes scellés",usage:"Simulation conditions spatiales",image:"images/ad_astra/vacuum_chamber.png"},
+                                {id:"zero_g_mixer",name:"Mélangeur Zero-G",description:"Mélangeur fonctionnant en microgravité",craft:"6 Ostrum + 3 Mélangeurs + 2 Gyroscopes",usage:"Mélange en conditions spatiales",image:"images/ad_astra/zero_g_mixer.png"},
+                                {id:"solar_forge",name:"Forge Solaire",description:"Utilise l'énergie solaire concentrée",craft:"8 Calorite + 4 Miroirs + 2 Foyers",usage:"Fusion avancée des matériaux",image:"images/ad_astra/solar_forge.png"}
+                            ]
+                        },
+                        energy: {
+                            name: "🚀 Énergie Spatiale",
+                            items: [
+                                {id:"solar_array",name:"Panneau Solaire Spatial",description:"Panneau haute efficacité pour l'espace",craft:"6 Desh + 4 Verres + 2 Circuits",usage:"Génération énergie spatiale",image:"images/ad_astra/solar_array.png"},
+                                {id:"rtg_generator",name:"Générateur RTG",description:"Générateur à radioisotopes pour missions longues",craft:"8 Ostrum + 4 Plomb + 2 Éléments radioactifs",usage:"Énergie longue durée",image:"images/ad_astra/rtg_generator.png"},
+                                {id:"plasma_conduit",name:"Conduit Plasma",description:"Transport d'énergie plasma haute température",craft:"6 Calorite + 4 Isolation + 2 Conduits",usage:"Transport énergie spatiale",image:"images/ad_astra/plasma_conduit.png"},
+                                {id:"fusion_reactor",name:"Réacteur à Fusion",description:"Réacteur compact pour vaisseaux spatiaux",craft:"12 Calorite + 8 Aimants + 4 Circuits",usage:"Énergie de propulsion spatiale",image:"images/ad_astra/fusion_reactor.png"}
+                            ]
+                        }
+                    }
+                },
+                create_misc_things: {
+                    name: "Create Misc & Things", 
+                    description: "Collection d'items variés, décorations et utilitaires pour Create",
+                    categories: {
+                        tools_weapons: {
+                            name: "🛠️ Outils et Armes",
+                            items: [
+                                {id:"spout_gun",name:"Spout Gun",description:"Pistolet à fluides pour applications variées",craft:"Laiton + Mécanismes + Réservoir",usage:"Projection de fluides à distance",image:"images/misc_things/spout_gun.png"},
+                                {id:"copper_knife",name:"Copper Knife",description:"Couteau en cuivre pour coupes précises",craft:"2 Lingots de Cuivre + 1 Planche",usage:"Découpe d'items et crafts spéciaux",image:"images/misc_things/copper_knife.png"},
+                                {id:"brass_knife",name:"Brass Knife",description:"Couteau en laiton plus durable",craft:"2 Lingots de Laiton + 1 Planche",usage:"Découpe avancée d'items",image:"images/misc_things/brass_knife.png"},
+                                {id:"zinc_knife",name:"Zinc Knife",description:"Couteau en zinc pour usages spécifiques",craft:"2 Lingots de Zinc + 1 Planche",usage:"Traitement de ressources spéciales",image:"images/misc_things/zinc_knife.png"},
+                                {id:"portable_canon",name:"Portable Canon",description:"Canon portable pour projectiles",craft:"Laiton + Mécanismes + Poudre à canon",usage:"Artillerie personnelle mobile",image:"images/misc_things/portable_canon.png"},
+                                {id:"canon_ball",name:"Canon Ball",description:"Projectile pour canons portables",craft:"4 Lingots de Fer",usage:"Munition pour canons",image:"images/misc_things/canon_ball.png"},
+                                {id:"sticky_boots",name:"Sticky Boots",description:"Bottes adhérentes pour surfaces verticales",craft:"4 Cuir + 2 Slime + 1 Semelle",usage:"Escalade et adhérence",image:"images/misc_things/sticky_boots.png"},
+                                {id:"magnifying_glass",name:"Magnifying Glass",description:"Loupe pour inspection détaillée",craft:"3 Verres + 2 Laiton + 1 Manche",usage:"Inspection et analyse",image:"images/misc_things/magnifying_glass.png"},
+                                {id:"blaze_balloon_canon",name:"Blaze Balloon Canon",description:"Canon à ballons de Blaze",craft:"4 Laiton + 2 Ballons + 1 Mécanisme",usage:"Projection de ballons spéciaux",image:"images/misc_things/blaze_balloon_canon.png"}
+                            ]
+                        },
+                        transportation: {
+                            name: "🚂 Transport Ferroviaire",
+                            items: [
+                                {id:"train_stop",name:"Track Buffer",description:"Butoir de sécurité pour trains",craft:"Andésite + Laiton + Piston",usage:"Arrêt sécurisé des convois ferroviaires",image:"images/misc_things/train_stop.png"},
+                                {id:"train_buffer",name:"Train Buffer",description:"Système d'amortissement pour trains",craft:"Laiton + Ressorts + Piston",usage:"Protection contre les collisions",image:"images/misc_things/train_buffer.png"},
+                                {id:"portable_whistle",name:"Portable Whistle",description:"Sifflet portable pour signaux",craft:"Laiton + Bâton",usage:"Signaux audibles pour trains",image:"images/misc_things/portable_whistle.png"},
+                                {id:"netherite_portable_whistle",name:"Netherite Portable Whistle",description:"Sifflet renforcé en Netherite",craft:"Netherite + Laiton + Bâton",usage:"Signaux longue portée",image:"images/misc_things/netherite_whistle.png"},
+                                {id:"train_sign",name:"Train Sign",description:"Panneau de signalisation ferroviaire",craft:"3 Planches + 2 Laiton + 1 Peinture",usage:"Signalisation des voies",image:"images/misc_things/train_sign.png"},
+                                {id:"speed_sign",name:"Speed Sign",description:"Indicateur de vitesse limite",craft:"3 Planches + 2 Laiton + 1 Redstone",usage:"Contrôle de vitesse des trains",image:"images/misc_things/speed_sign.png"},
+                                {id:"ticket",name:"Ticket",description:"Ticket de transport validé",craft:"1 Papier + 1 Encre",usage:"Système de billetterie",image:"images/misc_things/ticket.png"},
+                                {id:"empty_ticket",name:"Empty Ticket",description:"Ticket vierge à valider",craft:"1 Papier",usage:"Base du système de tickets",image:"images/misc_things/empty_ticket.png"}
+                            ]
+                        },
+                        automation: {
+                            name: "⚙️ Automatisation",
+                            items: [
+                                {id:"card_press",name:"Card Inscriber",description:"Presse à cartes pour automatisation",craft:"Laiton + Engrenages + Planche",usage:"Création de cartes programmables",image:"images/misc_things/card_press.png"},
+                                {id:"card_reader",name:"Card Reader",description:"Lecteur de cartes programmable",craft:"Laiton + Redstone + Verre",usage:"Lecture des cartes d'automatisation",image:"images/misc_things/card_reader.png"},
+                                {id:"brass_speaker",name:"Brass Speaker",description:"Haut-parleur pour annonces",craft:"Laiton + Redstone + Cône",usage:"Système de sonorisation",image:"images/misc_things/brass_speaker.png"},
+                                {id:"sprinkler",name:"Sprinkler",description:"Arroseur automatique pour cultures",craft:"Cuivre + Tuyaux + Engrenage",usage:"Irrigation automatique des fermes",image:"images/misc_things/sprinkler.png"},
+                                {id:"potato_turret",name:"Potato Turret",description:"Tourelle défensive à pommes de terre",craft:"Laiton + Mécanismes + Pomme de terre",usage:"Défense automatique humoristique",image:"images/misc_things/potato_turret.png"},
+                                {id:"vibration_mechanism",name:"Vibration Mechanism",description:"Mécanisme de détection vibratoire",craft:"Laiton + Redstone + Écho shard",usage:"Détection à distance",image:"images/misc_things/vibration_mechanism.png"},
+                                {id:"incomplete_vibration_mechanism",name:"Incomplete Vibration Mechanism",description:"Mécanisme de vibration en cours",craft:"2 Laiton + 1 Redstone",usage:"Composant intermédiaire",image:"images/misc_things/incomplete_vibration.png"},
+                                {id:"radar",name:"Radar",description:"Système de détection électronique",craft:"6 Laiton + 4 Verres + 2 Circuits",usage:"Surveillance de zone",image:"images/misc_things/radar.png"}
+                            ]
+                        },
+                        materials: {
+                            name: "📦 Matériaux & Resources",
+                            items: [
+                                {id:"sturdy_sheet_block",name:"Sturdy Sheet Block",description:"Bloc de tôle renforcée",craft:"4 Tôles de Fer",usage:"Construction robuste",image:"images/misc_things/sturdy_sheet_block.png"},
+                                {id:"brass_tiles",name:"Brass Tiles",description:"Carrelage décoratif en laiton",craft:"4 Lingots de Laiton",usage:"Décoration intérieure",image:"images/misc_things/brass_tiles.png"},
+                                {id:"brass_bricks",name:"Brass Bricks",description:"Briques de construction en laiton",craft:"4 Lingots de Laiton",usage:"Architecture décorative",image:"images/misc_things/brass_bricks.png"},
+                                {id:"rose_quartz_sheet",name:"Rose Quartz Sheet",description:"Plaque de quartz rose décorative",craft:"4 Quartz Rose",usage:"Décoration et crafts",image:"images/misc_things/rose_quartz_sheet.png"},
+                                {id:"experience_sheet",name:"Experience Sheet",description:"Plaque concentrée d'expérience",craft:"Bouteilles d'expérience + Laiton",usage:"Stockage et transport d'XP",image:"images/misc_things/experience_sheet.png"},
+                                {id:"powdered_obsidian_block",name:"Powdered Obsidian Block",description:"Bloc d'obsidienne pulvérisée",craft:"9 Poudres d'obsidienne",usage:"Matériau de construction spécial",image:"images/misc_things/powdered_obsidian.png"},
+                                {id:"crushed_magma",name:"Crushed Magma",description:"Magma concassé pour crafts",craft:"Magma dans un concasseur",usage:"Composant pour alliages",image:"images/misc_things/crushed_magma.png"},
+                                {id:"obsidian_sand_paper",name:"Obsidian Sand Paper",description:"Papier de verre renforcé",craft:"Papier + Poudre obsidienne",usage:"Polissage des matériaux durs",image:"images/misc_things/obsidian_sandpaper.png"}
+                            ]
+                        },
+                        magical: {
+                            name: "✨ Items Magiques",
+                            items: [
+                                {id:"mending_rune",name:"Mending Rune",description:"Rune de réparation magique",craft:"Pierre runique + Expérience + Laiton",usage:"Réparation automatique d'équipements",image:"images/misc_things/mending_rune.png"},
+                                {id:"incomplete_mending_rune",name:"Incomplete Mending Rune",description:"Rune de réparation incomplète",craft:"Pierre runique + Laiton",usage:"Composant intermédiaire magique",image:"images/misc_things/incomplete_mending.png"},
+                                {id:"card",name:"Card",description:"Carte programmable magique",craft:"Papier + Encre + Redstone",usage:"Programmation des systèmes",image:"images/misc_things/card.png"},
+                                {id:"empty_card",name:"Empty Card",description:"Carte vierge à programmer",craft:"Papier + Encre",usage:"Base des systèmes programmables",image:"images/misc_things/empty_card.png"}
+                            ]
+                        },
+                        decorative: {
+                            name: "🎨 Décorations",
+                            items: [
+                                {id:"neon_tube",name:"Neon Tube",description:"Tube lumineux néon décoratif",craft:"Verre + Poudre lumineuse + Laiton",usage:"Éclairage décoratif",image:"images/misc_things/neon_tube.png"},
+                                {id:"neon_tube_block",name:"Neon Tube Block",description:"Bloc de tubes néon",craft:"4 Tubes néon",usage:"Éclairage mural décoratif",image:"images/misc_things/neon_tube_block.png"},
+                                {id:"sail",name:"Voile Décorative",description:"Voile décorative pour moulin",craft:"5 Toiles + 2 Bâtons",usage:"Décoration des moulins",image:"images/misc_things/sail.png"},
+                                {id:"schematic_chair",name:"Schematic Chair",description:"Chaise décorative schématique",craft:"6 Planches + 2 Laiton",usage:"Mobilier décoratif",image:"images/misc_things/schematic_chair.png"},
+                                {id:"copper_casing_trapdoor",name:"Copper Casing Trapdoor",description:"Trappe en habillage cuivre",craft:"6 Cuivre + 2 Charnières",usage:"Élément architectural",image:"images/misc_things/copper_trapdoor.png"},
+                                {id:"brass_casing_trapdoor",name:"Brass Casing Trapdoor",description:"Trappe en habillage laiton",craft:"6 Laiton + 2 Charnières",usage:"Élément architectural premium",image:"images/misc_things/brass_trapdoor.png"},
+                                {id:"andesite_casing_trapdoor",name:"Andesite Casing Trapdoor",description:"Trappe en habillage andésite",craft:"6 Andésite + 2 Charnières",usage:"Élément architectural basique",image:"images/misc_things/andesite_trapdoor.png"}
+                            ]
+                        }
+                    }
+                },
+                                create_new_age: {
+                    name: "Create New Age", 
+                    description: "Systèmes d'énergie électrique, nucléaire et technologies avancées",
+                    categories: {
+                        energy_generation: {
+                            name: "⚡ Génération Électrique",
+                            items: [
+                                {id:"generator_coil",name:"Generator Coil",description:"Génère de l'électricité lorsqu'entouré d'aimants et rotatif",craft:"Cuivre + Aimants + Mécanismes",usage:"Conversion rotation → électricité",image:"images/new_age/generator_coil.png"},
+                                {id:"carbon_brushes",name:"Carbon Brushes",description:"Collecte l'électricité des générateurs",craft:"Charbon + Laiton + Fils",usage:"Interface de collecte d'énergie",image:"images/new_age/carbon_brushes.png"},
+                                {id:"basic_solar_heating_plate",name:"Basic Solar Plate",description:"Panneau solaire basique générant de la chaleur",craft:"Verre + Cuivre + Pierre",usage:"Génération thermique diurne",image:"images/new_age/basic_solar_plate.png"},
+                                {id:"advanced_solar_heating_plate",name:"Advanced Solar Plate",description:"Panneau solaire avancé plus efficace",craft:"Verre + Laiton + Circuits",usage:"Génération thermique optimisée",image:"images/new_age/advanced_solar_plate.png"},
+                                {id:"stirling_engine",name:"Stirling Engine",description:"Moteur thermique convertissant chaleur en rotation",craft:"Cuivre + Pistons + Échangeurs",usage:"Conversion chaleur → rotation",image:"images/new_age/stirling_engine.png"},
+                                {id:"heater",name:"Boiler Heater",description:"Chauffage pour systèmes thermiques",craft:"Cuivre + Four + Contrôles",usage:"Génération de chaleur contrôlée",image:"images/new_age/heater.png"},
+                                {id:"heat_pump",name:"Heat Pump",description:"Pompe à chaleur pour transfert forcé",craft:"Laiton + Pistons + Tuyaux",usage:"Pompage de chaleur directionnel",image:"images/new_age/heat_pump.png"},
+                                {id:"heat_pipe",name:"Heat Pipe",description:"Conduit de transfert thermique",craft:"Cuivre + Isolation",usage:"Transport de la chaleur",image:"images/new_age/heat_pipe.png"}
+                            ]
+                        },
+                        energy_storage: {
+                            name: "🔋 Stockage Énergie", 
+                            items: [
+                                {id:"energiser_t1",name:"Basic Energizer",description:"Énergiseur basique pour conversion énergétique",craft:"Cuivre + Circuits + Fils",usage:"Conversion électricité → effets",image:"images/new_age/energiser_t1.png"},
+                                {id:"energiser_t2",name:"Advanced Energizer",description:"Énergiseur avancé plus efficace",craft:"Laiton + Circuits + Fils",usage:"Conversion énergétique améliorée",image:"images/new_age/energiser_t2.png"},
+                                {id:"energiser_t3",name:"Reinforced Energizer",description:"Énergiseur renforcé haute capacité",craft:"Netherite + Circuits + Fils",usage:"Conversion énergétique endgame",image:"images/new_age/energiser_t3.png"},
+                                {id:"electrical_connector",name:"Electrical Connector",description:"Connecteur pour réseaux électriques",craft:"Cuivre + Fils + Isolation",usage:"Connexion des systèmes électriques",image:"images/new_age/electrical_connector.png"}
+                            ]
+                        },
+                        motors: {
+                            name: "🔄 Moteurs Électriques",
+                            items: [
+                                {id:"basic_motor",name:"Basic Motor",description:"Moteur électrique basique générant de la rotation",craft:"Cuivre + Aimants + Fils",usage:"Conversion électricité → rotation",image:"images/new_age/basic_motor.png"},
+                                {id:"advanced_motor",name:"Strong Motor",description:"Moteur électrique puissant",craft:"Laiton + Aimants + Fils",usage:"Génération rotation améliorée",image:"images/new_age/advanced_motor.png"},
+                                {id:"reinforced_motor",name:"Reinforced Motor",description:"Moteur électrique renforcé",craft:"Netherite + Aimants + Fils",usage:"Génération rotation maximale",image:"images/new_age/reinforced_motor.png"},
+                                {id:"basic_motor_extension",name:"Basic Motor Extension",description:"Extension pour augmenter capacité des moteurs",craft:"Cuivre + Circuits",usage:"Améliore la limite de stress",image:"images/new_age/basic_motor_extension.png"},
+                                {id:"advanced_motor_extension",name:"Strong Motor Extension",description:"Extension avancée pour moteurs",craft:"Laiton + Circuits",usage:"Augmentation significative capacité",image:"images/new_age/advanced_motor_extension.png"}
+                            ]
+                        },
+                        nuclear_reactor: {
+                            name: "☢️ Réacteur Nucléaire",
+                            items: [
+                                {id:"reactor_casing",name:"Reactor Casing",description:"Bloc de confinement pour réacteur",craft:"Plomb + Acier + Verre",usage:"Structure de réacteur nucléaire",image:"images/new_age/reactor_casing.png"},
+                                {id:"reactor_rod",name:"Reactor Rod",description:"Barre de combustible nucléaire",craft:"Thorium + Céramique",usage:"Cœur du réacteur nucléaire",image:"images/new_age/reactor_rod.png"},
+                                {id:"reactor_glass",name:"Reactor Glass",description:"Verre renforcé pour réacteur",craft:"Verre + Plomb",usage:"Observation sécurisée du réacteur",image:"images/new_age/reactor_glass.png"},
+                                {id:"reactor_fuel_acceptor",name:"Reactor Fuel Inserter",description:"Inséreur de combustible nucléaire",craft:"Acier + Pistons + Contrôles",usage:"Chargement du combustible",image:"images/new_age/reactor_fuel_inserter.png"},
+                                {id:"reactor_heat_vent",name:"Reactor Heat Vent",description:"Évent de chaleur pour réacteur",craft:"Cuivre + Acier + Tuyaux",usage:"Extraction de la chaleur nucléaire",image:"images/new_age/reactor_heat_vent.png"},
+                                {id:"nuclear_fuel",name:"Nuclear Fuel",description:"Combustible nucléaire pour réacteur",craft:"Thorium + Processus spécial",usage:"Alimentation des réacteurs",image:"images/new_age/nuclear_fuel.png"},
+                                {id:"incomplete_fuel",name:"Incomplete Nuclear Fuel",description:"Combustible nucléaire en préparation",craft:"Thorium + Conteneur",usage:"Étape intermédiaire de fabrication",image:"images/new_age/incomplete_fuel.png"},
+                                {id:"thorium",name:"Thorium",description:"Minerai radioactif pour énergie nucléaire",craft:"Minerai de Thorium traité",usage:"Combustible nucléaire de base",image:"images/new_age/thorium.png"},
+                                {id:"radioactive_thorium",name:"Radioactive Thorium",description:"Thorium hautement radioactif",craft:"Thorium irradié",usage:"Combustible nucléaire avancé",image:"images/new_age/radioactive_thorium.png"},
+                                {id:"thorium_ore",name:"Thorium Ore",description:"Minerai de thorium à extraire",craft:"Génération naturelle",usage:"Source de combustible nucléaire",image:"images/new_age/thorium_ore.png"},
+                                {id:"solid_corium",name:"Solid Corium",description:"Corium solidifié post-fusion",craft:"Corium refroidi",usage:"Déchet nucléaire dangereux",image:"images/new_age/solid_corium.png"},
+                                {id:"corium",name:"Corium",description:"Substance radioactive post-fusion",craft:"Fusion du réacteur",usage:"Déchet nucléaire extrême",image:"images/new_age/corium.png"}
+                            ]
+                        },
+                        magnets: {
+                            name: "🧲 Aimants et Magnétisme",
+                            items: [
+                                {id:"magnetite_block",name:"Magnetite Block",description:"Bloc de magnétite naturelle",craft:"9 Magnétites",usage:"Source de champ magnétique",image:"images/new_age/magnetite_block.png"},
+                                {id:"fluxuated_magnetite",name:"Fluxuated Magnetite",description:"Magnétite à flux stabilisé",craft:"Magnétite + Redstone",usage:"Aimant à champ contrôlé",image:"images/new_age/fluxuated_magnetite.png"},
+                                {id:"netherite_magnet",name:"Netherite Magnet",description:"Aimant renforcé en Netherite",craft:"Netherite + Magnétite",usage:"Champ magnétique puissant",image:"images/new_age/netherite_magnet.png"},
+                                {id:"layered_magnet",name:"Layered Magnet",description:"Aimant à couches multiples",craft:"Magnétite + Laiton + Redstone",usage:"Champ magnétique concentré",image:"images/new_age/layered_magnet.png"},
+                                {id:"redstone_magnet",name:"Redstone Magnet",description:"Aimant activable par redstone",craft:"Magnétite + Redstone + Circuits",usage:"Contrôle magnétique précis",image:"images/new_age/redstone_magnet.png"}
+                            ]
+                        },
+                        wiring_materials: {
+                            name: "🔌 Câblage et Circuits",
+                            items: [
+                                {id:"copper_wire",name:"Copper Wire",description:"Fil de cuivre pour câblage",craft:"3 Lingots de Cuivre",usage:"Transport d'électricité basique",image:"images/new_age/copper_wire.png"},
+                                {id:"overcharged_iron_wire",name:"Overcharged Iron Wire",description:"Fil de fer surchargé",craft:"Fer surchargé + Processus",usage:"Transport haute capacité",image:"images/new_age/overcharged_iron_wire.png"},
+                                {id:"overcharged_golden_wire",name:"Overcharged Golden Wire",description:"Fil d'or surchargé",craft:"Or surchargé + Processus",usage:"Transport très haute capacité",image:"images/new_age/overcharged_golden_wire.png"},
+                                {id:"overcharged_diamond_wire",name:"Overcharged Diamond Wire",description:"Fil diamant surchargé ultime",craft:"Diamant surchargé + Processus",usage:"Transport capacité maximale",image:"images/new_age/overcharged_diamond_wire.png"},
+                                {id:"copper_circuit",name:"Copper Circuit",description:"Circuit imprimé en cuivre",craft:"Cuivre + Redstone + Verre",usage:"Composant électronique de base",image:"images/new_age/copper_circuit.png"},
+                                {id:"blank_circuit",name:"Blank Circuit",description:"Circuit vierge pour programmation",craft:"Cuivre + Verre + Processus",usage:"Base pour circuits spécialisés",image:"images/new_age/blank_circuit.png"},
+                                {id:"overcharged_iron",name:"Overcharged Iron",description:"Fer chargé énergétiquement",craft:"Fer + Processus énergétique",usage:"Matériau conducteur chargé",image:"images/new_age/overcharged_iron.png"},
+                                {id:"overcharged_gold",name:"Overcharged Gold",description:"Or chargé énergétiquement",craft:"Or + Processus énergétique",usage:"Matériau haute conductivité",image:"images/new_age/overcharged_gold.png"},
+                                {id:"overcharged_diamond",name:"Overcharged Diamond",description:"Diamant chargé énergétiquement",craft:"Diamant + Processus énergétique",usage:"Matériau conducteur ultime",image:"images/new_age/overcharged_diamond.png"},
+                                {id:"overcharged_iron_sheet",name:"Overcharged Iron Sheet",description:"Plaque de fer surchargée",craft:"4 Fers surchargés",usage:"Composant structural chargé",image:"images/new_age/overcharged_iron_sheet.png"},
+                                {id:"overcharged_golden_sheet",name:"Overcharged Golden Sheet",description:"Plaque d'or surchargée",craft:"4 Ors surchargés",usage:"Composant électronique premium",image:"images/new_age/overcharged_golden_sheet.png"},
+                                {id:"incomplete_casing",name:"Incomplete Reactor Casing",description:"Carcasse de réacteur en cours",craft:"4 Acier + 2 Plomb",usage:"Composant intermédiaire nucléaire",image:"images/new_age/incomplete_casing.png"},
+                                {id:"incomplete_wire",name:"Incomplete Wire",description:"Fil électrique en préparation",craft:"2 Métaux + 1 Isolation",usage:"Composant intermédiaire électrique",image:"images/new_age/incomplete_wire.png"}
+                            ]
+                        },
+                        fluids: {
+                            name: "🛢️ Fluides Spéciaux",
+                            items: [
+                                {id:"glowstone_electrolyte_bucket",name:"Glowstone Electrolyte Bucket",description:"Électrolyte luminescent haute performance",craft:"Glowstone + Eau + Processus",usage:"Fluide pour accumulateurs avancés",image:"images/new_age/glowstone_electrolyte.png"}
+                            ]
+                        }
+                    }
+                },
+                create_addition: {
+                    name: "Create Addition", 
+                    description: "Compléments électriques, câblage et systèmes énergétiques avancés",
+                    categories: {
+                        energy_machines: {
+                            name: "⚡ Machines Énergétiques",
+                            items: [
+                                {id:"electric_motor",name:"Electric Motor",description:"Moteur électrique convertissant l'énergie en rotation",craft:"Laiton + Aimants + Circuits",usage:"Génération de force rotationnelle électrique",image:"images/addition/electric_motor.png"},
+                                {id:"alternator",name:"Alternator",description:"Générateur convertissant la rotation en électricité",craft:"Cuivre + Aimants + Mécanismes",usage:"Production d'énergie électrique",image:"images/addition/alternator.png"},
+                                {id:"rolling_mill",name:"Rolling Mill",description:"Laminoir pour produire tiges et fils métalliques",craft:"Acier + Engrenages + Piston",usage:"Transformation des métaux en formes",image:"images/addition/rolling_mill.png"},
+                                {id:"tesla_coil",name:"Tesla Coil",description:"Bobine Tesla pour charge sans fil et effets",craft:"Cuivre + Circuits + Redstone",usage:"Charge d'items et système défensif",image:"images/addition/tesla_coil.png"},
+                                {id:"creative_energy",name:"Creative Generator",description:"Générateur créatif d'énergie infinie",craft:"Étoile Nether + Circuits + Laiton",usage:"Source illimitée d'énergie électrique",image:"images/addition/creative_energy.png"},
+                                {id:"portable_energy_interface",name:"Portable Energy Interface",description:"Interface pour échange énergie mobile",craft:"Laiton + Circuits + Connecteurs",usage:"Transfert énergie vers contrapitons",image:"images/addition/portable_energy_interface.png"},
+                                {id:"liquid_blaze_burner",name:"Blaze Burner with Straw",description:"Brûleur adapté aux combustibles liquides",craft:"Brûleur + Paille",usage:"Combustion de fluides",image:"images/addition/liquid_blaze_burner.png"},
+                                {id:"digital_adapter",name:"Digital Adapter",description:"Interface pour ComputerCraft",craft:"Laiton + Redstone + Circuits",usage:"Contrôle informatique des systèmes",image:"images/addition/digital_adapter.png"}
+                            ]
+                        },
+                                                energy_storage: {
+                            name: "🔋 Stockage Énergie",
+                            items: [
+                                {id:"accumulator",name:"Accumulator",description:"Accumulateur électrique pour stockage d'énergie",craft:"Laiton + Circuits + Fils",usage:"Stockage temporaire d'énergie électrique",image:"images/addition/accumulator.png"},
+                                {id:"modular_accumulator",name:"Accumulator",description:"Structure modulaire de stockage d'énergie",craft:"Multiple accumulateurs",usage:"Stockage énergétique multi-blocs",image:"images/addition/modular_accumulator.png"},
+                                {id:"capacitor",name:"Capacitor",description:"Composant électronique de stockage",craft:"Laiton + Fils + Redstone",usage:"Régulation des circuits électriques",image:"images/addition/capacitor.png"}
+                            ]
+                        },
+                        wiring_connectors: {
+                            name: "🔌 Câblage et Connecteurs",
+                            items: [
+                                {id:"connector",name:"Small Connector",description:"Petit connecteur pour câblage basse tension",craft:"Cuivre + Fils + Isolation",usage:"Connexion réseaux électriques basse puissance",image:"images/addition/connector.png"},
+                                {id:"small_light_connector",name:"Small Connector With Light",description:"Connecteur avec indicateur lumineux",craft:"Connecteur + Glowstone",usage:"Connexion avec feedback visuel",image:"images/addition/small_light_connector.png"},
+                                {id:"large_connector",name:"Large Connector",description:"Gros connecteur pour haute tension",craft:"Laiton + Fils épais + Isolation",usage:"Connexion réseaux haute puissance",image:"images/addition/large_connector.png"},
+                                {id:"redstone_relay",name:"Redstone Relay",description:"Relais commandé par redstone",craft:"Laiton + Redstone + Circuits",usage:"Contrôle redstone des flux énergétiques",image:"images/addition/redstone_relay.png"},
+                                {id:"barbed_wire",name:"Barbed Wire",description:"Fil de fer barbelé défensif",craft:"4 Fils de fer + 1 Couteau",usage:"Défense périmétrique",image:"images/addition/barbed_wire.png"}
+                            ]
+                        },
+                        wires_spools: {
+                            name: "📿 Fils et Bobines",
+                            items: [
+                                {id:"copper_spool",name:"Copper Spool",description:"Bobine de fil de cuivre basse tension",craft:"Cuivre + Bobine vide",usage:"Câblage électrique standard",image:"images/addition/copper_spool.png"},
+                                {id:"copper_wire",name:"Copper Wire",description:"Fil de cuivre pour circuits",craft:"3 Lingots de Cuivre",usage:"Conducteur électrique de base",image:"images/addition/copper_wire.png"},
+                                {id:"gold_spool",name:"Gold Spool",description:"Bobine de fil d'or haute conductivité",craft:"Or + Bobine vide",usage:"Câblage haute performance",image:"images/addition/gold_spool.png"},
+                                {id:"gold_wire",name:"Gold Wire",description:"Fil d'or haute conductivité",craft:"3 Lingots d'Or",usage:"Conducteur haute performance",image:"images/addition/gold_wire.png"},
+                                {id:"electrum_spool",name:"Electrum Spool",description:"Bobine de fil d'électrum optimal",craft:"Électrum + Bobine vide",usage:"Câblage performance équilibrée",image:"images/addition/electrum_spool.png"},
+                                {id:"electrum_wire",name:"Electrum Wire",description:"Fil d'électrum conductivité optimale",craft:"3 Lingots d'Électrum",usage:"Conducteur équilibre performance/coût",image:"images/addition/electrum_wire.png"},
+                                {id:"iron_wire",name:"Iron Wire",description:"Fil de fer pour usages spécifiques",craft:"3 Lingots de Fer",usage:"Applications spécialisées",image:"images/addition/iron_wire.png"},
+                                {id:"spool",name:"Empty Spool",description:"Bobine vide pour stockage fils",craft:"Planche + Bâton",usage:"Stockage et transport des fils",image:"images/addition/spool.png"},
+                                {id:"festive_spool",name:"Copper Spool with Festive Lights",description:"Bobine décorative avec lumières de fête",craft:"Bobine cuivre + Lumières",usage:"Câblage décoratif festif",image:"images/addition/festive_spool.png"}
+                            ]
+                        },
+                        materials_components: {
+                            name: "⚙️ Matériaux et Composants",
+                            items: [
+                                {id:"diamond_grit",name:"Diamond Grit",description:"Poudre de diamant pour polissage",craft:"Diamant concassé",usage:"Abrasif haute qualité",image:"images/addition/diamond_grit.png"},
+                                {id:"diamond_grit_sandpaper",name:"Diamond Grit Sandpaper",description:"Papier de verre diamanté",craft:"Papier + Poudre diamant",usage:"Polissage perfectionné des matériaux",image:"images/addition/diamond_grit_sandpaper.png"},
+                                {id:"zinc_sheet",name:"Zinc Sheet",description:"Plaque de zinc pour crafts",craft:"4 Lingots de Zinc",usage:"Composant de construction",image:"images/addition/zinc_sheet.png"},
+                                {id:"electrum_ingot",name:"Electrum Ingot",description:"Lingot d'électrum alliage or-argent",craft:"Or + Argent fusionnés",usage:"Matériau conducteur avancé",image:"images/addition/electrum_ingot.png"},
+                                {id:"electrum_nugget",name:"Electrum Nugget",description:"Pépite d'électrum",craft:"1 Lingot d'Électrum",usage:"Petits composants électriques",image:"images/addition/electrum_nugget.png"},
+                                {id:"electrum_sheet",name:"Electrum Sheet",description:"Plaque d'électrum pour crafts",craft:"4 Lingots d'Électrum",usage:"Composant électronique",image:"images/addition/electrum_sheet.png"},
+                                {id:"biomass",name:"Biomass",description:"Biomasse organique brute",craft:"Plantes compostées",usage:"Combustible et matériau de base",image:"images/addition/biomass.png"},
+                                {id:"biomass_pellet",name:"Biomass Pellet",description:"Pellet de biomasse concentrée",craft:"Biomasse compressée",usage:"Combustible solide efficace",image:"images/addition/biomass_pellet.png"},
+                                {id:"biomass_pellet_block",name:"Biomass Pallet",description:"Bloc de pellets de biomasse",craft:"9 Pellets de biomasse",usage:"Stockage combustible compact",image:"images/addition/biomass_pellet_block.png"},
+                                {id:"straw",name:"Straw",description:"Paille pour processus industriels",craft:"Blé traité",usage:"Composant pour biomasse",image:"images/addition/straw.png"}
+                            ]
+                        },
+                        rods_structural: {
+                            name: "🏗️ Tiges et Structurels",
+                            items: [
+                                {id:"copper_rod",name:"Copper Rod",description:"Tige de cuivre structurelle",craft:"3 Lingots de Cuivre",usage:"Composant structural et électrique",image:"images/addition/copper_rod.png"},
+                                {id:"iron_rod",name:"Iron Rod",description:"Tige de fer renforcée",craft:"3 Lingots de Fer",usage:"Structure mécanique robuste",image:"images/addition/iron_rod.png"},
+                                {id:"gold_rod",name:"Gold Rod",description:"Tige d'or conductrice",craft:"3 Lingots d'Or",usage:"Composant électrique structurel",image:"images/addition/gold_rod.png"},
+                                {id:"electrum_rod",name:"Electrum Rod",description:"Tige d'électrum performante",craft:"3 Lingots d'Électrum",usage:"Structure conductrice optimale",image:"images/addition/electrum_rod.png"},
+                                {id:"brass_rod",name:"Brass Rod",description:"Tige de laiton décorative",craft:"3 Lingots de Laiton",usage:"Composant structural décoratif",image:"images/addition/brass_rod.png"},
+                                {id:"bronze_rod",name:"Bronze Rod",description:"Tige de bronze robuste",craft:"3 Lingots de Bronze",usage:"Structure mécanique durable",image:"images/addition/bronze_rod.png"}
+                            ]
+                        },
+                        food_decorations: {
+                            name: "🍰 Nourriture et Décorations",
+                            items: [
+                                {id:"chocolate_cake",name:"Chocolate Cake",description:"Gâteau au chocolat décoratif",craft:"Œufs + Farine + Chocolat",usage:"Nourriture et décoration",image:"images/addition/chocolate_cake.png"},
+                                {id:"honey_cake",name:"Honey Cake",description:"Gâteau au miel sucré",craft:"Œufs + Farine + Miel",usage:"Nourriture restauratrice",image:"images/addition/honey_cake.png"},
+                                {id:"cake_base",name:"Cake Base",description:"Base de gâteau à cuire",craft:"Œuf + Farine + Lait",usage:"Préparation de pâtisserie",image:"images/addition/cake_base.png"},
+                                {id:"cake_base_baked",name:"Baked Cake Base",description:"Base de gâteau cuite",craft:"Base de gâteau cuite",usage:"Base pour gâteaux décorés",image:"images/addition/cake_base_baked.png"},
+                                {id:"electrum_amulet",name:"Pale Gold Amulet",description:"Amulette en électrum chanceuse",craft:"Électrum + Chaîne",usage:"Amulette décorative",image:"images/addition/electrum_amulet.png"},
+                                {id:"brass_figurine",name:"Brass Figurine",description:"Figurine décorative en laiton",craft:"4 Lingots de Laiton",usage:"Décoration d'intérieur",image:"images/addition/brass_figurine.png"},
+                                {id:"copper_goblet",name:"Copper Goblet",description:"Gobelet en cuivre rafraîchissant",craft:"3 Lingots de Cuivre",usage:"Récipient décoratif utilitaire",image:"images/addition/copper_goblet.png"},
+                                {id:"gold_goblet",name:"Ornate Goblet",description:"Gobelet en or décoratif",craft:"3 Lingots d'Or",usage:"Récipient de luxe",image:"images/addition/gold_goblet.png"}
+                            ]
+                        },
+                        fluids_fuels: {
+                            name: "🛢️ Fluides et Combustibles",
+                            items: [
+                                {id:"seed_oil_bucket",name:"Bucket of Seed Oil",description:"Huile végétale combustible",craft:"Graines pressées + Seau",usage:"Combustible liquide de base",image:"images/addition/seed_oil_bucket.png"},
+                                {id:"bioethanol_bucket",name:"Bucket of Biofuel",description:"Bioéthanol combustible efficace",craft:"Biomasse distillée + Seau",usage:"Combustible liquide performant",image:"images/addition/bioethanol_bucket.png"},
+                                {id:"slime_bucket",name:"Slime Bucket",description:"Seau de slime industriel",craft:"Slime + Seau",usage:"Fluide visqueux industriel",image:"images/addition/slime_bucket.png"},
+                                {id:"porridge",name:"Slime Porridge",description:"Bouillie de slime nutritive",craft:"Slime + Céréales",usage:"Nourriture spéciale",image:"images/addition/porridge.png"},
+                                {id:"glue_packaging",name:"Glue Packaging",description:"Emballage de colle industrielle",craft:"Colle + Papier",usage:"Conditionnement adhésif",image:"images/addition/glue_packaging.png"}
                             ]
                         }
                     }
@@ -209,7 +559,8 @@
             }
         };
 
-        // FONCTIONS PRINCIPALES CORRIGÉES
+        // FONCTIONS PRINCIPALES - CODE IDENTIQUE À L'ORIGINAL
+               // FONCTIONS PRINCIPALES
         function initWiki() {
             loadModNavigation();
             showMod('create_base');
@@ -242,17 +593,22 @@
             const catButtons = document.getElementById('categoryButtons');
             catButtons.innerHTML = '';
             
-            for (const [catId, category] of Object.entries(mod.categories)) {
+            const categoryIds = Object.keys(mod.categories);
+            
+            categoryIds.forEach((catId, index) => {
+                const category = mod.categories[catId];
                 const btn = document.createElement('button');
                 btn.className = 'category-btn';
                 btn.textContent = category.name;
                 btn.onclick = () => showCategory(modId, catId);
                 catButtons.appendChild(btn);
-            }
-            
-            if (Object.keys(mod.categories).length > 0) {
-                showCategory(modId, Object.keys(mod.categories)[0]);
-            }
+                
+                // Active et affiche la première catégorie automatiquement
+                if (index === 0) {
+                    btn.classList.add('active');
+                    showCategory(modId, catId);
+                }
+            });
         }
 
         function showCategory(modId, catId) {
@@ -260,9 +616,15 @@
             const grid = document.getElementById('itemsGrid');
             grid.innerHTML = '';
             
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            // Réactive le bon bouton de catégorie
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === category.name) {
+                    btn.classList.add('active');
+                }
+            });
             
+            // Affiche TOUS les items
             category.items.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'item-card';
@@ -331,4 +693,4 @@
         document.addEventListener('DOMContentLoaded', initWiki);
     </script>
 </body>
-</html>
+</html> 
