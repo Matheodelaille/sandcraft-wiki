@@ -438,3 +438,23 @@ html {
     outline: 2px solid var(--secondary);
     outline-offset: 2px;
 }
+/* Ajoute ça dans ta balise <style> */
+.items-grid {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.items-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.items-grid::-webkit-scrollbar-track {
+    background: var(--light-bg);
+    border-radius: 4px;
+}
+
+.items-grid::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
