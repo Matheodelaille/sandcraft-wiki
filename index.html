@@ -559,6 +559,7 @@
             loadModNavigation();
             showMod('create_base');
             updateStats();
+            debugItemCount();
         }
 
         function loadModNavigation() {
@@ -648,6 +649,22 @@
     
     console.log(`📊 Debug: ${totalItems} items bruts, ${uniqueItems.size} items uniques`);
     document.getElementById('sidebarStats').textContent = `${uniqueItems.size} items disponibles`;
+}
+        function debugItemCount() {
+    console.log("=== DEBUG COMPTAGE ITEMS ===");
+    
+    let modCounts = {};
+    for (const [modId, mod] of Object.entries(database.mods)) {
+        let modTotal = 0;
+        for (const cat of Object.values(mod.categories)) {
+            modTotal += cat.items.length;
+        }
+        modCounts[modId] = modTotal;
+        console.log(`${modId}: ${modTotal} items`);
+    }
+    
+    console.log("Total théorique:", Object.values(modCounts).reduce((a, b) => a + b, 0));
+    console.log("========================");
 }
 
         // SYSTÈME DE RECHERCHE
