@@ -580,18 +580,18 @@ function showError(message) {
     container.innerHTML = `<div class="error">❌ ${message}</div>`;
 }
 
-// DÉMARRAGE
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Page Create - Initialisation...');
-    loadCreateData();
-});
+    // DÉMARRAGE
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 Page Create - Initialisation...');
+        loadCreateData();
+    });
 
-// FONCTIONS DE DÉBUGAGE
-window.createUtils = {
-    getData: () => createData,
-    getRecipes: () => Object.keys(createData.recipes),
-    getItems: () => Object.keys(createData.items)
-};
+    // FONCTIONS DE DÉBUGAGE
+    window.createUtils = {
+        getData: () => createData,
+        getRecipes: () => Object.keys(createData.recipes),
+        getItems: () => Object.keys(createData.items)
+    };
 </script>
 
 <!-- STYLE FINAL -->
