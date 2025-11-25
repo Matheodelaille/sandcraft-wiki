@@ -317,7 +317,7 @@ async function loadCreateData() {
     try {
         showLoading('Chargement des données Create...');
         
-        const response = await fetch('./data/complete-data.json');
+        const response = await fetch('data/complete-data.json');
         const allData = await response.json();
         
         console.log('🔍 Debug - Tous les recipes:', Object.keys(allData.recipes).length);
