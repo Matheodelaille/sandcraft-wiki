@@ -3,957 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki Sandcraft - Modpack Minecraft</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Sandcraft Wiki</title>
+    <link rel="stylesheet" href="assets/style.css">
     <style>
-        /* === STYLE MINECRAFT === */
-        :root {
-            --dirt-brown: #8B6914;
-            --grass-green: #5B8C5A;
-            --stone-gray: #8C8C8C;
-            --wood-brown: #BA8C63;
-            --water-blue: #3F76E4;
-            --coal-black: #2D2D2D;
-            --gold-yellow: #FADA5E;
-            --diamond-blue: #4A9CF8;
-            --emerald-green: #00FF95;
-            --redstone-red: #FF0000;
-            --text-gold: #FFD700;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: 
-                linear-gradient(rgba(43, 29, 20, 0.9), rgba(43, 29, 20, 0.9)),
-                url('https://i.imgur.com/3RXnGf2.png');
-            background-size: cover;
-            background-attachment: fixed;
-            color: #F0F0F0;
-            min-height: 100vh;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-        }
-
-        .minecraft-font {
-            font-family: 'Press Start 2P', cursive;
-            text-shadow: 3px 3px 0 #000;
-        }
-
-        /* === HEADER STYLE MINECRAFT === */
-        .header {
-            background: 
-                linear-gradient(135deg, var(--dirt-brown) 0%, #6B4F13 100%);
-            border-bottom: 4px solid #5A3D0F;
-            box-shadow: 0 4px 0 #3A2A0A;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            color: var(--text-gold);
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-            filter: drop-shadow(2px 2px 0 #000);
-        }
-
-        .logo-text {
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 0 #000;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1rem;
-            list-style: none;
-        }
-
-        .nav-btn {
-            background: linear-gradient(to bottom, var(--stone-gray), #6B6B6B);
-            border: 2px solid #5A5A5A;
-            border-top: 2px solid #9C9C9C;
-            border-left: 2px solid #9C9C9C;
-            color: white;
-            padding: 0.7rem 1.2rem;
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-shadow: 1px 1px 0 #000;
-            transition: all 0.1s ease;
-            image-rendering: pixelated;
-        }
-
-        .nav-btn:hover {
-            background: linear-gradient(to bottom, #7C7C7C, #5A5A5A);
-            transform: translateY(-2px);
-        }
-
-        .nav-btn:active {
-            background: linear-gradient(to bottom, #5A5A5A, #7C7C7C);
-            transform: translateY(1px);
-        }
-
-        /* === HERO SECTION STYLE MINECRAFT === */
-        .hero {
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://i.imgur.com/Q4d2QkK.png');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            padding: 6rem 2rem;
-            border-bottom: 8px solid var(--grass-green);
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                var(--grass-green) 20%, 
-                var(--grass-green) 80%, 
-                transparent 100%);
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-gold);
-            text-shadow: 4px 4px 0 #000;
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            text-shadow: 2px 2px 0 #000;
-            color: #E0E0E0;
-        }
-
-        .search-box {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1.2rem;
-            font-size: 1.1rem;
-            background: #2D2D2D;
-            border: 3px solid #5A5A5A;
-            border-top: 3px solid #9C9C9C;
-            border-left: 3px solid #9C9C9C;
-            color: white;
-            text-shadow: 1px 1px 0 #000;
-            image-rendering: pixelated;
-        }
-
-        .search-input::placeholder {
-            color: #9C9C9C;
-            text-shadow: 1px 1px 0 #000;
-        }
-
-        /* === MAIN CONTAINER === */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin: 4rem 0 3rem 0;
-            color: var(--text-gold);
-            font-size: 2rem;
-            text-shadow: 3px 3px 0 #000;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 200px;
-            height: 4px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                var(--text-gold), 
-                transparent);
-            margin: 1rem auto;
-        }
-
-        /* === GRID SYSTEM === */
-        .grid {
-            display: grid;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .grid-4 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
-        /* === CARD STYLE MINECRAFT === */
-        .card {
-            background: 
-                linear-gradient(135deg, #5A5A5A 0%, #3A3A3A 100%);
-            border: 4px solid #5A5A5A;
-            border-top: 4px solid #9C9C9C;
-            border-left: 4px solid #9C9C9C;
-            border-radius: 0;
-            padding: 2rem;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            position: relative;
-            image-rendering: pixelated;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--diamond-blue);
-            box-shadow: 0 8px 0 #2A5A8C;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border: 2px solid rgba(255,255,255,0.1);
-            pointer-events: none;
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            filter: drop-shadow(2px 2px 0 #000);
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: white;
-            text-align: center;
-            text-shadow: 2px 2px 0 #000;
-            font-weight: bold;
-        }
-
-        .card-description {
-            color: #C0C0C0;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            text-shadow: 1px 1px 0 #000;
-            line-height: 1.5;
-        }
-
-        .card-link {
-            display: inline-block;
-            background: linear-gradient(to bottom, var(--grass-green), #4A7C4A);
-            border: 2px solid #3A6B3A;
-            border-top: 2px solid #6B9C6B;
-            border-left: 2px solid #6B9C6B;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            text-align: center;
-            width: 100%;
-            font-weight: bold;
-            text-shadow: 1px 1px 0 #000;
-            transition: all 0.1s ease;
-            image-rendering: pixelated;
-        }
-
-        .card-link:hover {
-            background: linear-gradient(to bottom, #6B9C6B, #4A7C4A);
-            transform: translateY(-2px);
-        }
-
-        .card-link:active {
-            background: linear-gradient(to bottom, #4A7C4A, #6B9C6B);
-            transform: translateY(1px);
-        }
+        body { background: linear-gradient(rgba(30,20,10,0.85),rgba(30,20,10,0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23a67c52"/><path d="M0 0L100 100M100 0L0 100" stroke="%23996633" stroke-width="2"/></svg>'); background-size: 200px 200px; position: relative; overflow-x: hidden; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><rect x="10" y="10" width="40" height="40" fill="%23755c3b" stroke="%235c452d" stroke-width="2"/><circle cx="30" cy="30" r="15" fill="%23ffa726"/><rect x="25" y="15" width="10" height="30" fill="%23b71c1c"/></svg>'), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><polygon points="40,10 70,30 70,60 40,80 10,60 10,30" fill="%235d4037" stroke="%233e2723" stroke-width="3"/><circle cx="40" cy="40" r="12" fill="%23ffd54f"/></svg>'), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20 20 L80 20 L80 80 L20 80 Z" fill="%23424242" stroke="%23212121" stroke-width="4"/><rect x="30" y="30" width="40" height="20" fill="%23616161"/><rect x="35" y="35" width="30" height="10" fill="%23ffa000"/></svg>'); background-position: 10% 20%, 90% 70%, 50% 85%; background-repeat: no-repeat; background-size: 80px, 100px, 120px; opacity: 0.15; z-index: -1; }
+        .minecraft-container { max-width: 1200px; margin: 0 auto; padding: 20px; position: relative; }
+        .header-content { text-align: center; padding: 40px 20px; background: rgba(45,45,45,0.9); border: 3px solid #8b8b8b; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
     </style>
 </head>
 <body>
-    <!-- Header Navigation Style Minecraft -->
-    <header class="header">
-        <div class="nav-container">
-            <a href="new-index.html" class="logo minecraft-font">
-                <i class="fas fa-cube logo-icon"></i>
-                <span class="logo-text">SANDCRAFT WIKI</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="new-index.html" class="nav-btn minecraft-font">ACCUEIL</a></li>
-                    <li><a href="index.html" class="nav-btn minecraft-font">WIKI COMPLET</a></li>
-                    <li><a href="create.html" class="nav-btn minecraft-font">CREATE</a></li>
-                    <li><a href="#search" class="nav-btn minecraft-font">RECHERCHE</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="minecraft-container">
+        <header class="header-content">
+            <h1 style="color: #ff6b35; font-size: 3em; margin-bottom: 10px;">Sandcraft Wiki</h1>
+            <p style="color: #ccc; font-size: 1.2em;">Votre guide pour l'aventure Sandcraft</p>
+        </header>
 
-    <!-- Hero Section Style Minecraft -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="minecraft-font">🏖️ SANDCRAFT WIKI</h1>
-            <p class="minecraft-font">LE GUIDE OFFICIEL DU MODPACK MINECRAFT</p>
-            <div class="search-box">
-                <input type="text" class="search-input minecraft-font" placeholder="🔍 RECHERCHER UN ITEM..." id="mainSearch">
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="container">
-        <!-- Quick Access Cards -->
-        <section>
-            <h2 class="section-title minecraft-font">🚀 ACCÈS RAPIDE</h2>
-            <div class="grid grid-3">
-                <a href="index.html" class="card">
-                    <div class="card-icon">📚</div>
-                    <h3 class="card-title minecraft-font">WIKI COMPLET</h3>
-                    <p class="card-description">Accéder à toute la documentation du modpack</p>
-                    <div class="card-link minecraft-font">OUVRIR</div>
-                </a>
-                
-                <a href="create.html" class="card">
-                    <div class="card-icon">⚙️</div>
-                    <h3 class="card-title minecraft-font">CREATE</h3>
-                    <p class="card-description">Documentation complète du mod Create</p>
-                    <div class="card-link minecraft-font">EXPLORER</div>
-                </a>
-                
-                <a href="index.html#search" class="card">
-                    <div class="card-icon">🔍</div>
-                    <h3 class="card-title minecraft-font">RECHERCHE</h3>
-                    <p class="card-description">Outil de recherche avancé des items</p>
-                    <div class="card-link minecraft-font">RECHERCHER</div>
-                </a>
-            </div>
-        </section>
-         <!-- Technology Section Style Minecraft -->
-        <section class="category-section">
-            <div class="category-header">
-                <div class="category-icon">⚙️</div>
-                <h2 class="category-title minecraft-font">TECHNOLOGIE & AUTOMATION</h2>
-            </div>
-            <div class="grid grid-4">
-                <a href="create.html" class="card">
-                    <div class="card-icon" style="color: var(--gold-yellow);"><i class="fas fa-cogs"></i></div>
-                    <h3 class="card-title minecraft-font">CREATE</h3>
-                    <p class="card-description">Automatisation créative et mécaniques avancées</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#applied-energistics" class="card">
-                    <div class="card-icon" style="color: var(--diamond-blue);"><i class="fas fa-database"></i></div>
-                    <h3 class="card-title minecraft-font">APPLIED ENERGISTICS</h3>
-                    <p class="card-description">Stockage numérique et système d'automation</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#thermal-series" class="card">
-                    <div class="card-icon" style="color: var(--redstone-red);"><i class="fas fa-fire"></i></div>
-                    <h3 class="card-title minecraft-font">THERMAL SERIES</h3>
-                    <p class="card-description">Énergie RF, machines et dynamiques</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#immersive-engineering" class="card">
-                    <div class="card-icon" style="color: var(--stone-gray);"><i class="fas fa-industry"></i></div>
-                    <h3 class="card-title minecraft-font">IMMERSIVE ENGINEERING</h3>
-                    <p class="card-description">Ingénierie industrielle réaliste</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Magic Section Style Minecraft -->
-        <section class="category-section">
-            <div class="category-header">
-                <div class="category-icon">🔮</div>
-                <h2 class="category-title minecraft-font">MAGIE & SORCELLERIE</h2>
-            </div>
-            <div class="grid grid-3">
-                <a href="index.html#ars-nouveau" class="card">
-                    <div class="card-icon" style="color: var(--water-blue);"><i class="fas fa-hat-wizard"></i></div>
-                    <h3 class="card-title minecraft-font">ARS NOUVEAU</h3>
-                    <p class="card-description">Magie élémentaire et sortilèges</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#botania" class="card">
-                    <div class="card-icon" style="color: var(--emerald-green);"><i class="fas fa-leaf"></i></div>
-                    <h3 class="card-title minecraft-font">BOTANIA</h3>
-                    <p class="card-description">Magie naturelle et fleurs magiques</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#mahoutsukai" class="card">
-                    <div class="card-icon" style="color: var(--gold-yellow);"><i class="fas fa-magic"></i></div>
-                    <h3 class="card-title minecraft-font">MAHOUTSUKAI</h3>
-                    <p class="card-description">Sorcellerie avancée et rituels</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Agriculture Section Style Minecraft -->
-        <section class="category-section">
-            <div class="category-header">
-                <div class="category-icon">🌿</div>
-                <h2 class="category-title minecraft-font">AGRICULTURE & NOURRITURE</h2>
-            </div>
-            <div class="grid grid-3">
-                <a href="index.html#farmers-delight" class="card">
-                    <div class="card-icon" style="color: var(--grass-green);"><i class="fas fa-utensils"></i></div>
-                    <h3 class="card-title minecraft-font">FARMER'S DELIGHT</h3>
-                    <p class="card-description">Cuisine améliorée et agriculture</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#mystical-agriculture" class="card">
-                    <div class="card-icon" style="color: var(--emerald-green);"><i class="fas fa-seedling"></i></div>
-                    <h3 class="card-title minecraft-font">MYSTICAL AGRICULTURE</h3>
-                    <p class="card-description">Ressources magiques par l'agriculture</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#croptopia" class="card">
-                    <div class="card-icon" style="color: var(--gold-yellow);"><i class="fas fa-apple-alt"></i></div>
-                    <h3 class="card-title minecraft-font">CROTOPIA</h3>
-                    <p class="card-description">Variété agricole étendue</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Utilities Section Style Minecraft -->
-        <section class="category-section">
-            <div class="category-header">
-                <div class="category-icon">🛠️</div>
-                <h2 class="category-title minecraft-font">UTILITAIRES & QdV</h2>
-            </div>
-            <div class="grid grid-4">
-                <a href="index.html#sophisticated-backpacks" class="card">
-                    <div class="card-icon" style="color: var(--wood-brown);"><i class="fas fa-backpack"></i></div>
-                    <h3 class="card-title minecraft-font">BACKPACKS</h3>
-                    <p class="card-description">Stockage portable amélioré</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#jei" class="card">
-                    <div class="card-icon" style="color: var(--diamond-blue);"><i class="fas fa-book"></i></div>
-                    <h3 class="card-title minecraft-font">JEI</h3>
-                    <p class="card-description">Recherche de crafts et utilisations</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#journeymap" class="card">
-                    <div class="card-icon" style="color: var(--grass-green);"><i class="fas fa-map"></i></div>
-                    <h3 class="card-title minecraft-font">JOURNEYMAP</h3>
-                    <p class="card-description">Cartographie en temps réel</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-                
-                <a href="index.html#identity" class="card">
-                    <div class="card-icon" style="color: var(--redstone-red);"><i class="fas fa-user-injured"></i></div>
-                    <h3 class="card-title minecraft-font">IDENTITY</h3>
-                    <p class="card-description">Métamorphose en créatures</p>
-                    <div class="card-link minecraft-font">ACCÉDER</div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Search Section Style Minecraft -->
-        <section class="category-section" id="search">
-            <div class="category-header">
-                <div class="category-icon">🔍</div>
-                <h2 class="category-title minecraft-font">RECHERCHE AVANCÉE</h2>
-            </div>
+        <div class="categories-section">
+            <h2 style="text-align: center; color: #ff6b35; margin-bottom: 30px; font-size: 2em;">🎮 Catégories de Mods</h2>
             
-            <div class="card" style="text-align: center; background: linear-gradient(135deg, #4A4A4A 0%, #2D2D2D 100%);">
-                <div class="card-icon" style="color: var(--gold-yellow);">🔎</div>
-                <h3 class="card-title minecraft-font">OUTIL DE RECHERCHE</h3>
-                <p class="card-description" style="margin-bottom: 2rem;">
-                    Utilisez l'outil de recherche avancé du wiki complet pour trouver tous les items, crafts et mécaniques
-                </p>
-                <a href="index.html#search" class="card-link minecraft-font" style="max-width: 300px; margin: 0 auto;">
-                    <i class="fas fa-external-link-alt"></i> OUVIR LA RECHERCHE
-                </a>
+            <div class="category-tabs">
+                <div class="category-tab active" data-category="tech"><span class="tab-icon">⚡</span><span class="tab-text">Technologie</span></div>
+                <div class="category-tab" data-category="magic"><span class="tab-icon">🔮</span><span class="tab-text">Magie</span></div>
+                <div class="category-tab" data-category="food"><span class="tab-icon">🍳</span><span class="tab-text">Nourriture</span></div>
+                <div class="category-tab" data-category="adventure"><span class="tab-icon">🏹</span><span class="tab-text">Aventure</span></div>
+                <div class="category-tab" data-category="decoration"><span class="tab-icon">🎨</span><span class="tab-text">Décoration</span></div>
+                <div class="category-tab" data-category="world"><span class="tab-icon">🌍</span><span class="tab-text">Monde</span></div>
+                <div class="category-tab" data-category="utility"><span class="tab-icon">🛠️</span><span class="tab-text">Utilitaires</span></div>
             </div>
-        </section>
 
-        <!-- Stats Section Style Minecraft -->
-        <section class="category-section">
-            <div class="category-header">
-                <div class="category-icon">📊</div>
-                <h2 class="category-title minecraft-font">SANDCRAFT EN CHIFFRES</h2>
+            <!-- TECHNOLOGIE - TOUS LES MODS -->
+            <div class="category-content active" id="tech">
+                <div class="mods-grid">
+                    <div class="mod-card tech"><h3>Create</h3><p>Automatisation créative et mécaniques avancées</p><a href="pages/mods/create.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Applied Energistics 2</h3><p>Stockage numérique et système d'automation</p><a href="pages/mods/applied-energistics.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>AE2 Things</h3><p>Extensions pour Applied Energistics 2</p><a href="pages/mods/ae2-things.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>AE2 Infinity Booster</h3><p>Améliorations pour AE2</p><a href="pages/mods/ae2-infinity.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Mekanism</h3><p>Système technologique avancé</p><a href="pages/mods/mekanism.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Thermal Series</h3><p>Énergie RF, machines et dynamiques</p><a href="pages/mods/thermal-series.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Immersive Engineering</h3><p>Ingénierie industrielle réaliste</p><a href="pages/mods/immersive-engineering.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Immersive Petroleum</h3><p>Pétrole et raffinerie</p><a href="pages/mods/immersive-petroleum.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Immersive Posts</h3><p>Systèmes de poteaux et câbles</p><a href="pages/mods/immersive-posts.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Tinker's Construct</h3><p>Outils modulaires et améliorables</p><a href="pages/mods/tinkers.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>PneumaticCraft</h3><p>Machines à air comprimé et drones</p><a href="pages/mods/pneumaticcraft.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Industrial Foregoing</h3><p>Automatisation agricole et industrielle</p><a href="pages/mods/industrial-foregoing.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Create Additions</h3><p>Extensions pour Create</p><a href="pages/mods/create-additions.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Create Central Kitchen</h3><p>Cuisine automatisée avec Create</p><a href="pages/mods/create-kitchen.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Create Misc & Things</h3><p>Additions diverses pour Create</p><a href="pages/mods/create-misc.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Create Big Cannons</h3><p>Artillerie avancée pour Create</p><a href="pages/mods/create-cannons.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Create New Age</h3><p>Extensions modernes pour Create</p><a href="pages/mods/create-new-age.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Create Stracompat</h3><p>Compatibilité Create avec autres mods</p><a href="pages/mods/create-stracompat.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>CC: Tweaked</h3><p>Ordinateurs programmables</p><a href="pages/mods/cc-tweaked.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Little Logistics</h3><p>Automatisation ferroviaire et maritime</p><a href="pages/mods/little-logistics.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Ranged Pumps</h3><p>Pompes à longue portée</p><a href="pages/mods/ranged-pumps.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Steam Rails</h3><p>Systèmes ferroviaires avancés</p><a href="pages/mods/steam-rails.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Automobility</h3><p>Véhicules et routes automatisés</p><a href="pages/mods/automobility.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Ars Eng</h3><p>Intégration Ars Nouveau avec technologie</p><a href="pages/mods/ars-eng.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Viescraft Machines</h3><p>Machines et systèmes techniques</p><a href="pages/mods/viescraft-machines.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Jumbo Furnace</h3><p>Four industriel géant</p><a href="pages/mods/jumbo-furnace.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Trading Floor</h3><p>Système d'échange automatisé</p><a href="pages/mods/trading-floor.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card tech"><h3>Cyclic</h3><p>Machines et utilitaires divers</p><a href="pages/mods/cyclic.html" class="access-btn">ACCÉDER</a></div>
+                </div>
             </div>
-            <div class="grid grid-4">
-                <div class="card" style="text-align: center; background: linear-gradient(135deg, #5A4A2D 0%, #3A2D1A 100%);">
-                    <div class="card-icon" style="color: var(--diamond-blue);">📦</div>
-                    <h3 class="card-title minecraft-font">175+</h3>
-                    <p class="card-description">MODS INTÉGRÉS</p>
-                </div>
-                
-                <div class="card" style="text-align: center; background: linear-gradient(135deg, #4A5A3D 0%, #2D3A24 100%);">
-                    <div class="card-icon" style="color: var(--emerald-green);">⚡</div>
-                    <h3 class="card-title minecraft-font">1.19.2</h3>
-                    <p class="card-description">VERSION MC</p>
-                </div>
-                
-                <div class="card" style="text-align: center; background: linear-gradient(135deg, #5A3D3D 0%, #3A2424 100%);">
-                    <div class="card-icon" style="color: var(--redstone-red);">🔄</div>
-                    <h3 class="card-title minecraft-font">ACTIF</h3>
-                    <p class="card-description">DÉVELOPPEMENT</p>
-                </div>
-                
-                <div class="card" style="text-align: center; background: linear-gradient(135deg, #3D4A5A 0%, #242D3A 100%);">
-                    <div class="card-icon" style="color: var(--water-blue);">👥</div>
-                    <h3 class="card-title minecraft-font">MULTIJOUEUR</h3>
-                    <p class="card-description">SERVEUR DÉDIÉ</p>
+                 <!-- MAGIE - TOUS LES MODS -->
+            <div class="category-content" id="magic">
+                <div class="mods-grid">
+                    <div class="mod-card magic"><h3>Ars Nouveau</h3><p>Magie élémentaire et sortilèges</p><a href="pages/mods/ars-nouveau.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Botania</h3><p>Magie naturelle et fleurs magiques</p><a href="pages/mods/botania.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Mahoutsukai</h3><p>Sorcellerie avancée et rituels</p><a href="pages/mods/mahoutsukai.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Mystical Agriculture</h3><p>Ressources magiques par l'agriculture</p><a href="pages/mods/mystical-agriculture.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Mystical Agraditions</h3><p>Extensions pour Mystical Agriculture</p><a href="pages/mods/mystical-agraditions.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Ars Elemental</h3><p>Extensions élémentaires pour Ars Nouveau</p><a href="pages/mods/ars-elemental.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Ars Cree</h3><p>Additions créatives pour Ars Nouveau</p><a href="pages/mods/ars-cree.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Ars Instrumentum</h3><p>Outils et instruments magiques</p><a href="pages/mods/ars-instrumentum.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Ars Scalaes</h3><p>Échelles et progression magique</p><a href="pages/mods/ars-scalaes.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Ars Omega</h3><p>Magie avancée pour Ars Nouveau</p><a href="pages/mods/ars-omega.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Totemic</h3><p>Rituels et cérémonies tribales</p><a href="pages/mods/totemic.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>Phantasmic</h3><p>Illusions et magie spectrale</p><a href="pages/mods/phantasmic.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card magic"><h3>TooManyGlyphs</h3><p>Glyphes et symboles magiques étendus</p><a href="pages/mods/toomanyglyphs.html" class="access-btn">ACCÉDER</a></div>
                 </div>
             </div>
-        </section>
-
-        <style>
-            /* Additional Minecraft Styles */
-            .category-section {
-                margin: 4rem 0;
-            }
-
-            .category-header {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 1.5rem;
-                margin-bottom: 3rem;
-                padding: 2rem;
-                background: linear-gradient(135deg, rgba(90, 90, 90, 0.3), rgba(58, 58, 58, 0.3));
-                border: 4px solid #5A5A5A;
-                border-top: 4px solid #9C9C9C;
-                border-left: 4px solid #9C9C9C;
-                position: relative;
-            }
-
-            .category-header::before {
-                content: '';
-                position: absolute;
-                top: -2px;
-                left: -2px;
-                right: -2px;
-                bottom: -2px;
-                border: 2px solid rgba(255,255,255,0.1);
-                pointer-events: none;
-            }
-
-            .category-icon {
-                font-size: 3rem;
-                filter: drop-shadow(3px 3px 0 #000);
-            }
-
-            .category-title {
-                font-size: 1.8rem;
-                color: var(--text-gold);
-                text-shadow: 3px 3px 0 #000;
-                text-align: center;
-            }
-
-            /* Minecraft Button Effects */
-            .nav-btn, .card-link {
-                position: relative;
-                overflow: hidden;
-            }
-
-            .nav-btn::before, .card-link::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-                transition: left 0.5s;
-            }
-
-            .nav-btn:hover::before, .card-link:hover::before {
-                left: 100%;
-            }
-
-            /* Pixelated borders */
-            .card, .category-header, .nav-btn, .card-link, .search-input {
-                image-rendering: pixelated;
-                image-rendering: -moz-crisp-edges;
-                image-rendering: crisp-edges;
-            }
-
-            /* Minecraft scrollbar */
-            ::-webkit-scrollbar {
-                width: 12px;
-            }
-
-            ::-webkit-scrollbar-track {
-                background: #2D2D2D;
-                border: 2px solid #5A5A5A;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: linear-gradient(to bottom, #5A5A5A, #3A3A3A);
-                border: 2px solid #5A5A5A;
-                border-top: 2px solid #9C9C9C;
-                border-left: 2px solid #9C9C9C;
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: linear-gradient(to bottom, #6B6B6B, #4A4A4A);
-            }
+                <!-- NOURRITURE - TOUS LES MODS -->
+            <div class="category-content" id="food">
+                <div class="mods-grid">
+                    <div class="mod-card food"><h3>Farmer's Delight</h3><p>Cuisine améliorée et agriculture</p><a href="pages/mods/farmers-delight.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Farmers Respite</h3><p>Thés et boissons relaxantes</p><a href="pages/mods/farmers-respite.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Croptopia</h3><p>Variété agricole étendue</p><a href="pages/mods/croptopia.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Pam's HarvestCraft 2</h3><p>Agriculture et nourriture diversifiée</p><a href="pages/mods/pams.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Pam's Crops</h3><p>Cultures agricoles variées</p><a href="pages/mods/pams-crops.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Pam's Food Core</h3><p>Nourriture de base étendue</p><a href="pages/mods/pams-food.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Pam's Food Extended</h3><p>Recettes alimentaires avancées</p><a href="pages/mods/pams-extended.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Pam's Trees</h3><p>Arbres fruitiers et variétés</p><a href="pages/mods/pams-trees.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Cooking for Blockheads</h3><p>Cuisine et organisation culinaire</p><a href="pages/mods/cooking-blockheads.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Brewin & Chewin</h3><p>Brasserie et fromagerie</p><a href="pages/mods/brewin-chewin.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Applied Cooking</h3><p>Cuisine automatisée et technique</p><a href="pages/mods/applied-cooking.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Alex's Delight</h3><p>Additions culinaires variées</p><a href="pages/mods/alexs-delight.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Cultural Delights</h3><p>Cuisines culturelles du monde</p><a href="pages/mods/cultural-delights.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Cuisine Delight</h3><p>Recettes gastronomiques</p><a href="pages/mods/cuisine-delight.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Ocean's Delight</h3><p>Cuisine marine et fruits de mer</p><a href="pages/mods/oceans-delight.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>End's Delight</h3><p>Nourriture de l'End</p><a href="pages/mods/ends-delight.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Ender's Delight</h3><p>Cuisine de l'End étendue</p><a href="pages/mods/enders-delight.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Nether's Delight</h3><p>Nourriture du Nether</p><a href="pages/mods/nethers-delight.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Simple Farming</h3><p>Agriculture simplifiée</p><a href="pages/mods/simple-farming.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Botany Pots</h3><p>Pots de culture automatisés</p><a href="pages/mods/botany-pots.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card food"><h3>Smaref Farmers</h3><p>Systèmes agricoles intelligents</p><a href="pages/mods/smaref-farmers.html" class="access-btn">ACCÉDER</a></div>
+                </div>
+            </div>
+                  <!-- AVENTURE - TOUS LES MODS -->
+            <div class="category-content" id="adventure">
+                <div class="mods-grid">
+                    <div class="mod-card adventure"><h3>Alex's Mobs</h3><p>Créatures et animaux divers</p><a href="pages/mods/alexs-mobs.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Better Animals Plus</h3><p>Animaux et créatures améliorés</p><a href="pages/mods/better-animals.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Dungeons Enhanced</h3><p>Donjons et structures d'aventure</p><a href="pages/mods/dungeons-enhanced.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Dungeons Gear</h3><p>Équipement pour donjons</p><a href="pages/mods/dungeons-gear.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Dungeons Plus</h3><p>Extensions pour donjons</p><a href="pages/mods/dungeons-plus.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Dungeons Arise</h3><p>Donjons monumentaux</p><a href="pages/mods/dungeons-arise.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Dungeons Arise Seven Seas</h3><p>Donjons maritimes</p><a href="pages/mods/dungeons-seven-seas.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Better Combat</h3><p>Système de combat amélioré</p><a href="pages/mods/better-combat.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Grappling Hook</h3><p>Grappin et déplacement</p><a href="pages/mods/grappling-hook.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Aquaculture</h3><p>Pêche et poissons divers</p><a href="pages/mods/aquaculture.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>The Graveyard</h3><p>Contenu funéraire et macabre</p><a href="pages/mods/graveyard.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>L_Ender's Cataclysm</h3><p>Boss et créatures puissantes</p><a href="pages/mods/cataclysm.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>CNB</h3><p>Creeps & Weirdos - Créatures étranges</p><a href="pages/mods/cnb.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Naturalist</h3><p>Faune naturelle réaliste</p><a href="pages/mods/naturalist.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Exotic Birds</h3><p>Oiseaux exotiques variés</p><a href="pages/mods/exotic-birds.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Waddles</h3><p>Manchots et créatures polaires</p><a href="pages/mods/waddles.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Snuffles</h3><p>Créatures mignonnes et douces</p><a href="pages/mods/snuffles.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Ice and Fire</h3><p>Dragons et créatures mythiques</p><a href="pages/mods/ice-fire.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Identity</h3><p>Métamorphose en créatures</p><a href="pages/mods/identity.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Galosphere</h3><p>Créatures et biomes lunaires</p><a href="pages/mods/galosphere.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Coral Reef</h3><p>Récifs coralliens et vie marine</p><a href="pages/mods/coral-reef.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card adventure"><h3>Aquamirae</h3><p>Aventure maritime avancée</p><a href="pages/mods/aquamirae.html" class="access-btn">ACCÉDER</a></div>
+                </div>
+            </div>
+                <!-- DÉCORATION - TOUS LES MODS -->
+            <div class="category-content" id="decoration">
+                <div class="mods-grid">
+                    <div class="mod-card decoration"><h3>Decorative Blocks</h3><p>Blocs décoratifs variés</p><a href="pages/mods/decorative-blocks.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Bridges</h3><p>Ponts et structures décoratives</p><a href="pages/mods/macaws-bridges.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Bridgeshop</h3><p>Boutique de ponts décoratifs</p><a href="pages/mods/macaws-bridgeshop.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Doors</h3><p>Portes décoratives variées</p><a href="pages/mods/macaws-doors.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Fences</h3><p>Clôtures et barrières décoratives</p><a href="pages/mods/macaws-fences.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Furniture</h3><p>Meubles et mobilier décoratif</p><a href="pages/mods/macaws-furniture.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Lights</h3><p>Éclairages et luminaires</p><a href="pages/mods/macaws-lights.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Roofs</h3><p>Toits et couvertures</p><a href="pages/mods/macaws-roofs.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Trapdoors</h3><p>Trappes décoratives</p><a href="pages/mods/macaws-trapdoors.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Macaw's Windows</h3><p>Fenêtres et vitrages</p><a href="pages/mods/macaws-windows.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Another Furniture</h3><p>Meubles et décoration intérieure</p><a href="pages/mods/another-furniture.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Plushies</h3><p>Peluches décoratives</p><a href="pages/mods/plushies.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Fairylights</h3><p>Guirlandes et lumières décoratives</p><a href="pages/mods/fairylights.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Chisel</h3><p>Variantes de textures pour les blocs</p><a href="pages/mods/chisel.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Engineer's Decor</h3><p>Décoration technique et industrielle</p><a href="pages/mods/engineers-decor.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>CFM</h3><p>MrCrayfish Furniture - Meubles divers</p><a href="pages/mods/cfm.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Valhelsia Furniture</h3><p>Meubles style Valhelsia</p><a href="pages/mods/valhelsia-furniture.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Handcrafted</h3><p>Objets décoratifs artisanaux</p><a href="pages/mods/handcrafted.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Edine's Furniture</h3><p>Meubles et décoration moderne</p><a href="pages/mods/edine-furniture.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Paintings</h3><p>Tableaux et œuvres d'art</p><a href="pages/mods/paintings.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Thatched</h3><p>Décoration médiévale et chaume</p><a href="pages/mods/thatched.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Builders Addition</h3><p>Outils et blocs de construction</p><a href="pages/mods/builders-addition.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Comforts</h3><p>Mobilier confortable et literie</p><a href="pages/mods/comforts.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card decoration"><h3>Chimes</h3><p>Carillons et décorations sonores</p><a href="pages/mods/chimes.html" class="access-btn">ACCÉDER</a></div>
+                </div>
+            </div>
+                   <!-- MONDE - TOUS LES MODS -->
+            <div class="category-content" id="world">
+                <div class="mods-grid">
+                    <div class="mod-card world"><h3>Biomes O' Plenty</h3><p>Biomes diversifiés</p><a href="pages/mods/biomesoplenty.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Oh The Biomes You'll Go</h3><p>Biomes fantastiques</p><a href="pages/mods/byg.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Terralith</h3><p>Génération de terrain améliorée</p><a href="pages/mods/terralith.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>TerraBlender</h3><p>Système de génération de biomes</p><a href="pages/mods/terrablender.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Regions Unexplored</h3><p>Nouveaux biomes et régions</p><a href="pages/mods/regions-unexplored.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Better Dungeons</h3><p>Donjons améliorés</p><a href="pages/mods/yungs-dungeons.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Better Desert Temples</h3><p>Temples du désert améliorés</p><a href="pages/mods/yungs-desert.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Better Mineshafts</h3><p>Mines améliorées</p><a href="pages/mods/yungs-mineshafts.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Better Strongholds</h3><p>Strongholds améliorés</p><a href="pages/mods/yungs-strongholds.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Better Witch Huts</h3><p>Cabanes de sorcière améliorées</p><a href="pages/mods/yungs-witch.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Better Ocean Monuments</h3><p>Monuments marins améliorés</p><a href="pages/mods/yungs-ocean.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Better Nether Fortresses</h3><p>Forteresses du Nether améliorées</p><a href="pages/mods/yungs-nether.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Bridges</h3><p>Ponts générés naturellement</p><a href="pages/mods/yungs-bridges.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>YUNG's Extras</h3><p>Extensions diverses pour YUNG's</p><a href="pages/mods/yungs-extras.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Repurposed Structures</h3><p>Structures revisitées</p><a href="pages/mods/repurposed-structures.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Deeper Darker</h3><p>Dimension profonde et sombre</p><a href="pages/mods/deeper-darker.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Awesome Dungeon</h3><p>Donjons épiques variés</p><a href="pages/mods/awesome-dungeon.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Awesome Dungeon Nether</h3><p>Donjons du Nether</p><a href="pages/mods/awesome-dungeon-nether.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Awesome Dungeon End</h3><p>Donjons de l'End</p><a href="pages/mods/awesome-dungeon-end.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Awesome Dungeon Ocean</h3><p>Donjons marins</p><a href="pages/mods/awesome-dungeon-ocean.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Valhelsia Structures</h3><p>Structures style Valhelsia</p><a href="pages/mods/valhelsia-structures.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Structure Gel</h3><p>Système de structures modulaires</p><a href="pages/mods/structure-gel.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Structory</h3><p>Structures architecturales</p><a href="pages/mods/structory.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Structory Towers</h3><p>Tours et structures verticales</p><a href="pages/mods/structory-towers.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Towns and Towers</h3><p>Villages et tours médiévales</p><a href="pages/mods/towns-towers.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Workshops of Doom</h3><p>Ateliers et structures industrielles</p><a href="pages/mods/workshops-doom.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Better Village</h3><p>Villages améliorés et variés</p><a href="pages/mods/better-village.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Villages and Pillages</h3><p>Villages et pillages étendus</p><a href="pages/mods/villages-pillages.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Incendium</h3><p>Nether amélioré et dangereux</p><a href="pages/mods/incendium.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Atmospheric</h3><p>Biomes atmosphériques</p><a href="pages/mods/atmospheric.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Environmental</h3><p>Environnements naturels variés</p><a href="pages/mods/environmental.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Upgrade Aquatic</h3><p>Monde aquatique amélioré</p><a href="pages/mods/upgrade-aquatic.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Regrowth</h3><p>Régénération et écologie</p><a href="pages/mods/regrowth.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Ecologies</h3><p>Écosystèmes et habitats</p><a href="pages/mods/ecologies.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Terraqueous</h3><p>Biomes terrestres et aqueux</p><a href="pages/mods/terraqueous.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Immersive Structures</h3><p>Structures immersives</p><a href="pages/mods/immersive-structures.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Rex's Additional Structures</h3><p>Structures additionnelles variées</p><a href="pages/mods/rexs-structures.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Stalwart Dungeons</h3><p>Donjons robustes et défendus</p><a href="pages/mods/stalwart-dungeons.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>Ad Astra</h3><p>Exploration spatiale et planètes</p><a href="pages/mods/ad-astra.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card world"><h3>SWPlanets</h3><p>Planètes et système solaire</p><a href="pages/mods/swplanets.html" class="access-btn">ACCÉDER</a></div>
+                </div>
+            </div>
+                  <!-- UTILITAIRES - TOUS LES MODS -->
+            <div class="category-content" id="utility">
+                <div class="mods-grid">
+                    <div class="mod-card utility"><h3>Sophisticated Backpacks</h3><p>Stockage portable amélioré</p><a href="pages/mods/backpacks.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Sophisticated Core</h3><p>Base pour mods sophisticated</p><a href="pages/mods/sophisticated-core.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>JEI</h3><p>Recherche de crafts et utilisations</p><a href="pages/mods/jei.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Journeymap</h3><p>Cartographie en temps réel</p><a href="pages/mods/journeymap.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Identity</h3><p>Métamorphose en créatures</p><a href="pages/mods/identity.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Waystones</h3><p>Points de téléportation</p><a href="pages/mods/waystones.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Iron Chests</h3><p>Coffres améliorés et variés</p><a href="pages/mods/iron-chests.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Storage Drawers</h3><p>Système de stockage organisé</p><a href="pages/mods/storage-drawers.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Nature's Compass</h3><p>Boussole pour trouver les biomes</p><a href="pages/mods/natures-compass.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>The One Probe</h3><p>Informations sur les blocs et entités</p><a href="pages/mods/one-probe.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Just Enough Resources</h3><p>Ressources et génération</p><a href="pages/mods/just-enough-resources.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Controlling</h3><p>Gestion des contrôles</p><a href="pages/mods/controlling.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>AppleSkin</h3><p>Informations nutritionnelles</p><a href="pages/mods/appleskin.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Better Advancements</h3><p>Interface des progrès améliorée</p><a href="pages/mods/better-advancements.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Clumps</h3><p>Regroupement des orbes d'expérience</p><a href="pages/mods/clumps.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Durability Tooltip</h3><p>Affichage de la durabilité</p><a href="pages/mods/durability-tooltip.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Mouse Tweaks</h3><p>Améliorations de la souris</p><a href="pages/mods/mouse-tweaks.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Not Enough Animations</h3><p>Animations supplémentaires</p><a href="pages/mods/not-enough-animations.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Paraglider</h3><p>Planeur et vol</p><a href="pages/mods/paraglider.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Pickle Tweaks</h3><p>Améliorations diverses</p><a href="pages/mods/pickle-tweaks.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Simple Planes</h3><p>Avions et véhicules aériens</p><a href="pages/mods/simple-planes.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Small Ships</h3><p>Bateaux et navigation</p><a href="pages/mods/small-ships.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Gravestone</h3><p>Tombes et récupération d'objets</p><a href="pages/mods/gravestone.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Elytra Slot</h3><p>Emplacement dédié pour l'elytre</p><a href="pages/mods/elytra-slot.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Falling Tree</h3><p>Abattage d'arbres entier</p><a href="pages/mods/falling-tree.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Explorer's Compass</h3><p>Boussole pour structures</p><a href="pages/mods/explorers-compass.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Explorify</h3><p>Exploration améliorée</p><a href="pages/mods/explorify.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Voice Chat</h3><p>Chat vocal</p><a href="pages/mods/voice-chat.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>WorldEdit</h3><p>Édition de monde avancée</p><a href="pages/mods/worldedit.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Craftable Horse Armour</h3><p>Armure de cheval craftable</p><a href="pages/mods/craftable-horse.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Simple Shops</h3><p>Système de boutiques simple</p><a href="pages/mods/simple-shops.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Straw Golem</h3><p>Golem de paille utilitaire</p><a href="pages/mods/straw-golem.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Startet Kit</h3><p>Kit de départ</p><a href="pages/mods/startet-kit.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Tumbleweed</h3><p>Tumbleweed et désert</p><a href="pages/mods/tumbleweed.html" class="access-btn">ACCÉDER</a></div>
+                    <div class="mod-card utility"><h3>Withit</h3><p>Utilitaires divers</p><a href="pages/mods/withit.html" class="access-btn">ACCÉDER</a></div>
+                </div>
+            </div>
+        </div>
+            <style>
+            .category-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 25px; }
+            .category-tab { background: linear-gradient(145deg, #3a3a3a, #2a2a2a); border: 2px solid #8b8b8b; border-radius: 10px; padding: 15px 10px; cursor: pointer; transition: all 0.3s ease; text-align: center; color: white; font-weight: bold; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+            .category-tab:hover { transform: translateY(-3px); border-color: #ff6b35; box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3); }
+            .category-tab.active { background: linear-gradient(145deg, #ff6b35, #e55a2b); border-color: #ff6b35; transform: translateY(-2px); }
+            .tab-icon { font-size: 1.8em; } .tab-text { font-size: 0.9em; }
+            .category-content { display: none; background: rgba(35, 35, 35, 0.95); border: 2px solid #5a5a5a; border-radius: 12px; padding: 25px; margin-top: 10px; }
+            .category-content.active { display: block; animation: fadeIn 0.4s ease; }
+            @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+            .mods-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+            .mod-card { background: linear-gradient(135deg, #2d2d2d, #1d1d1d); border-left: 5px solid #ff6b35; border-radius: 8px; padding: 20px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+            .mod-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #ff6b35, transparent); }
+            .mod-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+            .mod-card.tech { border-left-color: #2196F3; } .mod-card.magic { border-left-color: #9C27B0; } .mod-card.food { border-left-color: #FF9800; }
+            .mod-card.adventure { border-left-color: #4CAF50; } .mod-card.decoration { border-left-color: #795548; } .mod-card.world { border-left-color: #607D8B; } .mod-card.utility { border-left-color: #00BCD4; }
+            .mod-card h3 { margin: 0 0 10px 0; color: #ff6b35; font-size: 1.3em; font-weight: bold; }
+            .mod-card p { margin: 0 0 15px 0; color: #b0b0b0; line-height: 1.5; font-size: 0.95em; }
+            .access-btn { display: inline-block; background: linear-gradient(145deg, #ff6b35, #e55a2b); color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; border: none; cursor: pointer; }
+            .access-btn:hover { background: linear-gradient(145deg, #ff8b35, #ff6b35); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4); }
         </style>
-    </main>
 
-    <!-- Footer Style Minecraft -->
-    <footer style="
-        background: linear-gradient(135deg, var(--coal-black) 0%, #1A1A1A 100%);
-        border-top: 8px solid var(--dirt-brown);
-        color: #C0C0C0;
-        padding: 3rem 0 1rem 0;
-        margin-top: 4rem;
-        position: relative;
-    ">
-        <div class="container">
-            <div class="grid grid-3">
-                <div>
-                    <h3 style="color: var(--text-gold); margin-bottom: 1rem;" class="minecraft-font">SANDCRAFT WIKI</h3>
-                    <p style="text-shadow: 1px 1px 0 #000;">Le guide officiel du modpack Sandcraft pour Minecraft 1.19.2</p>
-                    <div style="margin-top: 1.5rem;">
-                        <a href="https://github.com/Matheodelaille/sandcraft-wiki" 
-                           style="color: var(--water-blue); margin-right: 1rem; font-size: 1.5rem; text-shadow: 2px 2px 0 #000;">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" 
-                           style="color: var(--water-blue); margin-right: 1rem; font-size: 1.5rem; text-shadow: 2px 2px 0 #000;">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 style="color: var(--text-gold); margin-bottom: 1rem;" class="minecraft-font">NAVIGATION</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.7rem;">
-                            <a href="index.html" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
-                                <i class="fas fa-book" style="margin-right: 0.5rem;"></i>Wiki Complet
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 0.7rem;">
-                            <a href="create.html" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
-                                <i class="fas fa-cogs" style="margin-right: 0.5rem;"></i>Create
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 0.7rem;">
-                            <a href="new-index.html" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
-                                <i class="fas fa-home" style="margin-right: 0.5rem;"></i>Nouvelle Accueil
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 0.7rem;">
-                            <a href="index.html#search" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
-                                <i class="fas fa-search" style="margin-right: 0.5rem;"></i>Recherche
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 style="color: var(--text-gold); margin-bottom: 1rem;" class="minecraft-font">SUPPORT</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.7rem;">
-                            <a href="#" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
-                                <i class="fas fa-server" style="margin-right: 0.5rem;"></i>Rejoindre le Serveur
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 0.7rem;">
-                            <a href="https://github.com/Matheodelaille/sandcraft-wiki/issues" 
-                               style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
-                                <i class="fas fa-bug" style="margin-right: 0.5rem;"></i>Signaler un Bug
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 0.7rem;">
-                            <a href="#" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
-                                <i class="fas fa-question-circle" style="margin-right: 0.5rem;"></i>FAQ
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div style="
-                border-top: 3px solid #5A5A5A;
-                margin-top: 3rem;
-                padding-top: 2rem;
-                text-align: center;
-                color: #9C9C9C;
-                text-shadow: 1px 1px 0 #000;
-            ">
-                <p class="minecraft-font" style="font-size: 0.8rem; margin-bottom: 0.5rem;">
-                    &copy; 2024 SANDCRAFT WIKI - MODPACK CRÉÉ PAR LA COMMUNAUTÉ
-                </p>
-                <p style="font-size: 0.7rem;">
-                    NON AFFILIÉ AVEC MOJANG OU MICROSOFT
-                </p>
-            </div>
-        </div>
-
-        <!-- Decorative Minecraft Elements -->
-        <div style="
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: 
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 10px,
-                    var(--dirt-brown) 10px,
-                    var(--dirt-brown) 20px
-                );
-        "></div>
-    </footer>
-
-    <!-- JavaScript avec effets Minecraft -->
-    <script>
-        // Effet de recherche style Minecraft
-        document.getElementById('mainSearch').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && this.value.trim() !== '') {
-                // Effet sonore visuel
-                this.style.borderColor = 'var(--emerald-green)';
-                this.style.background = '#1A3D1A';
-                
-                setTimeout(() => {
-                    const query = encodeURIComponent(this.value.trim());
-                    window.location.href = `index.html#search?q=${query}`;
-                }, 300);
-            }
-        });
-
-        // Animation des cartes au scroll style Minecraft
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                    
-                    // Effet d'apparition pixelisée
-                    if (entry.target.classList.contains('card')) {
-                        entry.target.style.animation = 'pixelAppear 0.6s ease-out';
-                    }
-                }
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabs = document.querySelectorAll('.category-tab');
+                const contents = document.querySelectorAll('.category-content');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        const category = this.getAttribute('data-category');
+                        tabs.forEach(t => t.classList.remove('active'));
+                        contents.forEach(c => c.classList.remove('active'));
+                        this.classList.add('active');
+                        document.getElementById(category).classList.add('active');
+                        document.getElementById(category).style.opacity = '0';
+                        setTimeout(() => { document.getElementById(category).style.opacity = '1'; }, 50);
+                    });
+                });
             });
-        }, { 
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        // Appliquer les animations initiales
-        document.querySelectorAll('.card, .category-header').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px) scale(0.95)';
-            element.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            observer.observe(element);
-        });
-
-        // Effet de hover sur les boutons de navigation
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-                this.style.boxShadow = '0 6px 0 #3A3A3A';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-                this.style.boxShadow = 'none';
-            });
-            
-            btn.addEventListener('mousedown', function() {
-                this.style.transform = 'translateY(2px) scale(0.95)';
-            });
-            
-            btn.addEventListener('mouseup', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
-        });
-
-        // Effet de curseur Minecraft
-        document.addEventListener('mousemove', function(e) {
-            const cursor = document.querySelector('.minecraft-cursor');
-            if (cursor) {
-                cursor.style.left = e.pageX + 'px';
-                cursor.style.top = e.pageY + 'px';
-            }
-        });
-
-        // Ajouter un curseur Minecraft optionnel
-        const cursor = document.createElement('div');
-        cursor.className = 'minecraft-cursor';
-        cursor.innerHTML = '⛏️';
-        cursor.style.cssText = `
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            font-size: 20px;
-            filter: drop-shadow(2px 2px 0 #000);
-            transition: transform 0.1s ease;
-            display: none;
-        `;
-        document.body.appendChild(cursor);
-
-        // Activer/désactiver le curseur Minecraft
-        document.addEventListener('click', function() {
-            cursor.style.transform = 'scale(0.8)';
-            setTimeout(() => cursor.style.transform = 'scale(1)', 100);
-        });
-
-        // Animation CSS pour l'apparition pixelisée
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes pixelAppear {
-                0% {
-                    opacity: 0;
-                    transform: translateY(30px) scale(0.9);
-                    filter: blur(2px);
-                }
-                50% {
-                    transform: translateY(-5px) scale(1.02);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                    filter: blur(0);
-                }
-            }
-            
-            @keyframes minecraftGlow {
-                0%, 100% { 
-                    box-shadow: 0 0 5px var(--emerald-green);
-                    border-color: var(--emerald-green);
-                }
-                50% { 
-                    box-shadow: 0 0 20px var(--emerald-green), 0 0 30px var(--emerald-green);
-                    border-color: var(--diamond-blue);
-                }
-            }
-            
-            .minecraft-cursor {
-                animation: cursorFloat 2s ease-in-out infinite;
-            }
-            
-            @keyframes cursorFloat {
-                0%, 100% { transform: translateY(0) rotate(0deg); }
-                50% { transform: translateY(-5px) rotate(5deg); }
-            }
-            
-            /* Effet de pulsation pour les titres */
-            .section-title {
-                animation: titlePulse 4s ease-in-out infinite;
-            }
-            
-            @keyframes titlePulse {
-                0%, 100% { 
-                    text-shadow: 3px 3px 0 #000, 0 0 10px rgba(255, 215, 0, 0.3);
-                }
-                50% { 
-                    text-shadow: 3px 3px 0 #000, 0 0 20px rgba(255, 215, 0, 0.6);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Effet de chargement initial
-        window.addEventListener('load', function() {
-            document.body.style.animation = 'pageLoad 1s ease-out';
-            
-            // Message de bienvenue dans la console
-            console.log('%c⚡ SANDCRAFT WIKI - INTERFACE MINECRAFT 🏖️', 
-                'color: #FFD700; font-size: 16px; font-weight: bold; text-shadow: 2px 2px 0 #000;');
-            console.log('%c✨ Interface chargée avec succès!', 
-                'color: #4A9CF8; font-size: 14px;');
-        });
-
-        // Animation de chargement de la page
-        const pageLoadStyle = document.createElement('style');
-        pageLoadStyle.textContent = `
-            @keyframes pageLoad {
-                0% {
-                    opacity: 0;
-                    filter: blur(10px);
-                }
-                100% {
-                    opacity: 1;
-                    filter: blur(0);
-                }
-            }
-            
-            body {
-                animation: pageLoad 1s ease-out;
-            }
-        `;
-        document.head.appendChild(pageLoadStyle);
-
-        console.log('🎮 Interface Minecraft Sandcraft initialisée!');
-        console.log('📁 Cartes interactives: ' + document.querySelectorAll('.card').length);
-        console.log('🔗 Liens de navigation: ' + document.querySelectorAll('.nav-btn').length);
-    </script>
-
-    <!-- Curseur Minecraft optionnel - à activer si souhaité -->
-    <script>
-        // Pour activer le curseur Minecraft, décommentez la ligne suivante :
-        // cursor.style.display = 'block';
-        
-        // Activer/désactiver avec la touche M
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'm' || e.key === 'M') {
-                cursor.style.display = cursor.style.display === 'none' ? 'block' : 'none';
-            }
-        });
-    </script>
+        </script>
+    </div>
 </body>
-</html>        
+</html>    
