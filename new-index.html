@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Sandcraft - Nouvelle Accueil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-dark: #1B5E20;
+            --secondary: #FF9800;
+            --accent: #2196F3;
+            --dark: #1A237E;
+            --light: #F5F5F5;
+            --text: #333333;
+            --border: #E0E0E0;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f5f7fa; }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: white; }
+        .logo-text { font-size: 1.5rem; font-weight: bold; }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 5px; transition: background-color 0.3s; }
+        .nav-links a:hover { background-color: rgba(255,255,255,0.2); }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3');
+            background-size: cover; background-position: center; color: white; text-align: center; padding: 4rem 2rem;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
+        .grid { display: grid; gap: 2rem; margin: 2rem 0; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+        .card {
+            background: white; border-radius: 15px; padding: 2rem; box-shadow: var(--shadow);
+            transition: all 0.3s ease; border-left: 5px solid var(--primary); text-decoration: none; color: inherit; display: block;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); border-left-color: var(--secondary); }
+        .card-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; text-align: center; }
+        .card-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary-dark); text-align: center; }
+        .card-description { color: var(--text-light); text-align: center; margin-bottom: 1.5rem; }
+        .card-link { display: inline-block; background: var(--primary); color: white; padding: 0.5rem 1.5rem; border-radius: 25px; text-decoration: none; transition: background-color 0.3s; text-align: center; width: 100%; }
+        .card-link:hover { background: var(--primary-dark); }
+
+        .category-section { margin: 3rem 0; }
+        .category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 3px solid var(--primary); }
+        .category-icon { font-size: 2rem; color: var(--primary); }
+        .category-title { font-size: 2rem; color: var(--primary-dark); }
+
+        .section-title { text-align: center; margin: 3rem 0 2rem 0; color: var(--primary-dark); font-size: 2.5rem; }
+
+        footer { background: var(--dark); color: white; padding: 3rem 0; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <a href="new-index.html" class="logo">
+                <i class="fas fa-cubes logo-icon"></i>
+                <span class="logo-text">Sandcraft Wiki</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="new-index.html"><i class="fas fa-home"></i> Nouvelle Accueil</a></li>
+                    <li><a href="index.html"><i class="fas fa-book"></i> Wiki Complet</a></li>
+                    <li><a href="create.html"><i class="fas fa-cogs"></i> Create</a></li>
+                    <li><a href="#search"><i class="fas fa-search"></i> Recherche</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🏖️ Wiki Sandcraft</h1>
+            <p>Nouvelle interface - Même contenu complet</p>
+            <div style="max-width: 500px; margin: 0 auto;">
+                <input type="text" class="search-input" placeholder="🔍 Rechercher..." id="mainSearch" style="width: 100%; padding: 1rem; font-size: 1.1rem; border: none; border-radius: 50px; box-shadow: var(--shadow);">
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section>
+            <h2 class="section-title">🚀 Accès Direct</h2>
+            <div class="grid grid-3">
+                <a href="index.html" class="card">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">Wiki Complet</h3>
+                    <p class="card-description">Accéder à toute la documentation</p>
+                    <div class="card-link">Ouvrir</div>
+                </a>
+                
+                <a href="create.html" class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3 class="card-title">Create</h3>
+                    <p class="card-description">Documentation Create complète</p>
+                    <div class="card-link">Explorer</div>
+                </a>
+                
+                <a href="index.html#search" class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3 class="card-title">Recherche</h3>
+                    <p class="card-description">Outil de recherche avancé</p>
+                    <div class="card-link">Rechercher</div>
+                </a>
+            </div>
+        </section>
+        <!-- Technology Section -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon">⚙️</div>
+                <h2 class="category-title">Technologie & Automation</h2>
+            </div>
+            <div class="grid grid-4">
+                <a href="create.html" class="card">
+                    <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                    <h3 class="card-title">Create</h3>
+                    <p class="card-description">Automatisation créative et mécaniques</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#applied-energistics" class="card">
+                    <div class="card-icon"><i class="fas fa-database"></i></div>
+                    <h3 class="card-title">Applied Energistics</h3>
+                    <p class="card-description">Stockage numérique et automation</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#thermal-series" class="card">
+                    <div class="card-icon"><i class="fas fa-fire"></i></div>
+                    <h3 class="card-title">Thermal Series</h3>
+                    <p class="card-description">Énergie, machines et dynamisme</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#immersive-engineering" class="card">
+                    <div class="card-icon"><i class="fas fa-industry"></i></div>
+                    <h3 class="card-title">Immersive Engineering</h3>
+                    <p class="card-description">Ingénierie industrielle</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Magic Section -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon">🔮</div>
+                <h2 class="category-title">Magie & Sorcellerie</h2>
+            </div>
+            <div class="grid grid-3">
+                <a href="index.html#ars-nouveau" class="card">
+                    <div class="card-icon"><i class="fas fa-hat-wizard"></i></div>
+                    <h3 class="card-title">Ars Nouveau</h3>
+                    <p class="card-description">Magie élémentaire et sortilèges</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#botania" class="card">
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                    <h3 class="card-title">Botania</h3>
+                    <p class="card-description">Magie naturelle et fleurs magiques</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#mahoutsukai" class="card">
+                    <div class="card-icon"><i class="fas fa-magic"></i></div>
+                    <h3 class="card-title">Mahoutsukai</h3>
+                    <p class="card-description">Sorcellerie avancée et rituels</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Agriculture Section -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon">🌿</div>
+                <h2 class="category-title">Agriculture & Nourriture</h2>
+            </div>
+            <div class="grid grid-3">
+                <a href="index.html#farmers-delight" class="card">
+                    <div class="card-icon"><i class="fas fa-utensils"></i></div>
+                    <h3 class="card-title">Farmer's Delight</h3>
+                    <p class="card-description">Cuisine améliorée et agriculture</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#mystical-agriculture" class="card">
+                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                    <h3 class="card-title">Mystical Agriculture</h3>
+                    <p class="card-description">Ressources magiques et agriculture</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#croptopia" class="card">
+                    <div class="card-icon"><i class="fas fa-apple-alt"></i></div>
+                    <h3 class="card-title">Croptopia</h3>
+                    <p class="card-description">Variété agricole et nourriture</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Utilities Section -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon">🛠️</div>
+                <h2 class="category-title">Utilitaires & Qualité de Vie</h2>
+            </div>
+            <div class="grid grid-4">
+                <a href="index.html#sophisticated-backpacks" class="card">
+                    <div class="card-icon"><i class="fas fa-backpack"></i></div>
+                    <h3 class="card-title">Sophisticated Backpacks</h3>
+                    <p class="card-description">Stockage portable amélioré</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#jei" class="card">
+                    <div class="card-icon"><i class="fas fa-book"></i></div>
+                    <h3 class="card-title">JEI</h3>
+                    <p class="card-description">Recherche de crafts et utilisations</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#journeymap" class="card">
+                    <div class="card-icon"><i class="fas fa-map"></i></div>
+                    <h3 class="card-title">JourneyMap</h3>
+                    <p class="card-description">Cartographie en temps réel</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+                
+                <a href="index.html#identity" class="card">
+                    <div class="card-icon"><i class="fas fa-user-injured"></i></div>
+                    <h3 class="card-title">Identity</h3>
+                    <p class="card-description">Métamorphose et transformations</p>
+                    <div class="card-link">Accéder</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="category-section" id="search">
+            <div class="category-header">
+                <div class="category-icon">🔍</div>
+                <h2 class="category-title">Recherche Rapide</h2>
+            </div>
+            
+            <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); text-align: center;">
+                <p style="margin-bottom: 2rem; color: var(--text-light);">
+                    Utilisez l'outil de recherche avancé du wiki complet
+                </p>
+                <a href="index.html#search" style="display: inline-block; background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-size: 1.1rem; transition: background-color 0.3s;">
+                    <i class="fas fa-search"></i> Ouvrir la Recherche Avancée
+                </a>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon">📊</div>
+                <h2 class="category-title">Sandcraft en Chiffres</h2>
+            </div>
+            <div class="grid grid-4">
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon" style="color: var(--accent);">📦</div>
+                    <h3 class="card-title">175+</h3>
+                    <p class="card-description">Mods intégrés</p>
+                </div>
+                
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon" style="color: var(--secondary);">⚡</div>
+                    <h3 class="card-title">1.19.2</h3>
+                    <p class="card-description">Version Minecraft</p>
+                </div>
+                
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon" style="color: var(--primary);">🔄</div>
+                    <h3 class="card-title">Actif</h3>
+                    <p class="card-description">Développement continu</p>
+                </div>
+                
+                <div class="card" style="text-align: center;">
+                    <div class="card-icon" style="color: var(--dark);">👥</div>
+                    <h3 class="card-title">Multiplayer</h3>
+                    <p class="card-description">Serveur dédié</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer style="background: var(--dark); color: white; padding: 3rem 0; margin-top: 4rem;">
+        <div class="container">
+            <div class="grid grid-3">
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">Sandcraft Wiki</h3>
+                    <p>Le guide complet du modpack Sandcraft pour Minecraft 1.19.2</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="https://github.com/Matheodelaille/sandcraft-wiki" style="color: white; margin-right: 1rem; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
+                        <a href="#" style="color: white; margin-right: 1rem; font-size: 1.2rem;"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">Navigation</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html" style="color: white; text-decoration: none;">Wiki Complet</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="create.html" style="color: white; text-decoration: none;">Create</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="new-index.html" style="color: white; text-decoration: none;">Nouvelle Accueil</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="index.html#search" style="color: white; text-decoration: none;">Recherche</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">Support</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Rejoindre le Serveur</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://github.com/Matheodelaille/sandcraft-wiki/issues" style="color: white; text-decoration: none;">Signaler un Bug</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.7);">
+                <p>&copy; 2024 Sandcraft Wiki. Modpack créé par la communauté Sandcraft.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Non affilié avec Mojang ou Microsoft.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Recherche simple qui redirige vers le wiki complet
+        document.getElementById('mainSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value.trim() !== '') {
+                const query = encodeURIComponent(this.value.trim());
+                window.location.href = `index.html#search?q=${query}`;
+            }
+        });
+
+        // Animation des cartes au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        console.log('Nouvelle page d\'accueil Sandcraft chargée!');
+    </script>
+</body>
+</html>
