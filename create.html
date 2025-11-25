@@ -12,11 +12,13 @@
             color: #fff; 
             line-height: 1.6;
         }
-        .header {
-            background: linear-gradient(135deg, #2a5c2a 0%, #3a7a3a 100%);
-            border-bottom: 4px solid #5a3c2a;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+       /* REMPLACER CES LIGNES dans create.html */
+.header {
+    background: linear-gradient(135deg, #2a5c2a 0%, #3a7a3a 100%);
+    border-bottom: 4px solid #5a3c2a;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
         }
         .header-content {
             max-width: 1200px;
@@ -310,6 +312,7 @@ let createData = {
 
 // CHARGEMENT DES DONNÉES
 // Remplacer la fonction loadCreateData()
+// REMPLACER la fonction loadCreateData() complète
 async function loadCreateData() {
     try {
         showLoading('Chargement des données Create...');
@@ -330,16 +333,7 @@ async function loadCreateData() {
             obj[key] = val; 
             return obj; 
         }, {});
-            
-        // Même chose pour les items
-        const createItems = Object.entries(allData.items)
-            .filter(([key]) => key.includes('create:'));
-        
-        console.log('🔍 Items Create trouvés:', createItems.length);
-        createData.items = createItems.reduce((obj, [key, val]) => { 
-            obj[key] = val; 
-            return obj; 
-        }, {});
+        // ... reste du code
         
         updateStats();
         displayCrafts('blocks');
