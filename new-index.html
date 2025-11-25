@@ -281,48 +281,76 @@
 <!-- SUITE DANS LA PARTIE 3... -->
 <script>
 // CONFIGURATION DES CATÉGORIES
+// CONFIGURATION CORRIGÉE AVEC LES VRAIS NOMS DE MODS
 const modCategories = {
     technologie: {
         name: "⚙️ Technologie & Automatisation",
         color: "#4CAF50",
-        mods: ['create', 'appliedenergistics2', 'refinedstorage', 'pneumaticcraft', 
-               'xnet', 'integrateddynamics', 'rftools', 'computercraft', 'immersiveengineering',
-               'thermal', 'mekanism', 'bigreactors', 'extremereactors', 'draconicevolution']
+        mods: [
+            'create-1.19.2-0.5.1.f', 'appliedenergistics2-forge-12.9.9', 
+            'pneumaticcraft-repressurized-1.19.2-4.3.14-49', 'immersiveEngineering-1.19.2-9.2.3-167',
+            'thermal-foundation-1.19.2-10.3.0.19', 'thermal-expansion-1.19.2-10.3.0.19',
+            'rftools-base-1.19-5.2.10', 'rftools-builder-1.19-5.2.12', 'rftools-utility-1.19-5.2.14',
+            'xnet-1.19-5.1.4', 'integrateddynamics-1.19.2-1.16.8', 'computercraft-1.19.2-1.101.4',
+            'AE2-Things-1.1.1', 'AEInfinityBooster-1.19.2-1.2.0+11', 'arseng-1.0.0'
+        ]
     },
     magie: {
         name: "🔮 Magie & Mysticisme", 
         color: "#9C27B0",
-        mods: ['ars_nouveau', 'botania', 'bloodmagic', 'evilcraft', 'mahoutsukai',
-               'mana-and-artifice', 'occultism', 'roots', 'spirit', 'thaumcraft',
-               'forbidden_arcanus', 'ensorcellation', 'corail_tombstone']
+        mods: [
+            'ars_nouveau-1.19.2-3.23.0', 'Botania-1.19.2-440-FORGE',
+            'arsomega-1.19.2-3.2.0-beta-1', 'ars_elemental-1.19.2-0.5.9.4',
+            'ars_instrumentum-1.19.2-3.4.5', 'ars_scalaes-1.19.2-1.10.3',
+            'ars_creo-1.19.2-3.2.1', 'evilcraft-1.19.2-1.2.20',
+            'corail_tombstone-1.19-8.2.17', 'forbidden_arcanus-1.19.2-2.1.3'
+        ]
     },
     agriculture: {
         name: "🌾 Agriculture & Nourriture",
         color: "#8BC34A",
-        mods: ['farmersdelight', 'mysticalagriculture', 'pamscookbook', 'croptopia',
-               'simplefarming', 'harvestcraft', 'farmingforblockheads', 'agricraft',
-               'nutrition', 'cookingforblockheads', 'seasonals']
+        mods: [
+            'farmersdelight-1.19-1.2.2', 'mysticalagriculture-1.19.2-5.1.9',
+            'PamsHarvestCraft-1.19.2-1.0.3', 'croptopia-1.19.2-FORGE-2.2.2',
+            'cookingforblockheads-forge-1.19.2-13.3.4', 'alexsdelight-1.4.1',
+            'endersdelight-1.19-1.2.2', 'Aquaculture-1.19.2-2.4.8',
+            'farmingforblockheads-forge-1.19.2-11.3.0', 'Delightful-1.19.2-3.4.1'
+        ]
     },
     exploration: {
         name: "🗺️ Exploration & Aventure",
         color: "#FF9800",
-        mods: ['biomesoplenty', 'terralith', 'dungeons_arise', 'yungs', 'repurposed_structures',
-               'valhelsia_structures', 'when_dungeons_arise', 'betterstrongholds',
-               'betterdungeons', 'cataclysm', 'iceandfire', 'twilightforest']
+        mods: [
+            'BiomesOPlenty-1.19.2-17.1.2.544', 'terralith-1.19.2-2.3.10',
+            'dungeonsarise-2.2.1.5-beta', 'dungeons_enhanced-1.19.2-4.1',
+            'YungsBetterDungeons-1.19.2-Forge-3.2.2', 'YungsBetterStrongholds-1.19.2-Forge-3.2.0',
+            'YungsExtras-1.19.2-Forge-3.1.0', 'awesomedungeon-forge-1.19.2-3.2.0',
+            'repurposed_structures-1.19.2-6.3.18', 'valhelsia_structures-1.19.2-1.0.0',
+            'aquamirae-6.AP115', 'deeperdarker-forge-1.19.2-1.2.2'
+        ]
     },
     decoration: {
         name: "🎨 Décoration & Construction", 
         color: "#00BCD4",
-        mods: ['macaws', 'decorative_blocks', 'framedblocks', 'chisel', 'blockcarpentry',
-               'furnituremod', 'comforts', 'supplementaries', 'buildinggadgets',
-               'worldedit', 'littletiles', 'chiselsandbits']
+        mods: [
+            'another_furniture-forge-1.19.2-2.1.4', 'Decorative Blocks-Forge-1.19.2-3.0.0',
+            'macawsbridges-1.19.2-3.0.0', 'macawsdoors-1.19.2-2.0.1',
+            'macawsroofs-1.19.2-3.0.0', 'macawswindows-1.19.2-2.1.1',
+            'buildersaddition-1.19.2-20220926', 'chisel-1.19.2-3.0.0',
+            'supplementaries-1.19.2-2.3.10', 'comforts-forge-6.0.7+1.19.2'
+        ]
     },
     utilitaires: {
         name: "🛠️ Utilitaires & Qualité de Vie",
         color: "#795548",
-        mods: ['jei', 'journeymap', 'wthit', 'betteradvancements', 'sophisticatedbackpacks',
-               'storagedrawers', 'ironchests', 'metamorph', 'gravestone', 'waystones',
-               'fastleafdecay', 'fallingtree', 'spark', 'cloth_config', 'architectury']
+        mods: [
+            'jei-1.19.2-forge-11.6.0.1013', 'journeymap-1.19.2-5.9.7-forge',
+            'sophisticatedbackpacks-1.19.2-3.18.54.907', 'ironchest-1.19.2-14.2.6',
+            'storagedrawers-1.19-11.1.2', 'gravestone-1.19-1.0.3',
+            'waystones-forge-1.19.2-11.4.0', 'fastleafdecay-1.19.2-28',
+            'fallingtree-1.19.2-3.9.2', 'appleskin-forge-mc1.19-2.4.2',
+            'BetterAdvancements-1.19.2-0.2.2.147', 'controlling-forge-1.19.2-10.0+7'
+        ]
     }
 };
 
