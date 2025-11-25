@@ -309,6 +309,7 @@ let createData = {
 };
 
 // CHARGEMENT DES DONNÉES
+// Remplacer la fonction loadCreateData()
 async function loadCreateData() {
     try {
         showLoading('Chargement des données Create...');
@@ -316,16 +317,29 @@ async function loadCreateData() {
         const response = await fetch('./data/complete-data.json');
         const allData = await response.json();
         
-        // Filtrer les données Create
-        createData.recipes = Object.entries(allData.recipes)
-            .filter(([key]) => key.includes(CREATE_NAMESPACE))
-            .reduce((obj, [key, val]) => { obj[key] = val; return obj; }, {});
-            
-        createData.items = Object.entries(allData.items)
-            .filter(([key]) => key.includes(CREATE_NAMESPACE))
-            .reduce((obj, [key, val]) => { obj[key] = val; return obj; }, {});
+        console.log('🔍 Debug - Tous les recipes:', Object.keys(allData.recipes).length);
         
-        console.log(`✅ Create: ${Object.keys(createData.recipes).length} recettes, ${Object.keys(createData.items).length} items`);
+        // Debug: voir ce qui est trouvé pour Create
+        const createRecipes = Object.entries(allData.recipes)
+            .filter(([key]) => key.includes('create:'));
+        
+        console.log('🔍 Recipes Create trouvés:', createRecipes.length);
+        console.log('🔍 Exemples:', createRecipes.slice(0, 5));
+        
+        createData.recipes = createRecipes.reduce((obj, [key, val]) => { 
+            obj[key] = val; 
+            return obj; 
+        }, {});
+            
+        // Même chose pour les items
+        const createItems = Object.entries(allData.items)
+            .filter(([key]) => key.includes('create:'));
+        
+        console.log('🔍 Items Create trouvés:', createItems.length);
+        createData.items = createItems.reduce((obj, [key, val]) => { 
+            obj[key] = val; 
+            return obj; 
+        }, {});
         
         updateStats();
         displayCrafts('blocks');
