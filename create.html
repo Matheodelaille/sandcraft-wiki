@@ -4,45 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create - Sandcraft Wiki</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: #1a1a1a;
-            font-family: 'Minecraft', monospace; 
-            color: #fff; 
+        :root {
+            --dirt-brown: #8B6914;
+            --grass-green: #5B8C5A;
+            --stone-gray: #8C8C8C;
+            --gold-yellow: #FADA5E;
+            --coal-black: #2D2D2D;
         }
-        .header {
-            background: linear-gradient(135deg, #2a5c2a 0%, #3a7a3a 100%);
-            border-bottom: 4px solid #5a3c2a;
-            padding: 1rem 2rem;
-        }
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+            margin: 0;
+            padding: 0;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
+            min-height: 100vh;
+            color: #F0F0F0;
+            text-shadow: 2px 2px 0 #000;
         }
-        .logo { font-size: 2rem; font-weight: bold; color: #ffd700; text-shadow: 3px 3px 0 #000; }
-        .back-btn { background: #4a4a4a; border: 2px solid #8b8b8b; border-radius: 4px; padding: 0.5rem 1rem; color: #fff; text-decoration: none; }
-        .main-content { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; text-align: center; }
+        
+        .redirect-container {
+            text-align: center;
+            background: linear-gradient(135deg, #5A5A5A 0%, #3A3A3A 100%);
+            padding: 3rem;
+            border: 6px solid #5A5A5A;
+            border-top: 6px solid #9C9C9C;
+            border-left: 6px solid #9C9C9C;
+            box-shadow: 0 10px 0 #3A3A3A;
+            image-rendering: pixelated;
+        }
+        
+        .spinner {
+            border: 6px solid #5A5A5A;
+            border-top: 6px solid var(--gold-yellow);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+            image-rendering: pixelated;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--gold-yellow);
+        }
+        
+        p {
+            margin-bottom: 2rem;
+            color: #C0C0C0;
+            line-height: 1.6;
+        }
+        
+        .direct-link {
+            display: inline-block;
+            background: linear-gradient(to bottom, var(--grass-green), #4A7C4A);
+            border: 4px solid #3A6B3A;
+            border-top: 4px solid #6B9C6B;
+            border-left: 4px solid #6B9C6B;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.1s ease;
+            text-shadow: 2px 2px 0 #000;
+            image-rendering: pixelated;
+        }
+        
+        .direct-link:hover {
+            background: linear-gradient(to bottom, #6B9C6B, #4A7C4A);
+            transform: translateY(-3px);
+        }
+        
+        .direct-link:active {
+            background: linear-gradient(to bottom, #4A7C4A, #6B9C6B);
+            transform: translateY(1px);
+        }
+        
+        .create-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(3px 3px 0 #000);
+            animation: gearSpin 3s linear infinite;
+        }
+        
+        @keyframes gearSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <a href="new-index.html" class="logo">🧱 Sandcraft Wiki</a>
-            <a href="new-index.html" class="back-btn">← Retour à l'accueil</a>
-        </div>
-    </header>
-
-    <main class="main-content">
-        <h1>Create - En cours de développement</h1>
-        <p>La page Create est en cours de correction...</p>
-    </main>
+    <div class="redirect-container">
+        <div class="create-icon">⚙️</div>
+        <div class="spinner"></div>
+        <h1>CREATE</h1>
+        <p>REDIRECTION VERS LA DOCUMENTATION CREATE...</p>
+        <a href="index.html#create" class="direct-link">
+            CLIQUER ICI SI LA REDIRECTION NE FONCTIONNE PAS
+        </a>
+    </div>
 
     <script>
-        console.log('✅ Create - Test de chargement réussi');
+        // Redirection automatique après 3 secondes
+        setTimeout(() => {
+            window.location.href = 'index.html#create';
+        }, 3000);
+        
+        // Effet sonore visuel
+        const container = document.querySelector('.redirect-container');
+        setInterval(() => {
+            container.style.borderColor = container.style.borderColor === 'var(--gold-yellow)' ? 
+                '#5A5A5A' : 'var(--gold-yellow)';
+        }, 500);
     </script>
 </body>
 </html>
