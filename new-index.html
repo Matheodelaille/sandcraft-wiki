@@ -3,379 +3,957 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki Sandcraft - Nouvelle Accueil</title>
+    <title>Wiki Sandcraft - Modpack Minecraft</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
+        /* === STYLE MINECRAFT === */
         :root {
-            --primary: #2E7D32;
-            --primary-dark: #1B5E20;
-            --secondary: #FF9800;
-            --accent: #2196F3;
-            --dark: #1A237E;
-            --light: #F5F5F5;
-            --text: #333333;
-            --border: #E0E0E0;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --dirt-brown: #8B6914;
+            --grass-green: #5B8C5A;
+            --stone-gray: #8C8C8C;
+            --wood-brown: #BA8C63;
+            --water-blue: #3F76E4;
+            --coal-black: #2D2D2D;
+            --gold-yellow: #FADA5E;
+            --diamond-blue: #4A9CF8;
+            --emerald-green: #00FF95;
+            --redstone-red: #FF0000;
+            --text-gold: #FFD700;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f5f7fa; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: 
+                linear-gradient(rgba(43, 29, 20, 0.9), rgba(43, 29, 20, 0.9)),
+                url('https://i.imgur.com/3RXnGf2.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #F0F0F0;
+            min-height: 100vh;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        .minecraft-font {
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 3px 3px 0 #000;
+        }
+
+        /* === HEADER STYLE MINECRAFT === */
         .header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000;
+            background: 
+                linear-gradient(135deg, var(--dirt-brown) 0%, #6B4F13 100%);
+            border-bottom: 4px solid #5A3D0F;
+            box-shadow: 0 4px 0 #3A2A0A;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .nav-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .logo { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: white; }
-        .logo-text { font-size: 1.5rem; font-weight: bold; }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-gold);
+        }
 
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 5px; transition: background-color 0.3s; }
-        .nav-links a:hover { background-color: rgba(255,255,255,0.2); }
+        .logo-icon {
+            font-size: 2rem;
+            filter: drop-shadow(2px 2px 0 #000);
+        }
 
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-btn {
+            background: linear-gradient(to bottom, var(--stone-gray), #6B6B6B);
+            border: 2px solid #5A5A5A;
+            border-top: 2px solid #9C9C9C;
+            border-left: 2px solid #9C9C9C;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-shadow: 1px 1px 0 #000;
+            transition: all 0.1s ease;
+            image-rendering: pixelated;
+        }
+
+        .nav-btn:hover {
+            background: linear-gradient(to bottom, #7C7C7C, #5A5A5A);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:active {
+            background: linear-gradient(to bottom, #5A5A5A, #7C7C7C);
+            transform: translateY(1px);
+        }
+
+        /* === HERO SECTION STYLE MINECRAFT === */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3');
-            background-size: cover; background-position: center; color: white; text-align: center; padding: 4rem 2rem;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://i.imgur.com/Q4d2QkK.png');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 6rem 2rem;
+            border-bottom: 8px solid var(--grass-green);
+            position: relative;
         }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--grass-green) 20%, 
+                var(--grass-green) 80%, 
+                transparent 100%);
+        }
 
-        .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
-        .grid { display: grid; gap: 2rem; margin: 2rem 0; }
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-gold);
+            text-shadow: 4px 4px 0 #000;
+            letter-spacing: 2px;
+        }
 
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 2px 2px 0 #000;
+            color: #E0E0E0;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            background: #2D2D2D;
+            border: 3px solid #5A5A5A;
+            border-top: 3px solid #9C9C9C;
+            border-left: 3px solid #9C9C9C;
+            color: white;
+            text-shadow: 1px 1px 0 #000;
+            image-rendering: pixelated;
+        }
+
+        .search-input::placeholder {
+            color: #9C9C9C;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        /* === MAIN CONTAINER === */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 3rem 0;
+            color: var(--text-gold);
+            font-size: 2rem;
+            text-shadow: 3px 3px 0 #000;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--text-gold), 
+                transparent);
+            margin: 1rem auto;
+        }
+
+        /* === GRID SYSTEM === */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* === CARD STYLE MINECRAFT === */
         .card {
-            background: white; border-radius: 15px; padding: 2rem; box-shadow: var(--shadow);
-            transition: all 0.3s ease; border-left: 5px solid var(--primary); text-decoration: none; color: inherit; display: block;
+            background: 
+                linear-gradient(135deg, #5A5A5A 0%, #3A3A3A 100%);
+            border: 4px solid #5A5A5A;
+            border-top: 4px solid #9C9C9C;
+            border-left: 4px solid #9C9C9C;
+            border-radius: 0;
+            padding: 2rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            image-rendering: pixelated;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); border-left-color: var(--secondary); }
-        .card-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; text-align: center; }
-        .card-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary-dark); text-align: center; }
-        .card-description { color: var(--text-light); text-align: center; margin-bottom: 1.5rem; }
-        .card-link { display: inline-block; background: var(--primary); color: white; padding: 0.5rem 1.5rem; border-radius: 25px; text-decoration: none; transition: background-color 0.3s; text-align: center; width: 100%; }
-        .card-link:hover { background: var(--primary-dark); }
 
-        .category-section { margin: 3rem 0; }
-        .category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 3px solid var(--primary); }
-        .category-icon { font-size: 2rem; color: var(--primary); }
-        .category-title { font-size: 2rem; color: var(--primary-dark); }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--diamond-blue);
+            box-shadow: 0 8px 0 #2A5A8C;
+        }
 
-        .section-title { text-align: center; margin: 3rem 0 2rem 0; color: var(--primary-dark); font-size: 2.5rem; }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
 
-        footer { background: var(--dark); color: white; padding: 3rem 0; margin-top: 4rem; }
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            filter: drop-shadow(2px 2px 0 #000);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 0 #000;
+            font-weight: bold;
+        }
+
+        .card-description {
+            color: #C0C0C0;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 0 #000;
+            line-height: 1.5;
+        }
+
+        .card-link {
+            display: inline-block;
+            background: linear-gradient(to bottom, var(--grass-green), #4A7C4A);
+            border: 2px solid #3A6B3A;
+            border-top: 2px solid #6B9C6B;
+            border-left: 2px solid #6B9C6B;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+            text-shadow: 1px 1px 0 #000;
+            transition: all 0.1s ease;
+            image-rendering: pixelated;
+        }
+
+        .card-link:hover {
+            background: linear-gradient(to bottom, #6B9C6B, #4A7C4A);
+            transform: translateY(-2px);
+        }
+
+        .card-link:active {
+            background: linear-gradient(to bottom, #4A7C4A, #6B9C6B);
+            transform: translateY(1px);
+        }
     </style>
 </head>
 <body>
+    <!-- Header Navigation Style Minecraft -->
     <header class="header">
         <div class="nav-container">
-            <a href="new-index.html" class="logo">
-                <i class="fas fa-cubes logo-icon"></i>
-                <span class="logo-text">Sandcraft Wiki</span>
+            <a href="new-index.html" class="logo minecraft-font">
+                <i class="fas fa-cube logo-icon"></i>
+                <span class="logo-text">SANDCRAFT WIKI</span>
             </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="new-index.html"><i class="fas fa-home"></i> Nouvelle Accueil</a></li>
-                    <li><a href="index.html"><i class="fas fa-book"></i> Wiki Complet</a></li>
-                    <li><a href="create.html"><i class="fas fa-cogs"></i> Create</a></li>
-                    <li><a href="#search"><i class="fas fa-search"></i> Recherche</a></li>
+                    <li><a href="new-index.html" class="nav-btn minecraft-font">ACCUEIL</a></li>
+                    <li><a href="index.html" class="nav-btn minecraft-font">WIKI COMPLET</a></li>
+                    <li><a href="create.html" class="nav-btn minecraft-font">CREATE</a></li>
+                    <li><a href="#search" class="nav-btn minecraft-font">RECHERCHE</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Hero Section Style Minecraft -->
     <section class="hero">
         <div class="hero-content">
-            <h1>🏖️ Wiki Sandcraft</h1>
-            <p>Nouvelle interface - Même contenu complet</p>
-            <div style="max-width: 500px; margin: 0 auto;">
-                <input type="text" class="search-input" placeholder="🔍 Rechercher..." id="mainSearch" style="width: 100%; padding: 1rem; font-size: 1.1rem; border: none; border-radius: 50px; box-shadow: var(--shadow);">
+            <h1 class="minecraft-font">🏖️ SANDCRAFT WIKI</h1>
+            <p class="minecraft-font">LE GUIDE OFFICIEL DU MODPACK MINECRAFT</p>
+            <div class="search-box">
+                <input type="text" class="search-input minecraft-font" placeholder="🔍 RECHERCHER UN ITEM..." id="mainSearch">
             </div>
         </div>
     </section>
 
+    <!-- Main Content -->
     <main class="container">
+        <!-- Quick Access Cards -->
         <section>
-            <h2 class="section-title">🚀 Accès Direct</h2>
+            <h2 class="section-title minecraft-font">🚀 ACCÈS RAPIDE</h2>
             <div class="grid grid-3">
                 <a href="index.html" class="card">
                     <div class="card-icon">📚</div>
-                    <h3 class="card-title">Wiki Complet</h3>
-                    <p class="card-description">Accéder à toute la documentation</p>
-                    <div class="card-link">Ouvrir</div>
+                    <h3 class="card-title minecraft-font">WIKI COMPLET</h3>
+                    <p class="card-description">Accéder à toute la documentation du modpack</p>
+                    <div class="card-link minecraft-font">OUVRIR</div>
                 </a>
                 
                 <a href="create.html" class="card">
                     <div class="card-icon">⚙️</div>
-                    <h3 class="card-title">Create</h3>
-                    <p class="card-description">Documentation Create complète</p>
-                    <div class="card-link">Explorer</div>
+                    <h3 class="card-title minecraft-font">CREATE</h3>
+                    <p class="card-description">Documentation complète du mod Create</p>
+                    <div class="card-link minecraft-font">EXPLORER</div>
                 </a>
                 
                 <a href="index.html#search" class="card">
                     <div class="card-icon">🔍</div>
-                    <h3 class="card-title">Recherche</h3>
-                    <p class="card-description">Outil de recherche avancé</p>
-                    <div class="card-link">Rechercher</div>
+                    <h3 class="card-title minecraft-font">RECHERCHE</h3>
+                    <p class="card-description">Outil de recherche avancé des items</p>
+                    <div class="card-link minecraft-font">RECHERCHER</div>
                 </a>
             </div>
         </section>
-        <!-- Technology Section -->
+                <!-- Technology Section Style Minecraft -->
         <section class="category-section">
             <div class="category-header">
                 <div class="category-icon">⚙️</div>
-                <h2 class="category-title">Technologie & Automation</h2>
+                <h2 class="category-title minecraft-font">TECHNOLOGIE & AUTOMATION</h2>
             </div>
             <div class="grid grid-4">
                 <a href="create.html" class="card">
-                    <div class="card-icon"><i class="fas fa-cogs"></i></div>
-                    <h3 class="card-title">Create</h3>
-                    <p class="card-description">Automatisation créative et mécaniques</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-icon" style="color: var(--gold-yellow);"><i class="fas fa-cogs"></i></div>
+                    <h3 class="card-title minecraft-font">CREATE</h3>
+                    <p class="card-description">Automatisation créative et mécaniques avancées</p>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#applied-energistics" class="card">
-                    <div class="card-icon"><i class="fas fa-database"></i></div>
-                    <h3 class="card-title">Applied Energistics</h3>
-                    <p class="card-description">Stockage numérique et automation</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-icon" style="color: var(--diamond-blue);"><i class="fas fa-database"></i></div>
+                    <h3 class="card-title minecraft-font">APPLIED ENERGISTICS</h3>
+                    <p class="card-description">Stockage numérique et système d'automation</p>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#thermal-series" class="card">
-                    <div class="card-icon"><i class="fas fa-fire"></i></div>
-                    <h3 class="card-title">Thermal Series</h3>
-                    <p class="card-description">Énergie, machines et dynamisme</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-icon" style="color: var(--redstone-red);"><i class="fas fa-fire"></i></div>
+                    <h3 class="card-title minecraft-font">THERMAL SERIES</h3>
+                    <p class="card-description">Énergie RF, machines et dynamiques</p>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#immersive-engineering" class="card">
-                    <div class="card-icon"><i class="fas fa-industry"></i></div>
-                    <h3 class="card-title">Immersive Engineering</h3>
-                    <p class="card-description">Ingénierie industrielle</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-icon" style="color: var(--stone-gray);"><i class="fas fa-industry"></i></div>
+                    <h3 class="card-title minecraft-font">IMMERSIVE ENGINEERING</h3>
+                    <p class="card-description">Ingénierie industrielle réaliste</p>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
             </div>
         </section>
 
-        <!-- Magic Section -->
+        <!-- Magic Section Style Minecraft -->
         <section class="category-section">
             <div class="category-header">
                 <div class="category-icon">🔮</div>
-                <h2 class="category-title">Magie & Sorcellerie</h2>
+                <h2 class="category-title minecraft-font">MAGIE & SORCELLERIE</h2>
             </div>
             <div class="grid grid-3">
                 <a href="index.html#ars-nouveau" class="card">
-                    <div class="card-icon"><i class="fas fa-hat-wizard"></i></div>
-                    <h3 class="card-title">Ars Nouveau</h3>
+                    <div class="card-icon" style="color: var(--water-blue);"><i class="fas fa-hat-wizard"></i></div>
+                    <h3 class="card-title minecraft-font">ARS NOUVEAU</h3>
                     <p class="card-description">Magie élémentaire et sortilèges</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#botania" class="card">
-                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
-                    <h3 class="card-title">Botania</h3>
+                    <div class="card-icon" style="color: var(--emerald-green);"><i class="fas fa-leaf"></i></div>
+                    <h3 class="card-title minecraft-font">BOTANIA</h3>
                     <p class="card-description">Magie naturelle et fleurs magiques</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#mahoutsukai" class="card">
-                    <div class="card-icon"><i class="fas fa-magic"></i></div>
-                    <h3 class="card-title">Mahoutsukai</h3>
+                    <div class="card-icon" style="color: var(--gold-yellow);"><i class="fas fa-magic"></i></div>
+                    <h3 class="card-title minecraft-font">MAHOUTSUKAI</h3>
                     <p class="card-description">Sorcellerie avancée et rituels</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
             </div>
         </section>
 
-        <!-- Agriculture Section -->
+        <!-- Agriculture Section Style Minecraft -->
         <section class="category-section">
             <div class="category-header">
                 <div class="category-icon">🌿</div>
-                <h2 class="category-title">Agriculture & Nourriture</h2>
+                <h2 class="category-title minecraft-font">AGRICULTURE & NOURRITURE</h2>
             </div>
             <div class="grid grid-3">
                 <a href="index.html#farmers-delight" class="card">
-                    <div class="card-icon"><i class="fas fa-utensils"></i></div>
-                    <h3 class="card-title">Farmer's Delight</h3>
+                    <div class="card-icon" style="color: var(--grass-green);"><i class="fas fa-utensils"></i></div>
+                    <h3 class="card-title minecraft-font">FARMER'S DELIGHT</h3>
                     <p class="card-description">Cuisine améliorée et agriculture</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#mystical-agriculture" class="card">
-                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
-                    <h3 class="card-title">Mystical Agriculture</h3>
-                    <p class="card-description">Ressources magiques et agriculture</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-icon" style="color: var(--emerald-green);"><i class="fas fa-seedling"></i></div>
+                    <h3 class="card-title minecraft-font">MYSTICAL AGRICULTURE</h3>
+                    <p class="card-description">Ressources magiques par l'agriculture</p>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#croptopia" class="card">
-                    <div class="card-icon"><i class="fas fa-apple-alt"></i></div>
-                    <h3 class="card-title">Croptopia</h3>
-                    <p class="card-description">Variété agricole et nourriture</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-icon" style="color: var(--gold-yellow);"><i class="fas fa-apple-alt"></i></div>
+                    <h3 class="card-title minecraft-font">CROTOPIA</h3>
+                    <p class="card-description">Variété agricole étendue</p>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
             </div>
         </section>
 
-        <!-- Utilities Section -->
+        <!-- Utilities Section Style Minecraft -->
         <section class="category-section">
             <div class="category-header">
                 <div class="category-icon">🛠️</div>
-                <h2 class="category-title">Utilitaires & Qualité de Vie</h2>
+                <h2 class="category-title minecraft-font">UTILITAIRES & QdV</h2>
             </div>
             <div class="grid grid-4">
                 <a href="index.html#sophisticated-backpacks" class="card">
-                    <div class="card-icon"><i class="fas fa-backpack"></i></div>
-                    <h3 class="card-title">Sophisticated Backpacks</h3>
+                    <div class="card-icon" style="color: var(--wood-brown);"><i class="fas fa-backpack"></i></div>
+                    <h3 class="card-title minecraft-font">BACKPACKS</h3>
                     <p class="card-description">Stockage portable amélioré</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#jei" class="card">
-                    <div class="card-icon"><i class="fas fa-book"></i></div>
-                    <h3 class="card-title">JEI</h3>
+                    <div class="card-icon" style="color: var(--diamond-blue);"><i class="fas fa-book"></i></div>
+                    <h3 class="card-title minecraft-font">JEI</h3>
                     <p class="card-description">Recherche de crafts et utilisations</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#journeymap" class="card">
-                    <div class="card-icon"><i class="fas fa-map"></i></div>
-                    <h3 class="card-title">JourneyMap</h3>
+                    <div class="card-icon" style="color: var(--grass-green);"><i class="fas fa-map"></i></div>
+                    <h3 class="card-title minecraft-font">JOURNEYMAP</h3>
                     <p class="card-description">Cartographie en temps réel</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
                 
                 <a href="index.html#identity" class="card">
-                    <div class="card-icon"><i class="fas fa-user-injured"></i></div>
-                    <h3 class="card-title">Identity</h3>
-                    <p class="card-description">Métamorphose et transformations</p>
-                    <div class="card-link">Accéder</div>
+                    <div class="card-icon" style="color: var(--redstone-red);"><i class="fas fa-user-injured"></i></div>
+                    <h3 class="card-title minecraft-font">IDENTITY</h3>
+                    <p class="card-description">Métamorphose en créatures</p>
+                    <div class="card-link minecraft-font">ACCÉDER</div>
                 </a>
             </div>
         </section>
 
-        <!-- Search Section -->
+        <!-- Search Section Style Minecraft -->
         <section class="category-section" id="search">
             <div class="category-header">
                 <div class="category-icon">🔍</div>
-                <h2 class="category-title">Recherche Rapide</h2>
+                <h2 class="category-title minecraft-font">RECHERCHE AVANCÉE</h2>
             </div>
             
-            <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); text-align: center;">
-                <p style="margin-bottom: 2rem; color: var(--text-light);">
-                    Utilisez l'outil de recherche avancé du wiki complet
+            <div class="card" style="text-align: center; background: linear-gradient(135deg, #4A4A4A 0%, #2D2D2D 100%);">
+                <div class="card-icon" style="color: var(--gold-yellow);">🔎</div>
+                <h3 class="card-title minecraft-font">OUTIL DE RECHERCHE</h3>
+                <p class="card-description" style="margin-bottom: 2rem;">
+                    Utilisez l'outil de recherche avancé du wiki complet pour trouver tous les items, crafts et mécaniques
                 </p>
-                <a href="index.html#search" style="display: inline-block; background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-size: 1.1rem; transition: background-color 0.3s;">
-                    <i class="fas fa-search"></i> Ouvrir la Recherche Avancée
+                <a href="index.html#search" class="card-link minecraft-font" style="max-width: 300px; margin: 0 auto;">
+                    <i class="fas fa-external-link-alt"></i> OUVIR LA RECHERCHE
                 </a>
             </div>
         </section>
 
-        <!-- Stats Section -->
+        <!-- Stats Section Style Minecraft -->
         <section class="category-section">
             <div class="category-header">
                 <div class="category-icon">📊</div>
-                <h2 class="category-title">Sandcraft en Chiffres</h2>
+                <h2 class="category-title minecraft-font">SANDCRAFT EN CHIFFRES</h2>
             </div>
             <div class="grid grid-4">
-                <div class="card" style="text-align: center;">
-                    <div class="card-icon" style="color: var(--accent);">📦</div>
-                    <h3 class="card-title">175+</h3>
-                    <p class="card-description">Mods intégrés</p>
+                <div class="card" style="text-align: center; background: linear-gradient(135deg, #5A4A2D 0%, #3A2D1A 100%);">
+                    <div class="card-icon" style="color: var(--diamond-blue);">📦</div>
+                    <h3 class="card-title minecraft-font">175+</h3>
+                    <p class="card-description">MODS INTÉGRÉS</p>
                 </div>
                 
-                <div class="card" style="text-align: center;">
-                    <div class="card-icon" style="color: var(--secondary);">⚡</div>
-                    <h3 class="card-title">1.19.2</h3>
-                    <p class="card-description">Version Minecraft</p>
+                <div class="card" style="text-align: center; background: linear-gradient(135deg, #4A5A3D 0%, #2D3A24 100%);">
+                    <div class="card-icon" style="color: var(--emerald-green);">⚡</div>
+                    <h3 class="card-title minecraft-font">1.19.2</h3>
+                    <p class="card-description">VERSION MC</p>
                 </div>
                 
-                <div class="card" style="text-align: center;">
-                    <div class="card-icon" style="color: var(--primary);">🔄</div>
-                    <h3 class="card-title">Actif</h3>
-                    <p class="card-description">Développement continu</p>
+                <div class="card" style="text-align: center; background: linear-gradient(135deg, #5A3D3D 0%, #3A2424 100%);">
+                    <div class="card-icon" style="color: var(--redstone-red);">🔄</div>
+                    <h3 class="card-title minecraft-font">ACTIF</h3>
+                    <p class="card-description">DÉVELOPPEMENT</p>
                 </div>
                 
-                <div class="card" style="text-align: center;">
-                    <div class="card-icon" style="color: var(--dark);">👥</div>
-                    <h3 class="card-title">Multiplayer</h3>
-                    <p class="card-description">Serveur dédié</p>
+                <div class="card" style="text-align: center; background: linear-gradient(135deg, #3D4A5A 0%, #242D3A 100%);">
+                    <div class="card-icon" style="color: var(--water-blue);">👥</div>
+                    <h3 class="card-title minecraft-font">MULTIJOUEUR</h3>
+                    <p class="card-description">SERVEUR DÉDIÉ</p>
                 </div>
             </div>
         </section>
-    </main>
-    <footer style="background: var(--dark); color: white; padding: 3rem 0; margin-top: 4rem;">
+
+        <style>
+            /* Additional Minecraft Styles */
+            .category-section {
+                margin: 4rem 0;
+            }
+
+            .category-header {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+                padding: 2rem;
+                background: linear-gradient(135deg, rgba(90, 90, 90, 0.3), rgba(58, 58, 58, 0.3));
+                border: 4px solid #5A5A5A;
+                border-top: 4px solid #9C9C9C;
+                border-left: 4px solid #9C9C9C;
+                position: relative;
+            }
+
+            .category-header::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                border: 2px solid rgba(255,255,255,0.1);
+                pointer-events: none;
+            }
+
+            .category-icon {
+                font-size: 3rem;
+                filter: drop-shadow(3px 3px 0 #000);
+            }
+
+            .category-title {
+                font-size: 1.8rem;
+                color: var(--text-gold);
+                text-shadow: 3px 3px 0 #000;
+                text-align: center;
+            }
+
+            /* Minecraft Button Effects */
+            .nav-btn, .card-link {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .nav-btn::before, .card-link::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s;
+            }
+
+            .nav-btn:hover::before, .card-link:hover::before {
+                left: 100%;
+            }
+
+            /* Pixelated borders */
+            .card, .category-header, .nav-btn, .card-link, .search-input {
+                image-rendering: pixelated;
+                image-rendering: -moz-crisp-edges;
+                image-rendering: crisp-edges;
+            }
+
+            /* Minecraft scrollbar */
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #2D2D2D;
+                border: 2px solid #5A5A5A;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: linear-gradient(to bottom, #5A5A5A, #3A3A3A);
+                border: 2px solid #5A5A5A;
+                border-top: 2px solid #9C9C9C;
+                border-left: 2px solid #9C9C9C;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(to bottom, #6B6B6B, #4A4A4A);
+            }
+        </style>
+            </main>
+
+    <!-- Footer Style Minecraft -->
+    <footer style="
+        background: linear-gradient(135deg, var(--coal-black) 0%, #1A1A1A 100%);
+        border-top: 8px solid var(--dirt-brown);
+        color: #C0C0C0;
+        padding: 3rem 0 1rem 0;
+        margin-top: 4rem;
+        position: relative;
+    ">
         <div class="container">
             <div class="grid grid-3">
                 <div>
-                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">Sandcraft Wiki</h3>
-                    <p>Le guide complet du modpack Sandcraft pour Minecraft 1.19.2</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://github.com/Matheodelaille/sandcraft-wiki" style="color: white; margin-right: 1rem; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
-                        <a href="#" style="color: white; margin-right: 1rem; font-size: 1.2rem;"><i class="fab fa-discord"></i></a>
+                    <h3 style="color: var(--text-gold); margin-bottom: 1rem;" class="minecraft-font">SANDCRAFT WIKI</h3>
+                    <p style="text-shadow: 1px 1px 0 #000;">Le guide officiel du modpack Sandcraft pour Minecraft 1.19.2</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://github.com/Matheodelaille/sandcraft-wiki" 
+                           style="color: var(--water-blue); margin-right: 1rem; font-size: 1.5rem; text-shadow: 2px 2px 0 #000;">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" 
+                           style="color: var(--water-blue); margin-right: 1rem; font-size: 1.5rem; text-shadow: 2px 2px 0 #000;">
+                            <i class="fab fa-discord"></i>
+                        </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">Navigation</h3>
+                    <h3 style="color: var(--text-gold); margin-bottom: 1rem;" class="minecraft-font">NAVIGATION</h3>
                     <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.5rem;"><a href="index.html" style="color: white; text-decoration: none;">Wiki Complet</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="create.html" style="color: white; text-decoration: none;">Create</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="new-index.html" style="color: white; text-decoration: none;">Nouvelle Accueil</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="index.html#search" style="color: white; text-decoration: none;">Recherche</a></li>
+                        <li style="margin-bottom: 0.7rem;">
+                            <a href="index.html" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
+                                <i class="fas fa-book" style="margin-right: 0.5rem;"></i>Wiki Complet
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.7rem;">
+                            <a href="create.html" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
+                                <i class="fas fa-cogs" style="margin-right: 0.5rem;"></i>Create
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.7rem;">
+                            <a href="new-index.html" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
+                                <i class="fas fa-home" style="margin-right: 0.5rem;"></i>Nouvelle Accueil
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.7rem;">
+                            <a href="index.html#search" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
+                                <i class="fas fa-search" style="margin-right: 0.5rem;"></i>Recherche
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 style="color: var(--secondary); margin-bottom: 1rem;">Support</h3>
+                    <h3 style="color: var(--text-gold); margin-bottom: 1rem;" class="minecraft-font">SUPPORT</h3>
                     <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Rejoindre le Serveur</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="https://github.com/Matheodelaille/sandcraft-wiki/issues" style="color: white; text-decoration: none;">Signaler un Bug</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">FAQ</a></li>
+                        <li style="margin-bottom: 0.7rem;">
+                            <a href="#" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
+                                <i class="fas fa-server" style="margin-right: 0.5rem;"></i>Rejoindre le Serveur
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.7rem;">
+                            <a href="https://github.com/Matheodelaille/sandcraft-wiki/issues" 
+                               style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
+                                <i class="fas fa-bug" style="margin-right: 0.5rem;"></i>Signaler un Bug
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.7rem;">
+                            <a href="#" style="color: #C0C0C0; text-decoration: none; text-shadow: 1px 1px 0 #000;">
+                                <i class="fas fa-question-circle" style="margin-right: 0.5rem;"></i>FAQ
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
             
-            <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.7);">
-                <p>&copy; 2024 Sandcraft Wiki. Modpack créé par la communauté Sandcraft.</p>
-                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Non affilié avec Mojang ou Microsoft.</p>
+            <div style="
+                border-top: 3px solid #5A5A5A;
+                margin-top: 3rem;
+                padding-top: 2rem;
+                text-align: center;
+                color: #9C9C9C;
+                text-shadow: 1px 1px 0 #000;
+            ">
+                <p class="minecraft-font" style="font-size: 0.8rem; margin-bottom: 0.5rem;">
+                    &copy; 2024 SANDCRAFT WIKI - MODPACK CRÉÉ PAR LA COMMUNAUTÉ
+                </p>
+                <p style="font-size: 0.7rem;">
+                    NON AFFILIÉ AVEC MOJANG OU MICROSOFT
+                </p>
             </div>
         </div>
+
+        <!-- Decorative Minecraft Elements -->
+        <div style="
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 10px,
+                    var(--dirt-brown) 10px,
+                    var(--dirt-brown) 20px
+                );
+        "></div>
     </footer>
 
+    <!-- JavaScript avec effets Minecraft -->
     <script>
-        // Recherche simple qui redirige vers le wiki complet
+        // Effet de recherche style Minecraft
         document.getElementById('mainSearch').addEventListener('keypress', function(e) {
             if (e.key === 'Enter' && this.value.trim() !== '') {
-                const query = encodeURIComponent(this.value.trim());
-                window.location.href = `index.html#search?q=${query}`;
+                // Effet sonore visuel
+                this.style.borderColor = 'var(--emerald-green)';
+                this.style.background = '#1A3D1A';
+                
+                setTimeout(() => {
+                    const query = encodeURIComponent(this.value.trim());
+                    window.location.href = `index.html#search?q=${query}`;
+                }, 300);
             }
         });
 
-        // Animation des cartes au scroll
+        // Animation des cartes au scroll style Minecraft
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    
+                    // Effet d'apparition pixelisée
+                    if (entry.target.classList.contains('card')) {
+                        entry.target.style.animation = 'pixelAppear 0.6s ease-out';
+                    }
                 }
             });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        }, { 
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
 
-        console.log('Nouvelle page d\'accueil Sandcraft chargée!');
+        // Appliquer les animations initiales
+        document.querySelectorAll('.card, .category-header').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px) scale(0.95)';
+            element.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            observer.observe(element);
+        });
+
+        // Effet de hover sur les boutons de navigation
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+                this.style.boxShadow = '0 6px 0 #3A3A3A';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = 'none';
+            });
+            
+            btn.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(2px) scale(0.95)';
+            });
+            
+            btn.addEventListener('mouseup', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+        });
+
+        // Effet de curseur Minecraft
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.querySelector('.minecraft-cursor');
+            if (cursor) {
+                cursor.style.left = e.pageX + 'px';
+                cursor.style.top = e.pageY + 'px';
+            }
+        });
+
+        // Ajouter un curseur Minecraft optionnel
+        const cursor = document.createElement('div');
+        cursor.className = 'minecraft-cursor';
+        cursor.innerHTML = '⛏️';
+        cursor.style.cssText = `
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            font-size: 20px;
+            filter: drop-shadow(2px 2px 0 #000);
+            transition: transform 0.1s ease;
+            display: none;
+        `;
+        document.body.appendChild(cursor);
+
+        // Activer/désactiver le curseur Minecraft
+        document.addEventListener('click', function() {
+            cursor.style.transform = 'scale(0.8)';
+            setTimeout(() => cursor.style.transform = 'scale(1)', 100);
+        });
+
+        // Animation CSS pour l'apparition pixelisée
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pixelAppear {
+                0% {
+                    opacity: 0;
+                    transform: translateY(30px) scale(0.9);
+                    filter: blur(2px);
+                }
+                50% {
+                    transform: translateY(-5px) scale(1.02);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0);
+                }
+            }
+            
+            @keyframes minecraftGlow {
+                0%, 100% { 
+                    box-shadow: 0 0 5px var(--emerald-green);
+                    border-color: var(--emerald-green);
+                }
+                50% { 
+                    box-shadow: 0 0 20px var(--emerald-green), 0 0 30px var(--emerald-green);
+                    border-color: var(--diamond-blue);
+                }
+            }
+            
+            .minecraft-cursor {
+                animation: cursorFloat 2s ease-in-out infinite;
+            }
+            
+            @keyframes cursorFloat {
+                0%, 100% { transform: translateY(0) rotate(0deg); }
+                50% { transform: translateY(-5px) rotate(5deg); }
+            }
+            
+            /* Effet de pulsation pour les titres */
+            .section-title {
+                animation: titlePulse 4s ease-in-out infinite;
+            }
+            
+            @keyframes titlePulse {
+                0%, 100% { 
+                    text-shadow: 3px 3px 0 #000, 0 0 10px rgba(255, 215, 0, 0.3);
+                }
+                50% { 
+                    text-shadow: 3px 3px 0 #000, 0 0 20px rgba(255, 215, 0, 0.6);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Effet de chargement initial
+        window.addEventListener('load', function() {
+            document.body.style.animation = 'pageLoad 1s ease-out';
+            
+            // Message de bienvenue dans la console
+            console.log('%c⚡ SANDCRAFT WIKI - INTERFACE MINECRAFT 🏖️', 
+                'color: #FFD700; font-size: 16px; font-weight: bold; text-shadow: 2px 2px 0 #000;');
+            console.log('%c✨ Interface chargée avec succès!', 
+                'color: #4A9CF8; font-size: 14px;');
+        });
+
+        // Animation de chargement de la page
+        const pageLoadStyle = document.createElement('style');
+        pageLoadStyle.textContent = `
+            @keyframes pageLoad {
+                0% {
+                    opacity: 0;
+                    filter: blur(10px);
+                }
+                100% {
+                    opacity: 1;
+                    filter: blur(0);
+                }
+            }
+            
+            body {
+                animation: pageLoad 1s ease-out;
+            }
+        `;
+        document.head.appendChild(pageLoadStyle);
+
+        console.log('🎮 Interface Minecraft Sandcraft initialisée!');
+        console.log('📁 Cartes interactives: ' + document.querySelectorAll('.card').length);
+        console.log('🔗 Liens de navigation: ' + document.querySelectorAll('.nav-btn').length);
+    </script>
+
+    <!-- Curseur Minecraft optionnel - à activer si souhaité -->
+    <script>
+        // Pour activer le curseur Minecraft, décommentez la ligne suivante :
+        // cursor.style.display = 'block';
+        
+        // Activer/désactiver avec la touche M
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'm' || e.key === 'M') {
+                cursor.style.display = cursor.style.display === 'none' ? 'block' : 'none';
+            }
+        });
     </script>
 </body>
 </html>
